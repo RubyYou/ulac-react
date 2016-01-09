@@ -23322,6 +23322,1771 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":75}],208:[function(require,module,exports){
+/**
+ * Module dependencies.
+ */
+
+var Emitter = require('emitter');
+var reduce = require('reduce');
+
+/**
+ * Root reference for iframes.
+ */
+
+var root;
+if (typeof window !== 'undefined') { // Browser window
+  root = window;
+} else if (typeof self !== 'undefined') { // Web Worker
+  root = self;
+} else { // Other environments
+  root = this;
+}
+
+/**
+ * Noop.
+ */
+
+function noop(){};
+
+/**
+ * Check if `obj` is a host object,
+ * we don't want to serialize these :)
+ *
+ * TODO: future proof, move to compoent land
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isHost(obj) {
+  var str = {}.toString.call(obj);
+
+  switch (str) {
+    case '[object File]':
+    case '[object Blob]':
+    case '[object FormData]':
+      return true;
+    default:
+      return false;
+  }
+}
+
+/**
+ * Determine XHR.
+ */
+
+request.getXHR = function () {
+  if (root.XMLHttpRequest
+      && (!root.location || 'file:' != root.location.protocol
+          || !root.ActiveXObject)) {
+    return new XMLHttpRequest;
+  } else {
+    try { return new ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.6.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP'); } catch(e) {}
+  }
+  return false;
+};
+
+/**
+ * Removes leading and trailing whitespace, added to support IE.
+ *
+ * @param {String} s
+ * @return {String}
+ * @api private
+ */
+
+var trim = ''.trim
+  ? function(s) { return s.trim(); }
+  : function(s) { return s.replace(/(^\s*|\s*$)/g, ''); };
+
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+/**
+ * Serialize the given `obj`.
+ *
+ * @param {Object} obj
+ * @return {String}
+ * @api private
+ */
+
+function serialize(obj) {
+  if (!isObject(obj)) return obj;
+  var pairs = [];
+  for (var key in obj) {
+    if (null != obj[key]) {
+      pushEncodedKeyValuePair(pairs, key, obj[key]);
+        }
+      }
+  return pairs.join('&');
+}
+
+/**
+ * Helps 'serialize' with serializing arrays.
+ * Mutates the pairs array.
+ *
+ * @param {Array} pairs
+ * @param {String} key
+ * @param {Mixed} val
+ */
+
+function pushEncodedKeyValuePair(pairs, key, val) {
+  if (Array.isArray(val)) {
+    return val.forEach(function(v) {
+      pushEncodedKeyValuePair(pairs, key, v);
+    });
+  }
+  pairs.push(encodeURIComponent(key)
+    + '=' + encodeURIComponent(val));
+}
+
+/**
+ * Expose serialization method.
+ */
+
+ request.serializeObject = serialize;
+
+ /**
+  * Parse the given x-www-form-urlencoded `str`.
+  *
+  * @param {String} str
+  * @return {Object}
+  * @api private
+  */
+
+function parseString(str) {
+  var obj = {};
+  var pairs = str.split('&');
+  var parts;
+  var pair;
+
+  for (var i = 0, len = pairs.length; i < len; ++i) {
+    pair = pairs[i];
+    parts = pair.split('=');
+    obj[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+  }
+
+  return obj;
+}
+
+/**
+ * Expose parser.
+ */
+
+request.parseString = parseString;
+
+/**
+ * Default MIME type map.
+ *
+ *     superagent.types.xml = 'application/xml';
+ *
+ */
+
+request.types = {
+  html: 'text/html',
+  json: 'application/json',
+  xml: 'application/xml',
+  urlencoded: 'application/x-www-form-urlencoded',
+  'form': 'application/x-www-form-urlencoded',
+  'form-data': 'application/x-www-form-urlencoded'
+};
+
+/**
+ * Default serialization map.
+ *
+ *     superagent.serialize['application/xml'] = function(obj){
+ *       return 'generated xml here';
+ *     };
+ *
+ */
+
+ request.serialize = {
+   'application/x-www-form-urlencoded': serialize,
+   'application/json': JSON.stringify
+ };
+
+ /**
+  * Default parsers.
+  *
+  *     superagent.parse['application/xml'] = function(str){
+  *       return { object parsed from str };
+  *     };
+  *
+  */
+
+request.parse = {
+  'application/x-www-form-urlencoded': parseString,
+  'application/json': JSON.parse
+};
+
+/**
+ * Parse the given header `str` into
+ * an object containing the mapped fields.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+function parseHeader(str) {
+  var lines = str.split(/\r?\n/);
+  var fields = {};
+  var index;
+  var line;
+  var field;
+  var val;
+
+  lines.pop(); // trailing CRLF
+
+  for (var i = 0, len = lines.length; i < len; ++i) {
+    line = lines[i];
+    index = line.indexOf(':');
+    field = line.slice(0, index).toLowerCase();
+    val = trim(line.slice(index + 1));
+    fields[field] = val;
+  }
+
+  return fields;
+}
+
+/**
+ * Check if `mime` is json or has +json structured syntax suffix.
+ *
+ * @param {String} mime
+ * @return {Boolean}
+ * @api private
+ */
+
+function isJSON(mime) {
+  return /[\/+]json\b/.test(mime);
+}
+
+/**
+ * Return the mime type for the given `str`.
+ *
+ * @param {String} str
+ * @return {String}
+ * @api private
+ */
+
+function type(str){
+  return str.split(/ *; */).shift();
+};
+
+/**
+ * Return header field parameters.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+function params(str){
+  return reduce(str.split(/ *; */), function(obj, str){
+    var parts = str.split(/ *= */)
+      , key = parts.shift()
+      , val = parts.shift();
+
+    if (key && val) obj[key] = val;
+    return obj;
+  }, {});
+};
+
+/**
+ * Initialize a new `Response` with the given `xhr`.
+ *
+ *  - set flags (.ok, .error, etc)
+ *  - parse header
+ *
+ * Examples:
+ *
+ *  Aliasing `superagent` as `request` is nice:
+ *
+ *      request = superagent;
+ *
+ *  We can use the promise-like API, or pass callbacks:
+ *
+ *      request.get('/').end(function(res){});
+ *      request.get('/', function(res){});
+ *
+ *  Sending data can be chained:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' })
+ *        .end(function(res){});
+ *
+ *  Or passed to `.send()`:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' }, function(res){});
+ *
+ *  Or passed to `.post()`:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' })
+ *        .end(function(res){});
+ *
+ * Or further reduced to a single call for simple cases:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' }, function(res){});
+ *
+ * @param {XMLHTTPRequest} xhr
+ * @param {Object} options
+ * @api private
+ */
+
+function Response(req, options) {
+  options = options || {};
+  this.req = req;
+  this.xhr = this.req.xhr;
+  // responseText is accessible only if responseType is '' or 'text' and on older browsers
+  this.text = ((this.req.method !='HEAD' && (this.xhr.responseType === '' || this.xhr.responseType === 'text')) || typeof this.xhr.responseType === 'undefined')
+     ? this.xhr.responseText
+     : null;
+  this.statusText = this.req.xhr.statusText;
+  this.setStatusProperties(this.xhr.status);
+  this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
+  // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
+  // getResponseHeader still works. so we get content-type even if getting
+  // other headers fails.
+  this.header['content-type'] = this.xhr.getResponseHeader('content-type');
+  this.setHeaderProperties(this.header);
+  this.body = this.req.method != 'HEAD'
+    ? this.parseBody(this.text ? this.text : this.xhr.response)
+    : null;
+}
+
+/**
+ * Get case-insensitive `field` value.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api public
+ */
+
+Response.prototype.get = function(field){
+  return this.header[field.toLowerCase()];
+};
+
+/**
+ * Set header related properties:
+ *
+ *   - `.type` the content type without params
+ *
+ * A response of "Content-Type: text/plain; charset=utf-8"
+ * will provide you with a `.type` of "text/plain".
+ *
+ * @param {Object} header
+ * @api private
+ */
+
+Response.prototype.setHeaderProperties = function(header){
+  // content-type
+  var ct = this.header['content-type'] || '';
+  this.type = type(ct);
+
+  // params
+  var obj = params(ct);
+  for (var key in obj) this[key] = obj[key];
+};
+
+/**
+ * Parse the given body `str`.
+ *
+ * Used for auto-parsing of bodies. Parsers
+ * are defined on the `superagent.parse` object.
+ *
+ * @param {String} str
+ * @return {Mixed}
+ * @api private
+ */
+
+Response.prototype.parseBody = function(str){
+  var parse = request.parse[this.type];
+  return parse && str && (str.length || str instanceof Object)
+    ? parse(str)
+    : null;
+};
+
+/**
+ * Set flags such as `.ok` based on `status`.
+ *
+ * For example a 2xx response will give you a `.ok` of __true__
+ * whereas 5xx will be __false__ and `.error` will be __true__. The
+ * `.clientError` and `.serverError` are also available to be more
+ * specific, and `.statusType` is the class of error ranging from 1..5
+ * sometimes useful for mapping respond colors etc.
+ *
+ * "sugar" properties are also defined for common cases. Currently providing:
+ *
+ *   - .noContent
+ *   - .badRequest
+ *   - .unauthorized
+ *   - .notAcceptable
+ *   - .notFound
+ *
+ * @param {Number} status
+ * @api private
+ */
+
+Response.prototype.setStatusProperties = function(status){
+  // handle IE9 bug: http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+  if (status === 1223) {
+    status = 204;
+  }
+
+  var type = status / 100 | 0;
+
+  // status / class
+  this.status = this.statusCode = status;
+  this.statusType = type;
+
+  // basics
+  this.info = 1 == type;
+  this.ok = 2 == type;
+  this.clientError = 4 == type;
+  this.serverError = 5 == type;
+  this.error = (4 == type || 5 == type)
+    ? this.toError()
+    : false;
+
+  // sugar
+  this.accepted = 202 == status;
+  this.noContent = 204 == status;
+  this.badRequest = 400 == status;
+  this.unauthorized = 401 == status;
+  this.notAcceptable = 406 == status;
+  this.notFound = 404 == status;
+  this.forbidden = 403 == status;
+};
+
+/**
+ * Return an `Error` representative of this response.
+ *
+ * @return {Error}
+ * @api public
+ */
+
+Response.prototype.toError = function(){
+  var req = this.req;
+  var method = req.method;
+  var url = req.url;
+
+  var msg = 'cannot ' + method + ' ' + url + ' (' + this.status + ')';
+  var err = new Error(msg);
+  err.status = this.status;
+  err.method = method;
+  err.url = url;
+
+  return err;
+};
+
+/**
+ * Expose `Response`.
+ */
+
+request.Response = Response;
+
+/**
+ * Initialize a new `Request` with the given `method` and `url`.
+ *
+ * @param {String} method
+ * @param {String} url
+ * @api public
+ */
+
+function Request(method, url) {
+  var self = this;
+  Emitter.call(this);
+  this._query = this._query || [];
+  this.method = method;
+  this.url = url;
+  this.header = {};
+  this._header = {};
+  this.on('end', function(){
+    var err = null;
+    var res = null;
+
+    try {
+      res = new Response(self);
+    } catch(e) {
+      err = new Error('Parser is unable to parse the response');
+      err.parse = true;
+      err.original = e;
+      // issue #675: return the raw response if the response parsing fails
+      err.rawResponse = self.xhr && self.xhr.responseText ? self.xhr.responseText : null;
+      return self.callback(err);
+    }
+
+    self.emit('response', res);
+
+    if (err) {
+      return self.callback(err, res);
+    }
+
+    if (res.status >= 200 && res.status < 300) {
+      return self.callback(err, res);
+    }
+
+    var new_err = new Error(res.statusText || 'Unsuccessful HTTP response');
+    new_err.original = err;
+    new_err.response = res;
+    new_err.status = res.status;
+
+    self.callback(new_err, res);
+  });
+}
+
+/**
+ * Mixin `Emitter`.
+ */
+
+Emitter(Request.prototype);
+
+/**
+ * Allow for extension
+ */
+
+Request.prototype.use = function(fn) {
+  fn(this);
+  return this;
+}
+
+/**
+ * Set timeout to `ms`.
+ *
+ * @param {Number} ms
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.timeout = function(ms){
+  this._timeout = ms;
+  return this;
+};
+
+/**
+ * Clear previous timeout.
+ *
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.clearTimeout = function(){
+  this._timeout = 0;
+  clearTimeout(this._timer);
+  return this;
+};
+
+/**
+ * Abort the request, and clear potential timeout.
+ *
+ * @return {Request}
+ * @api public
+ */
+
+Request.prototype.abort = function(){
+  if (this.aborted) return;
+  this.aborted = true;
+  this.xhr.abort();
+  this.clearTimeout();
+  this.emit('abort');
+  return this;
+};
+
+/**
+ * Set header `field` to `val`, or multiple fields with one object.
+ *
+ * Examples:
+ *
+ *      req.get('/')
+ *        .set('Accept', 'application/json')
+ *        .set('X-API-Key', 'foobar')
+ *        .end(callback);
+ *
+ *      req.get('/')
+ *        .set({ Accept: 'application/json', 'X-API-Key': 'foobar' })
+ *        .end(callback);
+ *
+ * @param {String|Object} field
+ * @param {String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.set = function(field, val){
+  if (isObject(field)) {
+    for (var key in field) {
+      this.set(key, field[key]);
+    }
+    return this;
+  }
+  this._header[field.toLowerCase()] = val;
+  this.header[field] = val;
+  return this;
+};
+
+/**
+ * Remove header `field`.
+ *
+ * Example:
+ *
+ *      req.get('/')
+ *        .unset('User-Agent')
+ *        .end(callback);
+ *
+ * @param {String} field
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.unset = function(field){
+  delete this._header[field.toLowerCase()];
+  delete this.header[field];
+  return this;
+};
+
+/**
+ * Get case-insensitive header `field` value.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api private
+ */
+
+Request.prototype.getHeader = function(field){
+  return this._header[field.toLowerCase()];
+};
+
+/**
+ * Set Content-Type to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.xml = 'application/xml';
+ *
+ *      request.post('/')
+ *        .type('xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ *      request.post('/')
+ *        .type('application/xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ * @param {String} type
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.type = function(type){
+  this.set('Content-Type', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Force given parser
+ *
+ * Sets the body parser no matter type.
+ *
+ * @param {Function}
+ * @api public
+ */
+
+Request.prototype.parse = function(fn){
+  this._parser = fn;
+  return this;
+};
+
+/**
+ * Set Accept to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.json = 'application/json';
+ *
+ *      request.get('/agent')
+ *        .accept('json')
+ *        .end(callback);
+ *
+ *      request.get('/agent')
+ *        .accept('application/json')
+ *        .end(callback);
+ *
+ * @param {String} accept
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.accept = function(type){
+  this.set('Accept', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Set Authorization field value with `user` and `pass`.
+ *
+ * @param {String} user
+ * @param {String} pass
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.auth = function(user, pass){
+  var str = btoa(user + ':' + pass);
+  this.set('Authorization', 'Basic ' + str);
+  return this;
+};
+
+/**
+* Add query-string `val`.
+*
+* Examples:
+*
+*   request.get('/shoes')
+*     .query('size=10')
+*     .query({ color: 'blue' })
+*
+* @param {Object|String} val
+* @return {Request} for chaining
+* @api public
+*/
+
+Request.prototype.query = function(val){
+  if ('string' != typeof val) val = serialize(val);
+  if (val) this._query.push(val);
+  return this;
+};
+
+/**
+ * Write the field `name` and `val` for "multipart/form-data"
+ * request bodies.
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .field('foo', 'bar')
+ *   .end(callback);
+ * ```
+ *
+ * @param {String} name
+ * @param {String|Blob|File} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.field = function(name, val){
+  if (!this._formData) this._formData = new root.FormData();
+  this._formData.append(name, val);
+  return this;
+};
+
+/**
+ * Queue the given `file` as an attachment to the specified `field`,
+ * with optional `filename`.
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .attach(new Blob(['<a id="a"><b id="b">hey!</b></a>'], { type: "text/html"}))
+ *   .end(callback);
+ * ```
+ *
+ * @param {String} field
+ * @param {Blob|File} file
+ * @param {String} filename
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.attach = function(field, file, filename){
+  if (!this._formData) this._formData = new root.FormData();
+  this._formData.append(field, file, filename);
+  return this;
+};
+
+/**
+ * Send `data`, defaulting the `.type()` to "json" when
+ * an object is given.
+ *
+ * Examples:
+ *
+ *       // querystring
+ *       request.get('/search')
+ *         .end(callback)
+ *
+ *       // multiple data "writes"
+ *       request.get('/search')
+ *         .send({ search: 'query' })
+ *         .send({ range: '1..5' })
+ *         .send({ order: 'desc' })
+ *         .end(callback)
+ *
+ *       // manual json
+ *       request.post('/user')
+ *         .type('json')
+ *         .send('{"name":"tj"}')
+ *         .end(callback)
+ *
+ *       // auto json
+ *       request.post('/user')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // manual x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send('name=tj')
+ *         .end(callback)
+ *
+ *       // auto x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // defaults to x-www-form-urlencoded
+  *      request.post('/user')
+  *        .send('name=tobi')
+  *        .send('species=ferret')
+  *        .end(callback)
+ *
+ * @param {String|Object} data
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.send = function(data){
+  var obj = isObject(data);
+  var type = this.getHeader('Content-Type');
+
+  // merge
+  if (obj && isObject(this._data)) {
+    for (var key in data) {
+      this._data[key] = data[key];
+    }
+  } else if ('string' == typeof data) {
+    if (!type) this.type('form');
+    type = this.getHeader('Content-Type');
+    if ('application/x-www-form-urlencoded' == type) {
+      this._data = this._data
+        ? this._data + '&' + data
+        : data;
+    } else {
+      this._data = (this._data || '') + data;
+    }
+  } else {
+    this._data = data;
+  }
+
+  if (!obj || isHost(data)) return this;
+  if (!type) this.type('json');
+  return this;
+};
+
+/**
+ * Invoke the callback with `err` and `res`
+ * and handle arity check.
+ *
+ * @param {Error} err
+ * @param {Response} res
+ * @api private
+ */
+
+Request.prototype.callback = function(err, res){
+  var fn = this._callback;
+  this.clearTimeout();
+  fn(err, res);
+};
+
+/**
+ * Invoke callback with x-domain error.
+ *
+ * @api private
+ */
+
+Request.prototype.crossDomainError = function(){
+  var err = new Error('Request has been terminated\nPossible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.');
+  err.crossDomain = true;
+
+  err.status = this.status;
+  err.method = this.method;
+  err.url = this.url;
+
+  this.callback(err);
+};
+
+/**
+ * Invoke callback with timeout error.
+ *
+ * @api private
+ */
+
+Request.prototype.timeoutError = function(){
+  var timeout = this._timeout;
+  var err = new Error('timeout of ' + timeout + 'ms exceeded');
+  err.timeout = timeout;
+  this.callback(err);
+};
+
+/**
+ * Enable transmission of cookies with x-domain requests.
+ *
+ * Note that for this to work the origin must not be
+ * using "Access-Control-Allow-Origin" with a wildcard,
+ * and also must set "Access-Control-Allow-Credentials"
+ * to "true".
+ *
+ * @api public
+ */
+
+Request.prototype.withCredentials = function(){
+  this._withCredentials = true;
+  return this;
+};
+
+/**
+ * Initiate request, invoking callback `fn(res)`
+ * with an instanceof `Response`.
+ *
+ * @param {Function} fn
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.end = function(fn){
+  var self = this;
+  var xhr = this.xhr = request.getXHR();
+  var query = this._query.join('&');
+  var timeout = this._timeout;
+  var data = this._formData || this._data;
+
+  // store callback
+  this._callback = fn || noop;
+
+  // state change
+  xhr.onreadystatechange = function(){
+    if (4 != xhr.readyState) return;
+
+    // In IE9, reads to any property (e.g. status) off of an aborted XHR will
+    // result in the error "Could not complete the operation due to error c00c023f"
+    var status;
+    try { status = xhr.status } catch(e) { status = 0; }
+
+    if (0 == status) {
+      if (self.timedout) return self.timeoutError();
+      if (self.aborted) return;
+      return self.crossDomainError();
+    }
+    self.emit('end');
+  };
+
+  // progress
+  var handleProgress = function(e){
+    if (e.total > 0) {
+      e.percent = e.loaded / e.total * 100;
+    }
+    self.emit('progress', e);
+  };
+  if (this.hasListeners('progress')) {
+    xhr.onprogress = handleProgress;
+  }
+  try {
+    if (xhr.upload && this.hasListeners('progress')) {
+      xhr.upload.onprogress = handleProgress;
+    }
+  } catch(e) {
+    // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
+    // Reported here:
+    // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
+  }
+
+  // timeout
+  if (timeout && !this._timer) {
+    this._timer = setTimeout(function(){
+      self.timedout = true;
+      self.abort();
+    }, timeout);
+  }
+
+  // querystring
+  if (query) {
+    query = request.serializeObject(query);
+    this.url += ~this.url.indexOf('?')
+      ? '&' + query
+      : '?' + query;
+  }
+
+  // initiate request
+  xhr.open(this.method, this.url, true);
+
+  // CORS
+  if (this._withCredentials) xhr.withCredentials = true;
+
+  // body
+  if ('GET' != this.method && 'HEAD' != this.method && 'string' != typeof data && !isHost(data)) {
+    // serialize stuff
+    var contentType = this.getHeader('Content-Type');
+    var serialize = this._parser || request.serialize[contentType ? contentType.split(';')[0] : ''];
+    if (!serialize && isJSON(contentType)) serialize = request.serialize['application/json'];
+    if (serialize) data = serialize(data);
+  }
+
+  // set header fields
+  for (var field in this.header) {
+    if (null == this.header[field]) continue;
+    xhr.setRequestHeader(field, this.header[field]);
+  }
+
+  // send stuff
+  this.emit('request', this);
+
+  // IE11 xhr.send(undefined) sends 'undefined' string as POST payload (instead of nothing)
+  // We need null here if data is undefined
+  xhr.send(typeof data !== 'undefined' ? data : null);
+  return this;
+};
+
+/**
+ * Faux promise support
+ *
+ * @param {Function} fulfill
+ * @param {Function} reject
+ * @return {Request}
+ */
+
+Request.prototype.then = function (fulfill, reject) {
+  return this.end(function(err, res) {
+    err ? reject(err) : fulfill(res);
+  });
+}
+
+/**
+ * Expose `Request`.
+ */
+
+request.Request = Request;
+
+/**
+ * Issue a request:
+ *
+ * Examples:
+ *
+ *    request('GET', '/users').end(callback)
+ *    request('/users').end(callback)
+ *    request('/users', callback)
+ *
+ * @param {String} method
+ * @param {String|Function} url or callback
+ * @return {Request}
+ * @api public
+ */
+
+function request(method, url) {
+  // callback
+  if ('function' == typeof url) {
+    return new Request('GET', method).end(url);
+  }
+
+  // url first
+  if (1 == arguments.length) {
+    return new Request('GET', method);
+  }
+
+  return new Request(method, url);
+}
+
+/**
+ * GET `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.get = function(url, data, fn){
+  var req = request('GET', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.query(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * HEAD `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.head = function(url, data, fn){
+  var req = request('HEAD', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * DELETE `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+function del(url, fn){
+  var req = request('DELETE', url);
+  if (fn) req.end(fn);
+  return req;
+};
+
+request.del = del;
+request.delete = del;
+
+/**
+ * PATCH `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} data
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.patch = function(url, data, fn){
+  var req = request('PATCH', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * POST `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} data
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.post = function(url, data, fn){
+  var req = request('POST', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * PUT `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.put = function(url, data, fn){
+  var req = request('PUT', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * Expose `request`.
+ */
+
+module.exports = request;
+
+},{"emitter":209,"reduce":210}],209:[function(require,module,exports){
+
+/**
+ * Expose `Emitter`.
+ */
+
+module.exports = Emitter;
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks[event] = this._callbacks[event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  var self = this;
+  this._callbacks = this._callbacks || {};
+
+  function on() {
+    self.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks[event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks[event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks[event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks[event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+},{}],210:[function(require,module,exports){
+
+/**
+ * Reduce `arr` with `fn`.
+ *
+ * @param {Array} arr
+ * @param {Function} fn
+ * @param {Mixed} initial
+ *
+ * TODO: combatible error handling?
+ */
+
+module.exports = function(arr, fn, initial){  
+  var idx = 0;
+  var len = arr.length;
+  var curr = arguments.length == 3
+    ? initial
+    : arr[idx++];
+
+  while (idx < len) {
+    curr = fn.call(null, curr, arr[idx], ++idx, arr);
+  }
+  
+  return curr;
+};
+},{}],211:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var About = (function (_React$Component) {
+  _inherits(About, _React$Component);
+
+  function About(prop) {
+    _classCallCheck(this, About);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(About).call(this));
+
+    _this.state = { content: "" };
+    _this.getContent = _this.getContent.bind(_this);
+    return _this;
+  }
+
+  _createClass(About, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+
+      _superagent2.default.get('/ulac-react2/build/template/about.php?lang=' + this.props.lang.toLowerCase()).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        // get lang-about
+
+        self.setState({ content: res.text });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var lang = this.props.lang;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          'About ULAC'
+        ),
+        _react2.default.createElement('div', { className: 'content', dangerouslySetInnerHTML: { __html: this.state.content } })
+      );
+    }
+  }]);
+
+  return About;
+})(_react2.default.Component);
+
+exports.default = About;
+
+},{"react":207,"superagent":208}],212:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _preloader = require('./preloader');
+
+var _preloader2 = _interopRequireDefault(_preloader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contact = (function (_React$Component) {
+  _inherits(Contact, _React$Component);
+
+  function Contact(prop) {
+    _classCallCheck(this, Contact);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).call(this));
+
+    _this.state = { loadComplete: false };
+    _this.data = {
+      "emailAddress": "",
+      "nameLabel": "",
+      "companyLabel": "",
+      "emailLabel": "",
+      "phoneLabel": "",
+      "inquiryLabel": "",
+      "resetLabel": "",
+      "submitLabel": "",
+      "mapTitle": ""
+    };
+
+    _this.getContent = _this.getContent.bind(_this);
+    _this.loadComplete = _this.loadComplete.bind(_this);
+    return _this;
+  }
+
+  _createClass(Contact, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+      console.log(this.props.lang.toLowerCase());
+
+      _superagent2.default.get('/ulac-react2/build/data/contact.json').accept('application/json').end(function (err, response) {
+        self.loadComplete(response.body);
+      });
+    }
+  }, {
+    key: 'loadComplete',
+    value: function loadComplete(res) {
+      this.data.emailAddress = res.emailAddress;
+      this.data.nameLabel = res.labels.name[this.props.lang];
+      this.data.companyLabel = res.labels.company[this.props.lang];
+      this.data.emailLabel = res.labels.email[this.props.lang];
+      this.data.phoneLabel = res.labels.phone[this.props.lang];
+      this.data.inquiryLabel = res.labels.inquiry[this.props.lang];
+      this.data.resetLabel = res.labels.reset[this.props.lang];
+      this.data.submitLabel = res.labels.submit[this.props.lang];
+      this.data.mapTitle = res.labels.mapTitle[this.props.lang];
+
+      this.setState({ loadComplete: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var self = this;
+
+      if (this.state.loadComplete == true) {
+
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'section',
+            { id: 'contact' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6 col-md-offset-3' },
+              _react2.default.createElement(
+                'form',
+                { action: '../gdform.php', method: 'post', role: 'form' },
+                _react2.default.createElement('input', { type: 'hidden', name: 'subject', value: 'Contact Us' }),
+                _react2.default.createElement('input', { type: 'hidden', name: 'redirect', value: 'contact.php' }),
+                _react2.default.createElement('input', { type: 'hidden', name: 'email', value: this.data.emailAddress }),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'name', className: 'col-sm-2 control-label' },
+                    this.data.nameLabel
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-10' },
+                    _react2.default.createElement('input', { type: 'text', name: 'name', className: 'form-control', id: 'name', placeholder: this.data.nameLabel })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'company', className: 'col-sm-2 control-label' },
+                    this.data.companyLabel
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-10' },
+                    _react2.default.createElement('input', { type: 'test', name: 'company', className: 'form-control', id: 'company', placeholder: this.data.companyLabel })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'Email', className: 'col-sm-2 control-label' },
+                    this.data.emailLabel
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-10' },
+                    _react2.default.createElement('input', { type: 'email', name: 'email', className: 'form-control', id: 'email', placeholder: this.data.emailLabel })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'phone', className: 'col-sm-2 control-label' },
+                    this.data.phoneLabel
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-10' },
+                    _react2.default.createElement('input', { type: 'number', name: 'phone', className: 'form-control', id: 'phone', placeholder: this.data.phoneLabel })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'inquiry', className: 'col-sm-2 control-label' },
+                    this.data.inquiryLabel
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-10' },
+                    _react2.default.createElement('textarea', { type: 'text', name: 'inquiry', className: 'form-control', rows: '6',
+                      placeholder: 'Please fill in details' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-offset-2 col-sm-10' },
+                    _react2.default.createElement(
+                      'button',
+                      { name: 'reset', type: 'reset', className: 'btn btn-ulac' },
+                      this.data.resetLabel
+                    ),
+                    _react2.default.createElement(
+                      'button',
+                      { name: 'submit', type: 'submit', value: 'submit', className: 'btn btn-ulac' },
+                      this.data.submitLabel
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'section',
+            { id: 'map', className: 'row text-center' },
+            _react2.default.createElement('h3', { dangerouslySetInnerHTML: { __html: this.data.nameLabel } }),
+            _react2.default.createElement('img', { className: 'img-responsive', src: '/ulac-react2/build/images/ULAC_map.jpg' })
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_preloader2.default, null)
+        );
+      }
+    }
+  }]);
+
+  return Contact;
+})(_react2.default.Component);
+
+exports.default = Contact;
+
+},{"./preloader":218,"react":207,"superagent":208}],213:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Faq = (function (_React$Component) {
+  _inherits(Faq, _React$Component);
+
+  function Faq(prop) {
+    _classCallCheck(this, Faq);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Faq).call(this));
+
+    _this.state = { content: "" };
+    _this.getContent = _this.getContent.bind(_this);
+    return _this;
+  }
+
+  _createClass(Faq, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+
+      _superagent2.default.get('/ulac-react2/build/template/faq.php?lang=' + this.props.lang.toLowerCase()).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        self.setState({ content: res.text });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          'FAQ Content'
+        ),
+        _react2.default.createElement('div', { className: 'content', dangerouslySetInnerHTML: { __html: this.state.content } })
+      );
+    }
+  }]);
+
+  return Faq;
+})(_react2.default.Component);
+
+exports.default = Faq;
+
+},{"react":207,"superagent":208}],214:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -23367,32 +25132,187 @@ var Home = (function (_React$Component) {
 
 exports.default = Home;
 
-var NotFound = (function (_React$Component2) {
-  _inherits(NotFound, _React$Component2);
+},{"react":207}],215:[function(require,module,exports){
+'use strict';
 
-  function NotFound() {
-    _classCallCheck(this, NotFound);
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotFound).apply(this, arguments));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _preloader = require('./preloader');
+
+var _preloader2 = _interopRequireDefault(_preloader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Innovation = (function (_React$Component) {
+  _inherits(Innovation, _React$Component);
+
+  function Innovation(prop) {
+    _classCallCheck(this, Innovation);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Innovation).call(this));
+
+    _this.state = { loadComplete: false };
+    _this.data = {
+      "introText": "",
+      "classicText": "",
+      "modernText": "",
+      "futureText": "",
+      "classicVideos": "",
+      "modernVideos": "",
+      "futureVideos": ""
+    };
+
+    _this.getContent = _this.getContent.bind(_this);
+    _this.loadComplete = _this.loadComplete.bind(_this);
+    return _this;
   }
 
-  _createClass(NotFound, [{
+  _createClass(Innovation, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+      console.log(this.props.lang.toLowerCase());
+
+      _superagent2.default.get('/ulac-react2/build/data/innovation.json').accept('application/json').end(function (err, response) {
+        self.loadComplete(response.body);
+      });
+    }
+  }, {
+    key: 'loadComplete',
+    value: function loadComplete(res) {
+      this.data.introText = res.paragraphs.intro;
+      this.data.classicText = res.paragraphs[this.props.lang].classic;
+      this.data.modernText = res.paragraphs[this.props.lang].modern;
+      this.data.futureText = res.paragraphs[this.props.lang].future;
+      this.data.classicVideos = res.videos.classic;
+      this.data.modernVideos = res.videos.modern;
+      this.data.futureVideos = res.videos.future;
+
+      this.setState({ loadComplete: true });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'p',
-        null,
-        'Not found'
-      );
+      var classicCarousel = [],
+          modernCarousel = [],
+          futureCarousel = [];
+      var self = this;
+
+      if (this.state.loadComplete == true) {
+
+        for (var key in self.data.classicVideos) {
+          classicCarousel.push(_react2.default.createElement('iframe', { width: '640', height: '360', key: "classicVideo" + key,
+            src: self.data.classicVideos[key], frameBorder: '0', allowFullScreen: true }));
+        }
+
+        for (var key in self.data.modernVideos) {
+          modernCarousel.push(_react2.default.createElement('iframe', { width: '640', height: '360', key: "modernVideo" + key,
+            src: self.data.modernVideos[key], frameBorder: '0', allowFullScreen: true }));
+        }
+
+        for (var key in self.data.futureVideos) {
+          futureCarousel.push(_react2.default.createElement('iframe', { width: '640', height: '360', key: "futureVideo" + key,
+            src: self.data.futureVideos[key], frameBorder: '0', allowFullScreen: true }));
+        }
+
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Innovation page'
+          ),
+          _react2.default.createElement('img', { className: 'width100', src: '/ulac-react2/build/images/innovation_xlab.png' }),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.introText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            classicCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.classicText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            modernCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.modernText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            futureCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.futureText } })
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_preloader2.default, null)
+        );
+      }
     }
   }]);
 
-  return NotFound;
+  return Innovation;
 })(_react2.default.Component);
 
-exports.default = NotFound;
+exports.default = Innovation;
 
-},{"react":207}],209:[function(require,module,exports){
+},{"./preloader":218,"react":207,"superagent":208}],216:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -23417,6 +25337,38 @@ var _home = require('./home');
 
 var _home2 = _interopRequireDefault(_home);
 
+var _about = require('./about');
+
+var _about2 = _interopRequireDefault(_about);
+
+var _nofound = require('./nofound');
+
+var _nofound2 = _interopRequireDefault(_nofound);
+
+var _xlab = require('./xlab');
+
+var _xlab2 = _interopRequireDefault(_xlab);
+
+var _innovation = require('./innovation');
+
+var _innovation2 = _interopRequireDefault(_innovation);
+
+var _faq = require('./faq');
+
+var _faq2 = _interopRequireDefault(_faq);
+
+var _security = require('./security');
+
+var _security2 = _interopRequireDefault(_security);
+
+var _representative = require('./representative');
+
+var _representative2 = _interopRequireDefault(_representative);
+
+var _contact = require('./contact');
+
+var _contact2 = _interopRequireDefault(_contact);
+
 var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -23426,6 +25378,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import Dispatcher from './dispatcher';
+//import AppStore from 'stores/AppStore';
 
 var App = (function (_React$Component) {
   _inherits(App, _React$Component);
@@ -23436,7 +25390,8 @@ var App = (function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 
     _this.getPathname = _this.getPathname.bind(_this);
-    _this.state = { route: _this.getPathname() };
+    _this.getLanguage = _this.getLanguage.bind(_this);
+    _this.state = { route: _this.getPathname(), lang: _this.getLanguage() };
     return _this;
   }
 
@@ -23447,14 +25402,49 @@ var App = (function (_React$Component) {
 
       window.addEventListener('hashchange', function () {
         _this2.setState({
-          route: window.location.pathname.substring(11)
+          route: _this2.getPathname(),
+          lang: _this2.getLanguage()
         });
       });
     }
   }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      //this.appStoreEvent = AppStore.registerView(() => { this.updateState(); });
+      //this.updateState();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      //AppStore.deregisterView(this.appStoreEvent);
+    }
+  }, {
+    key: 'getLanguage',
+    value: function getLanguage() {
+      var pathArray = window.location.pathname.split("/");
+      var lang = pathArray[pathArray.length - 2].toUpperCase();
+
+      switch (lang) {
+        case "CN":
+          lang = "CN";
+          break;
+        case "KR":
+          lang = "KR";
+          break;
+        case "JP":
+          lang = "JP";
+          break;
+        default:
+          lang = "EN";
+      }
+
+      return lang;
+    }
+  }, {
     key: 'getPathname',
     value: function getPathname() {
-      return window.location.pathname.substring(11);
+      var pathArray = window.location.pathname.split("/");
+      return pathArray[pathArray.length - 1];
     }
   }, {
     key: 'render',
@@ -23462,17 +25452,39 @@ var App = (function (_React$Component) {
 
       var Child = {};
 
+      console.log("this.state.lang: " + this.state.lang);
       console.log("this.state.route:" + this.state.route);
 
       switch (this.state.route) {
-        case '/':
-          Child = _home2.default;break;
-        case '/product':
-          Child = _product2.default;break;
-        case '/notfound':
-          Child = _home2.default;break;
+        case '':
+          Child = _react2.default.createElement(_home2.default, { lang: this.state.lang });
+          break;
+        case 'about':
+          Child = _react2.default.createElement(_about2.default, { lang: this.state.lang });
+          break;
+        case 'innovation':
+          Child = _react2.default.createElement(_innovation2.default, { lang: this.state.lang });
+          break;
+        case 'xlab':
+          Child = _react2.default.createElement(_xlab2.default, { lang: this.state.lang });
+          break;
+        case 'security':
+          Child = _react2.default.createElement(_security2.default, { lang: this.state.lang });
+          break;
+        case 'product':
+          Child = _react2.default.createElement(_product2.default, { lang: this.state.lang });
+          break;
+        case 'faq':
+          Child = _react2.default.createElement(_faq2.default, { lang: this.state.lang });
+          break;
+        case 'representative':
+          Child = _react2.default.createElement(_representative2.default, null);
+          break;
+        case 'contact':
+          Child = _react2.default.createElement(_contact2.default, { lang: this.state.lang });
+          break;
         default:
-          Child = _home2.default;
+          Child = _react2.default.createElement(_nofound2.default, null);
       }
 
       return _react2.default.createElement(
@@ -23481,17 +25493,17 @@ var App = (function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'App'
+          'ULAC LOCK'
         ),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: 'nav' },
           _react2.default.createElement(
             'li',
             null,
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/home' },
+              'a',
+              { href: './' },
               'home'
             )
           ),
@@ -23499,8 +25511,35 @@ var App = (function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/product' },
+              'a',
+              { href: 'about' },
+              'about'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'innovation' },
+              'innovation'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'xlab' },
+              'xlab'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'product' },
               'Product'
             )
           ),
@@ -23508,13 +25547,41 @@ var App = (function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/notfound' },
-              'notfound'
+              'a',
+              { href: 'security' },
+              'security'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'faq' },
+              'faq'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'representative' },
+              'representative'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'contact' },
+              'contact'
             )
           )
         ),
-        _react2.default.createElement(Child, null)
+        _react2.default.createElement('div', { className: 'clear' }),
+        Child
       );
     }
   }]);
@@ -23526,7 +25593,7 @@ exports.default = App;
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('content'));
 
-},{"./home":208,"./product":210,"react":207,"react-dom":25,"react-router":45}],210:[function(require,module,exports){
+},{"./about":211,"./contact":212,"./faq":213,"./home":214,"./innovation":215,"./nofound":217,"./product":219,"./representative":220,"./security":221,"./xlab":222,"react":207,"react-dom":25,"react-router":45}],217:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -23547,22 +25614,201 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Product = (function (_React$Component) {
-  _inherits(Product, _React$Component);
+var NotFound = (function (_React$Component) {
+  _inherits(NotFound, _React$Component);
 
-  function Product() {
-    _classCallCheck(this, Product);
+  function NotFound() {
+    _classCallCheck(this, NotFound);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Product).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotFound).apply(this, arguments));
   }
 
-  _createClass(Product, [{
+  _createClass(NotFound, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'p',
         null,
-        'A list of products'
+        'Not found'
+      );
+    }
+  }]);
+
+  return NotFound;
+})(_react2.default.Component);
+
+exports.default = NotFound;
+
+},{"react":207}],218:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Preloader = (function (_React$Component) {
+  _inherits(Preloader, _React$Component);
+
+  function Preloader() {
+    _classCallCheck(this, Preloader);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Preloader).apply(this, arguments));
+  }
+
+  _createClass(Preloader, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'p',
+        null,
+        'it is loading'
+      );
+    }
+  }]);
+
+  return Preloader;
+})(_react2.default.Component);
+
+exports.default = Preloader;
+
+},{"react":207}],219:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _preloader = require('./preloader');
+
+var _preloader2 = _interopRequireDefault(_preloader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Product = (function (_React$Component) {
+  _inherits(Product, _React$Component);
+
+  function Product(prop) {
+    _classCallCheck(this, Product);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Product).call(this));
+
+    _this.state = { loadComplete: false };
+    _this.getContent = _this.getContent.bind(_this);
+    _this.loadComplete = _this.loadComplete.bind(_this);
+    return _this;
+  }
+
+  _createClass(Product, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent(cat) {
+      var self = this;
+      console.log('cat:' + cat);
+
+      _superagent2.default.get('/ulac-react2/build/template/category.php?cat=' + cat).accept('application/json').end(function (err, res) {
+        self.loadComplete(res.body);
+      });
+    }
+  }, {
+    key: 'loadComplete',
+    value: function loadComplete(content) {
+      var summary = this.props.lang + '_summary';
+      console.log("test:" + content[0][1].summary);
+      this.setState({ loadComplete: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var lang = this.props.lang;
+      var category = [];
+      if (this.state.loadComplete == true) {
+        category.push(_react2.default.createElement(
+          'div',
+          null,
+          'abcd'
+        ));
+      } else {
+        category.push(_react2.default.createElement(_preloader2.default, null));
+      }
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'A list of category name'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#ulac', onClick: this.getContent.bind(this, 'ulac') },
+          ' ULAC'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#combo', onClick: this.getContent.bind(this, 'combo') },
+          'Combo'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#chain', onClick: this.getContent.bind(this, 'chain') },
+          'Chain'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#cable', onClick: this.getContent.bind(this, 'cable') },
+          'cable'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#ulock', onClick: this.getContent.bind(this, 'ulock') },
+          'ulock'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#special', onClick: this.getContent.bind(this, 'special') },
+          'special'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '#key', onClick: this.getContent.bind(this, 'key') },
+          'key'
+        ),
+        category
       );
     }
   }]);
@@ -23572,7 +25818,350 @@ var Product = (function (_React$Component) {
 
 exports.default = Product;
 
-},{"react":207}]},{},[209])
+},{"./preloader":218,"react":207,"superagent":208}],220:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Representative = (function (_React$Component) {
+  _inherits(Representative, _React$Component);
+
+  function Representative(prop) {
+    _classCallCheck(this, Representative);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Representative).call(this));
+
+    _this.state = { content: "" };
+    _this.getContent = _this.getContent.bind(_this);
+    return _this;
+  }
+
+  _createClass(Representative, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+
+      _superagent2.default.get('/ulac-react2/build/template/representative-cn.html').type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        self.setState({ content: res.text });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          'Representative Content'
+        ),
+        _react2.default.createElement('div', { className: 'content', dangerouslySetInnerHTML: { __html: this.state.content } })
+      );
+    }
+  }]);
+
+  return Representative;
+})(_react2.default.Component);
+
+exports.default = Representative;
+
+},{"react":207,"superagent":208}],221:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Security = (function (_React$Component) {
+  _inherits(Security, _React$Component);
+
+  function Security(prop) {
+    _classCallCheck(this, Security);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Security).call(this));
+
+    _this.state = { content: "" };
+    _this.getContent = _this.getContent.bind(_this);
+    return _this;
+  }
+
+  _createClass(Security, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+
+      _superagent2.default.get('/ulac-react2/build/template/security.php?lang=' + this.props.lang.toLowerCase()).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        self.setState({ content: res.text });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          'Security Content'
+        ),
+        _react2.default.createElement('div', { className: 'content', dangerouslySetInnerHTML: { __html: this.state.content } })
+      );
+    }
+  }]);
+
+  return Security;
+})(_react2.default.Component);
+
+exports.default = Security;
+
+},{"react":207,"superagent":208}],222:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _preloader = require('./preloader');
+
+var _preloader2 = _interopRequireDefault(_preloader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Xlab = (function (_React$Component) {
+  _inherits(Xlab, _React$Component);
+
+  function Xlab(prop) {
+    _classCallCheck(this, Xlab);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Xlab).call(this));
+
+    _this.state = { loadComplete: false };
+    _this.data = {
+      "designSliderImgs": "",
+      "exploreSliderImgs": "",
+      "innovationSliderImgs": "",
+      "testSliderImgs": "",
+      "designText": "",
+      "exploreText": "",
+      "innovationText": "",
+      "testText": ""
+    };
+
+    _this.getContent = _this.getContent.bind(_this);
+    _this.loadComplete = _this.loadComplete.bind(_this);
+    return _this;
+  }
+
+  _createClass(Xlab, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+      console.log(this.props.lang.toLowerCase());
+
+      _superagent2.default.get('/ulac-react2/build/data/xlab.json').accept('application/json').end(function (err, response) {
+        self.loadComplete(response.body);
+      });
+    }
+  }, {
+    key: 'loadComplete',
+    value: function loadComplete(res) {
+      this.data.designText = res.paragraphs[this.props.lang].design;
+      this.data.exploreText = res.paragraphs[this.props.lang].explore;
+      this.data.innovationText = res.paragraphs[this.props.lang].innovation;
+      this.data.testText = res.paragraphs[this.props.lang].test;
+      this.data.designSliderImgs = res.carouselImg.design;
+      this.data.exploreSliderImgs = res.carouselImg.explore;
+      this.data.innovationSliderImgs = res.carouselImg.innovation;
+      this.data.testSliderImgs = res.carouselImg.test;
+      this.setState({ loadComplete: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var designCarousel = [],
+          exploreCarousel = [],
+          innovationCarousel = [],
+          testCarousel = [];
+      var self = this;
+
+      if (this.state.loadComplete == true) {
+        //loading content {designCarousel}
+        for (var key in self.data.designSliderImgs) {
+          designCarousel.push(_react2.default.createElement('img', { key: "designImg" + key, src: self.data.designSliderImgs[key] }));
+        }
+
+        for (var key in self.data.exploreSliderImgs) {
+          exploreCarousel.push(_react2.default.createElement('img', { key: "exploreImg" + key, src: self.data.exploreSliderImgs[key] }));
+        }
+
+        for (var key in self.data.innovationSliderImgs) {
+          innovationCarousel.push(_react2.default.createElement('img', { key: "innovation" + key, src: self.data.innovationSliderImgs[key] }));
+        }
+
+        for (var key in self.data.testSliderImgs) {
+          testCarousel.push(_react2.default.createElement('img', { key: "test" + key, src: self.data.testSliderImgs[key] }));
+        }
+
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Design'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            designCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.designText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            exploreCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.exploreText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            innovationCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.innovationText } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'diy-slideshow' },
+            testCarousel,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
+          ),
+          _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: self.data.testText } })
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_preloader2.default, null)
+        );
+      }
+    }
+  }]);
+
+  return Xlab;
+})(_react2.default.Component);
+
+exports.default = Xlab;
+
+},{"./preloader":218,"react":207,"superagent":208}]},{},[216])
 
 
 //# sourceMappingURL=map/bundle.js.map

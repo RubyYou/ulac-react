@@ -1,0 +1,60 @@
+{
+	"carouselImg":{
+		"design":{
+			"0":"images/xlab/design/design_1.jpg",
+			"1":"images/xlab/design/design_2.jpg",
+			"2":"images/xlab/design/design_3.jpg",
+			"3":"images/xlab/design/design_4.jpg",
+			"4":"images/xlab/design/design_5.jpg"
+		},
+		"explore":{
+			"0":"images/xlab/exp/exp_1.jpg",
+			"1":"images/xlab/exp/exp_2.jpg",
+			"2":"images/xlab/exp/exp_3.jpg",
+			"3":"images/xlab/exp/exp_4.jpg",
+			"4":"images/xlab/exp/exp_5.jpg"
+		},
+		"innovation":{
+			"0":"images/xlab/innovation/innovation_1.jpg",
+			"1":"images/xlab/innovation/innovation_2.jpg",
+			"2":"images/xlab/innovation/innovation_3.jpg",
+			"3":"images/xlab/innovation/innovation_4.jpg"
+		},
+		"test":{
+			"0":"images/xlab/test/test_1.jpg",
+			"1":"images/xlab/test/test_2.jpg",
+			"2":"images/xlab/test/test_3.jpg",
+			"3":"images/xlab/test/test_4.jpg"
+		}
+	},
+
+	"content":{
+		"EN":{
+			"design":"<p>The XLAB is ULAC’s in-house research, design and testing studio, bringing together the entire development process in one integrative environment. The XLAB represents ULAC’s commitment to producing safe and trustworthy bicycle security products in a spirit of innovation and experimenta- tion with the needs of diverse users and markets in mind.</p>",
+			"explore":" <p>The XLAB process spans all phases of the design process from problem setting to problem solution through design, ideation, sketching and drawing, prototyping, primary testing and then refinement and final testing before a finished product can be realized. Seeking to understand specific needs through inquiry, observation, research and experimentation yields the conditions and specifica- tions around which a product is designed. This heuristic orientation guides the design and ideation phases so that the resulting product is tailored to consumer needs.</p>",
+			"innovation":"<p>Experimentation with different materials and a constant updating of our technical capabilities as a manufacturer through the latest computer aided design methods and techniques like 3D printing reflect the same spirit of innovation which drives the design from an idea to a sketch and then a pro- totype. Prototypes are tested according to methodologies applied by ULAC and based on interna- tional standards and real-world conditions.</p>",
+			"test":"<p>Through each iteration of the process, the XLAB is continually building the design expertise which will be re-invested in the design of each product. This is the reason for the continuous evolution of ULAC’s products over the course of 30 years of innovation.</p>"
+		},
+
+		"CN":{
+			"design":" <p>ULAC XLAB设计工作室。是ULAC公司内部研究, 设计, 开发,测试的工作室, 汇集了整个开发过程于一体 的综合环境。XLAB代表ULAC致力于生产安全和值得信赖的自行车防盗产品和车灯的创新和实验, 对不 同的用户市场, 考虑到不同的需求和规格。</p>",
+			"explore":"<p>XLAB过程涵盖了所有问题的设计, 构思, 素描和绘画, 原型设计, 依次测试, 然后细化和最终测试问题的解 决成品可实现之前的所有阶段。寻求理解, 通过询问, 观察, 研究和实验, 产生了一个产品的设计条件和 规格。这种启发式取向的指导设计和构思流程, 使优力的产品都是专门应对消费者的需求。</p>",
+			"innovation":"<p>通过用不同的材料和我们的技术能力, 优力通过最新的计算机技术和辅助设计方法, 如3D打印不断更新 体现创新的精神, 驱动设计和生产构思到草图, 然后做出原型。原型是根据ULAC应用和基于国际标准和 现实条件的方法进行最终测试。</p>",
+			"test":"<p>在与客户和使用者讨论设计过程中, XLAB不断改进, 投资用于每个产品的设计及其设计专长。这对于 ULAC的产品来说, 就是优力30年的创新过程中不断演变的原因。</p>"
+		},
+
+		"JP":{
+			"design":" <p>ULAC XLABデザインスタジオはULAC社内研究、設計、開発、テストのスタジオであり、全体の開 発過程を一体に集めた総合環境であります。XLABと言うのはULACが安全と信頼出来る自転車の防 盗製品を生産及び自転車ライトを革新と実験することに専念すること。ユーザー市場により、様々なニー ズ及び規格を考えています。</p>",
+			"explore":"<p>XLAB過程は設計、構想、デッサンや絵画、原型設計、順次テスト、そして細分化と最終試験問題の解 決、量産前のすべて段階を含みます。理解を求め、問い合わせし、観察、研究と実験にて製品の設計条 件と規格が発生されました。こんなヒューリスティックス的なデザインや発想の流れなので、ULACの 製品はすべて消費者のニーズに応じます。</p>",
+			"innovation":"<p>様々な材料を使うことと我々の技術力を通じ、ULACは最新のコンピューター技術や補助設計「例:3D 印刷」などの方法を利用して、どんどん革新します。駆動設計から製造構想及びスケッチ、モジュールを 作ること。モジュールはULACの応用と国際的な基準及び現実の条件に基づき、最終試験方法を行う こと。</p>",
+			"test":"<p>過程の毎回繰り返しによって、XLABが絶えずに改善し、個々制品の設計及び設計専門を投資するこ と。これはULACの製品にとっては、ULAC 30年のイノベーション過程の中で絶えず進化の原因で あること。</p>"
+		},
+		
+		"KR":{
+			"design":"<p>ULAC XLAB 설계부서. ULAC XLAB는 ULAC사의 연구, 설계, 개발, 테스트를 담당하는 내부 부서로 써 개발에 관련된 모든 프로세스가 모여있는 부서입니다. XLAB는 ULAC사가 안전하고 신뢰할 수 있 는 자전거와 라이트에 대한 이노베이션과 실험 정신을 대표하는 곳입니다. XLAB는 서로 다른 소비 자 계층에 따른 다른 요구 조건과 사양을 연구합니다.</p>",
+			"explore":"<p>XLAB는 설계, 구상, 드로잉, 프로토타입 디자인의 과정들을 순서에 따라 테스트하고 세부화하여 최 종 테스트를 통해 제품을 완성합니다. 끊임없는 이해와 조사, 연구, 실험을 통하여 한 제품의 설계 조 건과 규격을 결정합니다. 이러한 개발 경향은 설계와 구상 공정을 이끄는 원동력이며, ULAC사의 모 든 제품이 소비자들의 요구에 맞춰 전문적으로 연구 개발되었음을 뜻합니다.</p>",
+			"innovation":"<p>서로 다른 소재를 가지고 ULAC사만의 테크닉과 최신의 컴퓨터 기술, 3D 프린팅과 같은 보조 설계 시스템을 통하여 혁신적인 창조 정신을 끊임없이 구현하고 있습니다. 또한, 디자인, 생산 구상, 초안, 프로토타입 제작의 총 과정도 함께 구동하고 있습니다. 프로토타입은 ULAC사의 응용 기술과 국제 표준, 실현 조건 등을 고려하여 최종 테스트를 진행합니다.</p>",
+			"test":"<p>반복되는 과정을 통해 XLAB 부서는 쉼 없이 개선하고, 이에 따른 모든 제품의 디자인과 특수 설계에 아낌없이 투자합니다. 이는 ULAC이 30년 창조의 맥을 이어 끊임없이 발전할 수 있었던 원동력이기 도 합니다.</p>"
+		}
+	}
+}

@@ -4,6 +4,7 @@ import Home from './home';
 import NotFound from './home';
 import { Router, Route, Link } from 'react-router';
 
+// [RU] not used
 
 // Declarative route configuration (could also load this config lazily
 // instead, all you really need is a single root route, you don't need to

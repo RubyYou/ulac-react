@@ -24,10 +24,12 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0",
-    "gulp-livereload": "^3.8.1"
+    "gulp-livereload": "^3.8.1",
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
     "chalk": "^1.1.1",
+    "flux": "^2.1.1",
     "gulp-util": "^3.0.7",
     "history": "^1.14.0",
     "react-router": "^1.0.1"

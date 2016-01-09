@@ -1,0 +1,1019 @@
+{
+  "A600":{ 
+           "code":"A600",
+           "category":["combo", "cable", "ulac"],
+           "thumbImg":"images/lock/A600/A600_icon.png",
+           "summary":{
+             "EN":["Soft touch cable", "Available in 2 lengths", "Combination"],
+             "JP":["エコ素材", "2種類ケーブル長さ", "コンビネーション"],
+             "KR":["친환경 소재", "2종류의 케이블 길이", "비밀번호 자물쇠"],
+             "CN":["环保材质", "附托架", "密码锁"]
+           },
+           "title":{
+             "EN":"ZEN MASTER / Cable Lock / Combo",
+             "JP":"ZEN MASTER / エコケーブル / コンボ",
+             "CN":"ZEN MASTER / 卷形钢缆锁 / 密码开锁"
+           },
+           "description":{
+             "EN":"One of the most popular ULAC cable locks. Since its launch in 2011, we have sold more than 1 million pieces worldwide. The soft touch cable is not only eye candy but will protect your bicycle from scratching.",
+             "JP":"ULAC会社のベストセラーケーブルロックは2011年から発売、 今までは50万個以上売れた、 環境保護の柔らかい材質は愛好者の自転車を保護することが可能です。",
+             "KR":"ULAC 제품 중 많이 판매되고 있는 비밀번호 잠금의 강철 케이블 자물쇠입니다. 2011년 출시 이후 지금까지 전 세계적으로 50만 개 이상이 판매되었고, 친환경 소재로 제작되어 차체 손상을 방지해줍니다.",
+             "CN":"优力最畅销纲缆密码锁，自从2011发表以来世界至今已售出超过50万余把，环保软材质可保护您的爱车不被刮伤。"
+           },
+           "spec":"10mm x 150cm / Coil Steel Cable",
+           "weight":"330g",
+           "security":"3",
+           "icons":["coil-cable.png", "combination.png", "eco-friendly.png", "bracket.png"],
+           "carouselImg":["images/lock/A600/A600_1.jpg", "images/lock/A600/A600_2.jpg", "images/lock/A600/A600_3.jpg", "images/lock/A600/A600_4.jpg", "images/lock/A600/A600_5.jpg", "images/lock/A600/A600_6.jpg", "images/lock/A600/A600_7.jpg", "images/lock/A600/A600_8.jpg", "images/lock/A600/A600_9.jpg"],
+           "manual":"images/manual/ULAC_A600_manual.jpg",
+           "video":"//www.youtube.com/embed/R53gWcNNizA"
+ },
+
+ "A600C":{
+          "code":"A600C",
+          "category":["combo", "chain", "ulac"],
+          "thumbImg":"images/lock/A600C/A600C_icon.png",
+          "summary":{
+            "EN":["Anti-cutting chain", "Protective sleeve", "Combination"],
+            "CN":["环保材质", "附托架", "密码锁"],
+            "JP":["防鋸防カットチェーン", "多色布カバー", "コンビネーション"],
+            "KR":["절단 방지 강철 체인", "컬러풀한 천으로 된 체인 커버", "비밀번호 자물쇠"]
+          },
+          "title":{
+            "EN":"",
+            "JP":"ZEN MASTER / エコケーブル / コンボ",
+            "CN":"ZEN MASTER / 卷形钢缆锁 / 密码开锁"
+          },
+          "description":{
+            "EN":"One of the most popular ULAC cable locks. Since its launch in 2011, we have sold more than 1 million pieces worldwide. The soft touch cable is not only eye candy but will protect your bicycle from scratching.",
+            "JP":"ULAC会社のベストセラーケーブルロックは2011年から発売、 今までは50万個以上売れた、 環境保護の柔らかい材質は愛好者の自転車を保護することが可能です。",
+            "KR":"ULAC 제품 중 많이 판매되고 있는 비밀번호 잠금의 강철 케이블 자물쇠입니다. 2011년 출시 이후 지금까지 전 세계적으로 50만 개 이상이 판매되었고, 친환경 소재로 제작되어 차체 손상을 방지해줍니다.",
+            "CN":"优力最畅销纲缆密码锁，自从2011发表以来世界至今已售出超过50万余把，环保软材质可保护您的爱车不被刮伤。"
+          },
+          "spec":"5mm x 100cm / Hardened Steel Chain",
+          "weight":"522g",
+          "security":"5",
+          "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+          "carouselImg":["images/lock/A600C/A600C_1.jpg", "images/lock/A600C/A600C_2.jpg", "images/lock/A600C/A600C_3.jpg", "images/lock/A600C/A600C_4.jpg", "images/lock/A600C/A600C_5.jpg", "images/lock/A600C/A600C_6.jpg", "images/lock/A600C/A600C_7.jpg", "images/lock/A600C/A600C_8.jpg", "images/lock/A600C/A600C_9.jpg"],
+          "manual":"images/manual/ULAC_A600_manual.jpg",
+          "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+  
+  "A600S":{
+      "code":"A600S",
+      "category":["combo","cable"],
+      "thumbImg":"images/lock/A600S/A600S_icon.png",
+      "summary":{
+        "EN":["Hexagonal cable", "Thicker steel", "Combination"],
+        "CN":["六角钢缆包覆", "加厚钢缆", "密码锁"],
+        "JP":["六角ケーブルカバー", "厚くしたケーブル", "コンビネーション"],
+        "KR":["육각 모양의 케이블", "더 두꺼워진 강철 두께", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/A600S/A600S_1.jpg", "images/lock/A600S/A600S_2.jpg", "images/lock/A600S/A600S_3.jpg", "images/lock/A600S/A600S_4.jpg", "images/lock/A600S/A600S_5.jpg", "images/lock/A600S/A600S_6.jpg", "images/lock/A600S/A600S_7.jpg", "images/lock/A600S/A600S_8.jpg", "images/lock/A600S/A600S_9.jpg"],
+      "manual":"images/manual/ULAC_A600S_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "A800C":{
+      "code":"A800C",
+      "category":["chain","combo","ulac"],
+      "thumbImg":"images/lock/A800C/A800C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain", "Great flexibility", "Combination"],
+        "CN":["防锯防剪铁链", "携带方便", "密码锁"],
+        "JP":["防鋸防カットチェーン", "携帯便利", "コンビネーション"],
+        "KR":["절단 방지 강철 체인", "편리한 휴대성", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/A800C/A800C_1.jpg", "images/lock/A800C/A800C_2.jpg", "images/lock/A800C/A800C_3.jpg", "images/lock/A800C/A800C_4.jpg", "images/lock/A800C/A800C_5.jpg", "images/lock/A800C/A800C_6.jpg", "images/lock/A800C/A800C_7.jpg", "images/lock/A800C/A800C_8.jpg", "images/lock/A800C/A800C_9.jpg"],
+      "manual":"images/manual/ULAC_A800C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "AL3":{
+      "code":"AL3",
+      "category":["special","key"],
+      "thumbImg":"images/lock/AL3/AL3_icon.png",
+      "summary":{
+        "EN":["10dB + steel joint", "Cut sensor", "Dimple key"],
+        "CN":["110分贝报警关节锁", "震动剪断报警", "锁匙锁"],
+        "JP":["110dBアラームジョイント", "振動 / カットアラーム", "キーロック"],
+        "KR":["110dB 경보기 장착", "진동 및 절단 시 경보음 발생", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/AL3/AL3_1.jpg", "images/lock/AL3/AL3_2.jpg", "images/lock/AL3/AL3_3.jpg", "images/lock/AL3/AL3_4.jpg", "images/lock/AL3/AL3_5.jpg", "images/lock/AL3/AL3_6.jpg", "images/lock/AL3/AL3_7.jpg", "images/lock/AL3/AL3_8.jpg", "images/lock/AL3/AL3_9.jpg"],
+      "manual":"images/manual/ULAC_AL3_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+"AL3P":{
+      "code":"AL3P",
+      "category":["cable","special","key"],
+      "thumbImg":"images/lock/AL3P/AL3P_icon.png",
+      "summary":{
+        "EN":["110dB alarm", "Cut sensor", "Dimple key"],
+        "CN":["110分贝报警钢缆锁", "震动剪断报警", "锁匙锁"],
+        "JP":["110dBアラームケーブル", "振動 / カットアラーム", "キーロック"],
+        "KR":["110dB 경보기 장착", "진동 및 절단 시 경보음 발생", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/AL3P/AL3P_1.jpg", "images/lock/AL3P/AL3P_2.jpg", "images/lock/AL3P/AL3P_3.jpg", "images/lock/AL3P/AL3P_4.jpg", "images/lock/AL3P/AL3P_5.jpg", "images/lock/AL3P/AL3P_6.jpg", "images/lock/AL3P/AL3P_7.jpg", "images/lock/AL3P/AL3P_8.jpg", "images/lock/AL3P/AL3P_9.jpg"],
+      "manual":"images/manual/ULAC_AL3P_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "AL5P":{
+      "code":"AL5P",
+      "category":["ulac","cable","special", "key"],
+      "thumbImg":"images/lock/AL5P/AL5P_icon.png",
+      "summary":{
+        "EN":["110dB alarm", "Shock alarm system", "Dimple key"],
+        "CN":["110分贝报警钢缆锁", "震动剪断报警", "锁匙锁"],
+        "JP":["110dBアラームケーブル", "振動 / カットアラーム", "キーロック"],
+        "KR":["110dB 경보기 장착", "진동 및 절단 시 경보음 발생", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/AL5P/AL5P_1.jpg", "images/lock/AL5P/AL5P_2.jpg", "images/lock/AL5P/AL5P_3.jpg", "images/lock/AL5P/AL5P_4.jpg", "images/lock/AL5P/AL5P_5.jpg", "images/lock/AL5P/AL5P_6.jpg", "images/lock/AL5P/AL5P_7.jpg", "images/lock/AL5P/AL5P_8.jpg", "images/lock/AL5P/AL5P_9.jpg"],
+      "manual":"images/manual/ULAC_AL5P_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "AX1":{
+      "code":"AX1",
+      "category":["special","ulock","key", "ulac"],
+      "thumbImg":"images/lock/AX1/AX1_icon.png",
+      "summary":{
+        "EN":["110 dB alarm", "Hardened steel", "Abloy key"],
+        "CN":["110分贝报警U型锁", "震动剪断报警", "锁匙锁"],
+        "JP":["110dBアラーム", "高硬度鋼シャックル", "キーロック"],
+        "KR":["110dB 경보기 장착", "진동 및 절단 시 경보음 작동", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/AX1/AX1_1.jpg", "images/lock/AX1/AX1_2.jpg", "images/lock/AX1/AX1_3.jpg", "images/lock/AX1/AX1_4.jpg", "images/lock/AX1/AX1_5.jpg", "images/lock/AX1/AX1_6.jpg", "images/lock/AX1/AX1_7.jpg", "images/lock/AX1/AX1_8.jpg", "images/lock/AX1/AX1_9.jpg"],
+      "manual":"images/manual/ULAC_AX1_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "AX30":{
+      "code":"AX30",
+      "category":["special","key","ulac"],
+      "thumbImg":"images/lock/AX30/AX30_icon.png",
+      "summary":{
+        "EN":["Anti-cutting steel joint", "Reflective sleeve", "Dimple key"],
+        "CN":["防锯防剪关节锁", "间反光布套", "锁匙锁"],
+        "JP":["防鋸防カットジョイント", "夜間反射布カバー", "キーロック"],
+        "KR":["절단 방지 강철 케이블", "야간 시 반사하는 천으로 덮음", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/AX30/AX30_1.jpg", "images/lock/AX30/AX30_2.jpg", "images/lock/AX30/AX30_3.jpg", "images/lock/AX30/AX30_4.jpg", "images/lock/AX30/AX30_5.jpg", "images/lock/AX30/AX30_6.jpg", "images/lock/AX30/AX30_7.jpg", "images/lock/AX30/AX30_8.jpg", "images/lock/AX30/AX30_9.jpg"],
+      "manual":"images/manual/ULAC_AX30_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "BX1":{
+      "code":"BX1",
+      "category":["ulock","special","key", "ulac"],
+      "thumbImg":"images/lock/BX1/BX1_icon.png",
+      "summary":{
+        "EN":["Hardened Steel", "Silicon overmoulded", "Abloy key"],
+        "CN":["高碳钢锁勾", "硅胶包覆", "锁匙锁"],
+        "JP":["高碳鋼フック", "シリコンカバ", "キーロック"],
+        "KR":["고탄소강 자물쇠", "실리콘 소재로 코팅", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/BX1/BX1_1.jpg", "images/lock/BX1/BX1_2.jpg", "images/lock/BX1/BX1_3.jpg", "images/lock/BX1/BX1_4.jpg", "images/lock/BX1/BX1_5.jpg", "images/lock/BX1/BX1_6.jpg", "images/lock/BX1/BX1_7.jpg", "images/lock/BX1/BX1_8.jpg", "images/lock/BX1/BX1_9.jpg"],
+      "manual":"images/manual/ULAC_BX1_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "K2N":{
+      "code":"K2N",
+      "category":["combo","cable","ulac"],
+      "thumbImg":"images/lock/K2N/K2N_icon.png",
+      "summary":{
+        "EN":["Karabiner design", "Zinc lock housing", "Combination"],
+        "CN":["登山锁扣设计", "锌合金锁体", "密码锁"],
+        "JP":["カラビナデザイン", "亜鉛合金本体", "コンビネーション"],
+        "KR":["등산용 카라비너 디자인", "아연 합금 소재<", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/K2N/K2N_1.jpg", "images/lock/K2N/K2N_2.jpg", "images/lock/K2N/K2N_3.jpg", "images/lock/K2N/K2N_4.jpg", "images/lock/K2N/K2N_5.jpg", "images/lock/K2N/K2N_6.jpg", "images/lock/K2N/K2N_7.jpg", "images/lock/K2N/K2N_8.jpg", "images/lock/K2N/K2N_9.jpg"],
+      "manual":"images/manual/ULAC_K2N_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "K6":{
+      "code":"K6",
+      "category":["combo","cable","ulac"],
+      "thumbImg":"images/lock/K6/K6_icon.png",
+      "summary":{
+        "EN":["Karabiner design", "Zinc lock housing", "Combination"],
+        "CN":["登山锁扣设计", "锌合金锁体", "密码锁"],
+        "JP":["カラビナデザイン", "亜鉛合金本体", "コンビネーション"],
+        "KR":["등산용 카라비너 디자인", "아연 합금 소재", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/K6/K6_1.jpg", "images/lock/K6/K6_2.jpg", "images/lock/K6/K6_3.jpg", "images/lock/K6/K6_4.jpg", "images/lock/K6/K6_5.jpg", "images/lock/K6/K6_6.jpg", "images/lock/K6/K6_7.jpg", "images/lock/K6/K6_8.jpg", "images/lock/K6/K6_9.jpg"],
+      "manual":"images/manual/ULAC_K6_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "K8S":{
+      "code":"K8S",
+      "category":["combo","cable"],
+      "thumbImg":"images/lock/K8S/K8S_icon.png",
+      "summary":{
+        "EN":["Karabiner design", "Aluminum body", "Combination"],
+        "CN":["登山锁扣设计", "铝合金锁体", "密码锁"],
+        "JP":["カラビナデザイン", "アルミ合金本体", "コンビネーション"],
+        "KR":["등산용 카라비너 디자인", "알루미늄 합금 소재", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/K8S/K8S_1.jpg", "images/lock/K8S/K8S_2.jpg", "images/lock/K8S/K8S_3.jpg", "images/lock/K8S/K8S_4.jpg", "images/lock/K8S/K8S_5.jpg", "images/lock/K8S/K8S_6.jpg", "images/lock/K8S/K8S_7.jpg", "images/lock/K8S/K8S_8.jpg", "images/lock/K8S/K8S_9.jpg"],
+      "manual":"images/manual/ULAC_K8S_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "K8L":{
+      "code":"K8L",
+      "category":["combo","special"],
+      "thumbImg":"images/lock/K8L/K8L_icon.png",
+      "summary":{
+        "EN":["Karabiner design", "Aluminum body", "Combination"],
+        "CN":["登山锁扣设计", "铝合金锁体", "密码锁"],
+        "JP":["カラビナデザイン", "アルミ合金本体", "コンビネーション"],
+        "KR":["등산용 카라비너 디자인", "알루미늄 합금 소재<", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/K8L/K8L_1.jpg", "images/lock/K8L/K8L_2.jpg", "images/lock/K8L/K8L_3.jpg", "images/lock/K8L/K8L_4.jpg", "images/lock/K8L/K8L_5.jpg", "images/lock/K8L/K8L_6.jpg", "images/lock/K8L/K8L_7.jpg", "images/lock/K8L/K8L_8.jpg", "images/lock/K8L/K8L_9.jpg"],
+      "manual":"images/manual/ULAC_K8L_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "K8LC":{
+      "code":"K8LC",
+      "category":["ulac","combo","cable"],
+      "thumbImg":"images/lock/K8LC/K8LC_icon.png",
+      "summary":{
+        "EN":["Karabiner design", "Helmet lock", "Combination"],
+        "CN":["", "", ""],
+        "JP":["", "", ""],
+        "KR":["", "", ""]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/K8LC/K8LC_1.jpg", "images/lock/K8LC/K8LC_2.jpg", "images/lock/K8LC/K8LC_3.jpg", "images/lock/K8LC/K8LC_4.jpg", "images/lock/K8LC/K8LC_5.jpg", "images/lock/K8LC/K8LC_6.jpg", "images/lock/K8LC/K8LC_7.jpg", "images/lock/K8LC/K8LC_8.jpg", "images/lock/K8LC/K8LC_9.jpg"],
+      "manual":"images/manual/ULAC_K8LC_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "L2C":{
+      "code":"L2C",
+      "category":["Anti-cutting chain","Double locking","Dimple key"],
+      "thumbImg":"images/lock/L2C/L2C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain", "", ""],
+        "CN":["", "", ""],
+        "JP":["", "", ""],
+        "KR":["", "", ""]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/L2C/L2C_1.jpg", "images/lock/L2C/L2C_2.jpg", "images/lock/L2C/L2C_3.jpg", "images/lock/L2C/L2C_4.jpg", "images/lock/L2C/L2C_5.jpg", "images/lock/L2C/L2C_6.jpg", "images/lock/L2C/L2C_7.jpg", "images/lock/L2C/L2C_8.jpg", "images/lock/L2C/L2C_9.jpg"],
+      "manual":"images/manual/ULAC_L2C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "MT108C":{
+      "code":"MT108C",
+      "category":["chain","combo"],
+      "thumbImg":"images/lock/MT108C/MT108C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain","Great flexibility","Combination"],
+        "CN":["防锯防剪铁链", "携带方便", "密码锁"],
+        "JP":["防鋸防カットチェーン", "携帯便利", "コンビネーション"],
+        "KR":["절단 방지 강철 체인", "편리한 휴대성", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/MT108C/MT108C_1.jpg", "images/lock/MT108C/MT108C_2.jpg", "images/lock/MT108C/MT108C_3.jpg", "images/lock/MT108C/MT108C_4.jpg", "images/lock/MT108C/MT108C_5.jpg", "images/lock/MT108C/MT108C_6.jpg", "images/lock/MT108C/MT108C_7.jpg", "images/lock/MT108C/MT108C_8.jpg", "images/lock/MT108C/MT108C_9.jpg"],
+      "manual":"images/manual/ULAC_MT108C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "S2C":{
+      "category":["cable","key","ulac"],
+      "thumbImg":"images/lock/S2C/S2C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain", "Silicon lockhead", "Dimple key"],
+        "CN":["防锯防剪铁链", "硅胶包覆锁头", "锁匙锁"],
+        "JP":["防鋸防カットチェーン", "シリコンカバー本体", "キーロック"],
+        "KR":["절단 방지 강철 체인", "실리콘 소재로 코팅", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/S2C/S2C_1.jpg", "images/lock/S2C/S2C_2.jpg", "images/lock/S2C/S2C_3.jpg", "images/lock/S2C/S2C_4.jpg", "images/lock/S2C/S2C_5.jpg", "images/lock/S2C/S2C_6.jpg", "images/lock/S2C/S2C_7.jpg", "images/lock/S2C/S2C_8.jpg", "images/lock/S2C/S2C_9.jpg"],
+      "manual":"images/manual/ULAC_S2C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "S2T":{
+      "category":["cable","key","ulac"],
+      "thumbImg":"images/lock/S2T/S2T_icon.png",
+      "summary":{
+        "EN":["Environmental friendly", "Silicon head", "Dimple key"],
+        "CN":["防锯防剪铁链", "硅胶包覆锁头", "锁匙锁"],
+        "JP":["環境保護材質", "シリコンカバー本体", "キーロック"],
+        "KR":["친환경 소재", "실리콘 소재로 코팅", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/S2T/S2T_1.jpg", "images/lock/S2T/S2T_2.jpg", "images/lock/S2T/S2T_3.jpg", "images/lock/S2T/S2T_4.jpg", "images/lock/S2T/S2T_5.jpg", "images/lock/S2T/S2T_6.jpg", "images/lock/S2T/S2T_7.jpg", "images/lock/S2T/S2T_8.jpg", "images/lock/S2T/S2T_9.jpg"],
+      "manual":"images/manual/ULAC_S2T_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "S3C":{
+      "category":["chain","key"],
+      "thumbImg":"images/lock/S3C/S3C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting Chain", "Great flexibility", "Dimple key"],
+        "CN":["防锯防剪铁链", "多色布套", "锁匙锁"],
+        "JP":["防鋸防カットチェーン", "二種類長さのチェーン", "キーロック"],
+        "KR":["절단 방지 강철 체인", "멀티 컬러", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/S3C/S3C_1.jpg", "images/lock/S3C/S3C_2.jpg", "images/lock/S3C/S3C_3.jpg", "images/lock/S3C/S3C_4.jpg", "images/lock/S3C/S3C_5.jpg", "images/lock/S3C/S3C_6.jpg", "images/lock/S3C/S3C_7.jpg", "images/lock/S3C/S3C_8.jpg", "images/lock/S3C/S3C_9.jpg"],
+      "manual":"images/manual/ULAC_S3C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "S4C":{
+      "code":"S4C",
+      "category":["chain","special","key","ulac"],
+      "thumbImg":"images/lock/S4C/S4C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting Chain", "TPE housing", "Abloy key"],
+        "CN":["防锯防剪链条", "适合长时间停放", "锁匙锁"],
+        "JP":["防鋸防切りチェーン", "長い時間駐車する時に適用", "キーロック"],
+        "KR":["절단 방지 강철 체인", "장시간 주차에 적합", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/S4C/S4C_1.jpg", "images/lock/S4C/S4C_2.jpg", "images/lock/S4C/S4C_3.jpg", "images/lock/S4C/S4C_4.jpg", "images/lock/S4C/S4C_5.jpg", "images/lock/S4C/S4C_6.jpg", "images/lock/S4C/S4C_7.jpg", "images/lock/S4C/S4C_8.jpg", "images/lock/S4C/S4C_9.jpg"],
+      "manual":"images/manual/ULAC_S4C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "S4T":{
+      "code":"S4T",
+      "category":["cable","key","ulac"],
+      "thumbImg":"images/lock/S4T/S4T_icon.png",
+      "summary":{
+        "EN":["TPE housing", "Environmental friendly", "Abloy key"],
+        "CN":["加厚钢缆", "环保材质", "锁匙锁"],
+        "JP":["環境保護材質", "厚くしたケーブル", "キーロック"],
+        "KR":["친환경 소재", "더 두꺼워진 강철 두께", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/S4T/S4T_1.jpg", "images/lock/S4T/S4T_2.jpg", "images/lock/S4T/S4T_3.jpg", "images/lock/S4T/S4T_4.jpg", "images/lock/S4T/S4T_5.jpg", "images/lock/S4T/S4T_6.jpg", "images/lock/S4T/S4T_7.jpg", "images/lock/S4T/S4T_8.jpg", "images/lock/S4T/S4T_9.jpg"],
+      "manual":"images/manual/ULAC_S4T_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "SC1":{
+      "code":"SC1",
+      "category":["combo","cable","special","ulac"],
+      "thumbImg":"images/lock/SC1/SC1_icon.png",
+      "summary":{
+        "EN":["Silicon overmoulded", "Ultra bright color", "Combination"],
+        "CN":["硅胶包覆钢缆", "一体成型,时尚多色", "密码锁"],
+        "JP":["シリコンカバー", "ファッション多色", "コンビネーション"],
+        "KR":["실리콘 코팅의 강철 케이블", "컬러플한 색상", "비밀번호 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/SC1/SC1_1.jpg", "images/lock/SC1/SC1_2.jpg", "images/lock/SC1/SC1_3.jpg", "images/lock/SC1/SC1_4.jpg", "images/lock/SC1/SC1_5.jpg", "images/lock/SC1/SC1_6.jpg", "images/lock/SC1/SC1_7.jpg", "images/lock/SC1/SC1_8.jpg", "images/lock/SC1/SC1_9.jpg"],
+      "manual":"images/manual/ULAC_SC1_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "SD600C":{
+      "code":"SD600C",
+      "category":["chain","key"],
+      "thumbImg":"images/lock/SD600C/SD600C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain", "360 Turnable Cylinder", "Dimple key"],
+        "CN":["360度旋转锁头", "防锯防剪铁链", "锁匙锁"],
+        "JP":["360度回転本体", "防鋸防カットチェーン", "キーロック"],
+        "KR":["360° 회전 가능", "절단 방지 강철 체인", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/SD600C/SD600C_1.jpg", "images/lock/SD600C/SD600C_2.jpg", "images/lock/SD600C/SD600C_3.jpg", "images/lock/SD600C/SD600C_4.jpg", "images/lock/SD600C/SD600C_5.jpg", "images/lock/SD600C/SD600C_6.jpg", "images/lock/SD600C/SD600C_7.jpg", "images/lock/SD600C/SD600C_8.jpg", "images/lock/SD600C/SD600C_9.jpg"],
+      "manual":"images/manual/ULAC_SD600C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "ST3":{
+      "code":"ST3",
+      "category":["cable","special","key", "ulac"],
+      "thumbImg":"images/lock/ST3/ST3_icon.png",
+      "summary":{
+        "EN":["Silicon overmoulded", "Ultra bright color", "Dimple key"],
+        "CN":["加厚硅胶包覆钢缆", "一体成型,时尚多色", "锁匙锁"],
+        "JP":["防鋸防カットジョイント", "ファッション多色", "キーロック"],
+        "KR":["실리콘 몰딩된", "컬러플한 색상", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/ST3/ST3_1.jpg", "images/lock/ST3/ST3_2.jpg", "images/lock/ST3/ST3_3.jpg", "images/lock/ST3/ST3_4.jpg", "images/lock/ST3/ST3_5.jpg", "images/lock/ST3/ST3_6.jpg", "images/lock/ST3/ST3_7.jpg", "images/lock/ST3/ST3_8.jpg", "images/lock/ST3/ST3_9.jpg"],
+      "manual":"images/manual/ULAC_ST3_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "SU2S":{
+      "code":"SU2S",
+      "category":["ulock","key","ulac"],
+      "thumbImg":"images/lock/SU2S/SU2S_icon.png",
+      "summary":{
+        "EN":["Silicon grip", "Hardened steel body", "Dimple key"],
+        "CN":["硅胶把手", "不锈钢锁体", "锁匙锁"],
+        "JP":["シリコンハンドル", "ステンレス本体", "キーロック"],
+        "KR":["실리콘으로 코팅된 손잡이", "스테인리스 소재", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/SU2S/SU2S_1.jpg", "images/lock/SU2S/SU2S_2.jpg", "images/lock/SU2S/SU2S_3.jpg", "images/lock/SU2S/SU2S_4.jpg", "images/lock/SU2S/SU2S_5.jpg", "images/lock/SU2S/SU2S_6.jpg", "images/lock/SU2S/SU2S_7.jpg", "images/lock/SU2S/SU2S_8.jpg", "images/lock/SU2S/SU2S_9.jpg"],
+      "manual":"images/manual/ULAC_SU2S_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "SU3":{
+      "code":"SU3",
+      "category":["special","ulock","key","ulac"],
+      "thumbImg":"images/lock/SU3/SU3_icon.png",
+      "summary":{
+        "EN":["Silicon overmoulded", "Aluminum body", "Dimple key"],
+        "CN":["加厚硅胶包覆", "轻量铝合金", "锁匙锁"],
+        "JP":["シリコンカバー", "アルミ本体", "キーロック"],
+        "KR":["실리콘으로 코팅", "알루미늄 합금 소재", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/SU3/SU3_1.jpg", "images/lock/SU3/SU3_2.jpg", "images/lock/SU3/SU3_3.jpg", "images/lock/SU3/SU3_4.jpg", "images/lock/SU3/SU3_5.jpg", "images/lock/SU3/SU3_6.jpg", "images/lock/SU3/SU3_7.jpg", "images/lock/SU3/SU3_8.jpg", "images/lock/SU3/SU3_9.jpg"],
+      "manual":"images/manual/ULAC_SU3_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "X1":{
+      "code":"X1",
+      "category":["special","key","ulac"],
+      "thumbImg":"images/lock/X1/X1_icon.png",
+      "summary":{
+        "EN":["70cm folding lock", "Steel embeded", "Dimple key"],
+        "CN":["钢片折叠锁", "钢片总长70cm", "锁匙锁"],
+        "JP":["鋼片折り畳めロック", "アーム長さ70cm", "キーロック"],
+        "KR":["관절형 강철 자물쇠", "길이 : 70cm", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/X1/X1_1.jpg", "images/lock/X1/X1_2.jpg", "images/lock/X1/X1_3.jpg", "images/lock/X1/X1_4.jpg", "images/lock/X1/X1_5.jpg", "images/lock/X1/X1_6.jpg", "images/lock/X1/X1_7.jpg", "images/lock/X1/X1_8.jpg", "images/lock/X1/X1_9.jpg"],
+      "manual":"images/manual/ULAC_X1_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "X2":{
+      "code":"X2",
+      "category":["special","key"],
+      "thumbImg":"images/lock/X2/X2_icon.png",
+      "summary":{
+        "EN":["70cm folding lock", "Steel embeded", "Dimple key"],
+        "CN":["钢片折叠锁", "钢片总长70cm", "锁匙锁"],
+        "JP":["鋼片折り畳めロック", "アーム長さ70cm", "キーロック"],
+        "KR":["관절형 강철 자물쇠", "길이 : 70cm", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/X2/X2_1.jpg", "images/lock/X2/X2_2.jpg", "images/lock/X2/X2_3.jpg", "images/lock/X2/X2_4.jpg", "images/lock/X2/X2_5.jpg", "images/lock/X2/X2_6.jpg", "images/lock/X2/X2_7.jpg", "images/lock/X2/X2_8.jpg", "images/lock/X2/X2_9.jpg"],
+      "manual":"images/manual/ULAC_X2_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "Y10":{
+      "code":"Y10",
+      "category":["cable","key","ulac"],
+      "thumbImg":"images/lock/Y10/Y10_icon.png",
+      "summary":{
+        "EN":["Anti-dust lid", "Available in 2 lengths", "Dimple key"],
+        "CN":["防尘盖设计", "附托架", "锁匙锁"],
+        "JP":["防塵カバー設計", "ブラケット付き", "キーロック"],
+        "KR":["먼지 방지용 캡이 있는 디자인", "자물쇠 거치대 포함", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/Y10/Y10_1.jpg", "images/lock/Y10/Y10_2.jpg", "images/lock/Y10/Y10_3.jpg", "images/lock/Y10/Y10_4.jpg", "images/lock/Y10/Y10_5.jpg", "images/lock/Y10/Y10_6.jpg", "images/lock/Y10/Y10_7.jpg", "images/lock/Y10/Y10_8.jpg", "images/lock/Y10/Y10_9.jpg"],
+      "manual":"images/manual/ULAC_Y10_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "Y10C":{
+      "code":"Y10C",
+      "category":["chain","key","ulac"],
+      "thumbImg":"images/lock/Y10C/Y10C_icon.png",
+      "summary":{
+        "EN":["Anti-cutting chain", "Anti-dust lid", "Dimple key"],
+        "CN":["防锯防剪链条锁", "防尘盖设计", "锁匙锁"],
+        "JP":["防塵カバー設計", "防鋸防カットチェーン", "キーロック"],
+        "KR":["절단 방지 강철 체인", "먼지 방지용 캡이 있는 디자인", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/Y10C/Y10C_1.jpg", "images/lock/Y10C/Y10C_2.jpg", "images/lock/Y10C/Y10C_3.jpg", "images/lock/Y10C/Y10C_4.jpg", "images/lock/Y10C/Y10C_5.jpg", "images/lock/Y10C/Y10C_6.jpg", "images/lock/Y10C/Y10C_7.jpg", "images/lock/Y10C/Y10C_8.jpg", "images/lock/Y10C/Y10C_9.jpg"],
+      "manual":"images/manual/ULAC_Y10C_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "Y10H":{
+      "code":"Y10H",
+      "category":["cable","key"],
+      "thumbImg":"images/lock/Y10H/Y10H_icon.png",
+      "summary":{
+        "EN":["Hexagonal cable", "Anti-dust lid", "Dimple key"],
+        "CN":["六角形钢缆", "防尘盖设计", "锁匙锁"],
+        "JP":["六角ケーブル", "防塵カバー設計", "キーロック"],
+        "KR":["육각 모양의 강철 케이블", "먼지 방지용 캡이 있는 디자인", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/Y10H/Y10H_1.jpg", "images/lock/Y10H/Y10H_2.jpg", "images/lock/Y10H/Y10H_3.jpg", "images/lock/Y10H/Y10H_4.jpg", "images/lock/Y10H/Y10H_5.jpg", "images/lock/Y10H/Y10H_6.jpg", "images/lock/Y10H/Y10H_7.jpg", "images/lock/Y10H/Y10H_8.jpg", "images/lock/Y10H/Y10H_9.jpg"],
+      "manual":"images/manual/ULAC_Y10H_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  },
+
+  "Y10M":{
+      "code":"Y10M",
+      "category":["cable","special","key"],
+      "thumbImg":"images/lock/Y10M/Y10M_icon.png",
+      "summary":{
+        "EN":["Anti-dust lid", "Memory cable", "Dimple key"],
+        "CN":["防尘盖设计", "专利记忆钢缆", "锁匙锁"],
+        "JP":["防塵カバー設計", "特許記憶ケーブル", "キーロック"],
+        "KR":["먼지 방지용 캡이 있는 디자인", "메모리 와이어 특허 제품", "열쇠 자물쇠"]
+      },
+      "title":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "description":{
+        "EN":"",
+        "CN":"",
+        "JP":"",
+        "KR":""
+      },
+      "spec":"",
+      "weight":"g",
+      "security":"5",
+      "icons":["steel-chain.png", "combination.png", "hardened2.png"],
+      "carouselImg":["images/lock/Y10M/Y10M_1.jpg", "images/lock/Y10M/Y10M_2.jpg", "images/lock/Y10M/Y10M_3.jpg", "images/lock/Y10M/Y10M_4.jpg", "images/lock/Y10M/Y10M_5.jpg", "images/lock/Y10M/Y10M_6.jpg", "images/lock/Y10M/Y10M_7.jpg", "images/lock/Y10M/Y10M_8.jpg", "images/lock/Y10M/Y10M_9.jpg"],
+      "manual":"images/manual/ULAC_Y10M_manual.jpg",
+      "video":"//www.youtube.com/embed/R53gWcNNizA"
+  }
+}

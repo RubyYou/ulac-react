@@ -8,13 +8,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-
-class NotFound extends React.Component {
-
- render() {
-    return <p>Not found</p>;
-  }
-}
-
-export default NotFound;
