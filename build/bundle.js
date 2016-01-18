@@ -25013,7 +25013,7 @@ var Contact = (function (_React$Component) {
 
 exports.default = Contact;
 
-},{"./preloader":218,"react":207,"superagent":208}],213:[function(require,module,exports){
+},{"./preloader":219,"react":207,"superagent":208}],213:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25312,7 +25312,54 @@ var Innovation = (function (_React$Component) {
 
 exports.default = Innovation;
 
-},{"./preloader":218,"react":207,"superagent":208}],216:[function(require,module,exports){
+},{"./preloader":219,"react":207,"superagent":208}],216:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Utility = (function (_React$Component) {
+	_inherits(Utility, _React$Component);
+
+	function Utility() {
+		_classCallCheck(this, Utility);
+
+		return _possibleConstructorReturn(this, Object.getPrototypeOf(Utility).apply(this, arguments));
+	}
+
+	_createClass(Utility, [{
+		key: 'ObjectSize',
+		value: function ObjectSize(obj) {
+			var size = 0,
+			    key;
+			for (key in obj) {
+				if (obj.hasOwnProperty(key)) size++;
+			}
+			return size;
+		}
+	}]);
+
+	return Utility;
+})(_react2.default.Component);
+
+exports.default = Utility;
+
+},{"react":207}],217:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25452,8 +25499,8 @@ var App = (function (_React$Component) {
 
       var Child = {};
 
-      console.log("this.state.lang: " + this.state.lang);
-      console.log("this.state.route:" + this.state.route);
+      // console.log("this.state.lang: " + this.state.lang );
+      // console.log("this.state.route:" + this.state.route);
 
       switch (this.state.route) {
         case '':
@@ -25593,7 +25640,7 @@ exports.default = App;
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('content'));
 
-},{"./about":211,"./contact":212,"./faq":213,"./home":214,"./innovation":215,"./nofound":217,"./product":219,"./representative":220,"./security":221,"./xlab":222,"react":207,"react-dom":25,"react-router":45}],217:[function(require,module,exports){
+},{"./about":211,"./contact":212,"./faq":213,"./home":214,"./innovation":215,"./nofound":218,"./product":220,"./representative":223,"./security":224,"./xlab":225,"react":207,"react-dom":25,"react-router":45}],218:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25639,7 +25686,7 @@ var NotFound = (function (_React$Component) {
 
 exports.default = NotFound;
 
-},{"react":207}],218:[function(require,module,exports){
+},{"react":207}],219:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25685,7 +25732,7 @@ var Preloader = (function (_React$Component) {
 
 exports.default = Preloader;
 
-},{"react":207}],219:[function(require,module,exports){
+},{"react":207}],220:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25706,6 +25753,18 @@ var _preloader = require('./preloader');
 
 var _preloader2 = _interopRequireDefault(_preloader);
 
+var _utility = require('./lib/utility');
+
+var _utility2 = _interopRequireDefault(_utility);
+
+var _productDetail = require('./productDetail');
+
+var _productDetail2 = _interopRequireDefault(_productDetail);
+
+var _productCategories = require('./productCategories');
+
+var _productCategories2 = _interopRequireDefault(_productCategories);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25722,93 +25781,152 @@ var Product = (function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Product).call(this));
 
-    _this.state = { loadComplete: false };
-    _this.getContent = _this.getContent.bind(_this);
-    _this.loadComplete = _this.loadComplete.bind(_this);
+    _this.state = { loadComplete: false, hashName: window.location.hash.substring(1) };
+    _this.getCategory = _this.getCategory.bind(_this);
+    _this.getProduct = _this.getProduct.bind(_this);
+    _this.getContentType = _this.getContentType.bind(_this);
+    _this.onHashUpdate = _this.onHashUpdate.bind(_this);
+    _this._data = {
+      "content": "",
+      "contentType": ""
+    };
     return _this;
   }
 
   _createClass(Product, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.getContent();
-    }
-  }, {
-    key: 'getContent',
-    value: function getContent(cat) {
-      var self = this;
-      console.log('cat:' + cat);
+      var _this2 = this;
 
-      _superagent2.default.get('/ulac-react2/build/template/category.php?cat=' + cat).accept('application/json').end(function (err, res) {
-        self.loadComplete(res.body);
+      var self = this;
+      this.onHashUpdate();
+
+      window.addEventListener('hashchange', function () {
+        self.setState({ hashName: window.location.hash.substring(1) });
+        console.log("change Hash Name:" + window.location.hash.substring(1));
+        _this2.onHashUpdate();
       });
     }
   }, {
-    key: 'loadComplete',
-    value: function loadComplete(content) {
-      var summary = this.props.lang + '_summary';
-      console.log("test:" + content[0][1].summary);
-      this.setState({ loadComplete: true });
+    key: 'onHashUpdate',
+    value: function onHashUpdate() {
+      this._data.contentType = this.getContentType();
+
+      if (this._data.contentType == "product") {
+        this.getProduct(this.state.hashName);
+      } else {
+        this.getCategory(this.state.hashName);
+      }
+    }
+  }, {
+    key: 'getContentType',
+    value: function getContentType() {
+      //this.state.hashName = (window.location.hash).substring(1);
+      var contentType = "product";
+      var catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable"];
+
+      console.log("this.state.hashName:" + this.state.hashName);
+
+      if (this.state.hashName == undefined) {
+        contentType = 'all';
+      }
+
+      // check if hashName Match any category
+      for (var i = 0; i < catList.length; i++) {
+        if (this.state.hashName == catList[i]) {
+          contentType = "cat";
+        }
+      }
+
+      return contentType;
+    }
+  }, {
+    key: 'getCategory',
+    value: function getCategory(cat) {
+      var self = this;
+      console.log("now in Categories ");
+
+      _superagent2.default.get('/ulac-react2/build/template/product.php?cat=' + cat).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        self._data.content = JSON.parse(res.text);
+        self.setState({ loadComplete: true });
+      });
+    }
+  }, {
+    key: 'getProduct',
+    value: function getProduct(lockId) {
+      console.log("now in products");
+      var self = this;
+
+      _superagent2.default.get('/ulac-react2/build/template/product.php?lock=' + lockId).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
+        self._data.content = JSON.parse(res.text);
+        self.setState({ loadComplete: true });
+      });
     }
   }, {
     key: 'render',
     value: function render() {
-      var lang = this.props.lang;
-      var category = [];
+      var content = [];
+
       if (this.state.loadComplete == true) {
-        category.push(_react2.default.createElement(
-          'div',
-          null,
-          'abcd'
-        ));
+
+        if (this._data.contentType == 'all' || this._data.contentType == 'cat') {
+          content.push(_react2.default.createElement(_productCategories2.default, {
+            content: this._data.content,
+            lang: this.props.lang
+          }));
+        } else {
+          content.push(_react2.default.createElement(_productDetail2.default, {
+            content: this._data.content,
+            lang: this.props.lang
+          }));
+        }
       } else {
-        category.push(_react2.default.createElement(_preloader2.default, null));
+        content.push(_react2.default.createElement(_preloader2.default, null));
       }
 
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          'h2',
-          null,
-          'A list of category name'
+          'div',
+          { className: 'cat_list' },
+          _react2.default.createElement(
+            'a',
+            { href: '#ulac', onClick: this.getCategory.bind(this, 'ulac') },
+            ' ULAC'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#combo', onClick: this.getCategory.bind(this, 'combo') },
+            'Combo'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#chain', onClick: this.getCategory.bind(this, 'chain') },
+            'Chain'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#cable', onClick: this.getCategory.bind(this, 'cable') },
+            'cable'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#ulock', onClick: this.getCategory.bind(this, 'ulock') },
+            'ulock'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#special', onClick: this.getCategory.bind(this, 'special') },
+            'special'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#key', onClick: this.getCategory.bind(this, 'key') },
+            'key'
+          )
         ),
-        _react2.default.createElement(
-          'a',
-          { href: '#ulac', onClick: this.getContent.bind(this, 'ulac') },
-          ' ULAC'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#combo', onClick: this.getContent.bind(this, 'combo') },
-          'Combo'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#chain', onClick: this.getContent.bind(this, 'chain') },
-          'Chain'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#cable', onClick: this.getContent.bind(this, 'cable') },
-          'cable'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#ulock', onClick: this.getContent.bind(this, 'ulock') },
-          'ulock'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#special', onClick: this.getContent.bind(this, 'special') },
-          'special'
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: '#key', onClick: this.getContent.bind(this, 'key') },
-          'key'
-        ),
-        category
+        content
       );
     }
   }]);
@@ -25818,7 +25936,201 @@ var Product = (function (_React$Component) {
 
 exports.default = Product;
 
-},{"./preloader":218,"react":207,"superagent":208}],220:[function(require,module,exports){
+},{"./lib/utility":216,"./preloader":219,"./productCategories":221,"./productDetail":222,"react":207,"superagent":208}],221:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _utility = require('./lib/utility');
+
+var _utility2 = _interopRequireDefault(_utility);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductCategories = (function (_React$Component) {
+  _inherits(ProductCategories, _React$Component);
+
+  function ProductCategories(prop) {
+    _classCallCheck(this, ProductCategories);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProductCategories).call(this));
+
+    _this.getObjectSize = _this.getObjectSize.bind(_this);
+    return _this;
+  }
+
+  _createClass(ProductCategories, [{
+    key: 'getObjectSize',
+    value: function getObjectSize(obj) {
+      var size = 0,
+          key;
+      for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var items = [];
+      var content = this.props.content;
+      var summary = (this.props.lang + '_summary').toLowerCase();
+      var title = (this.props.lang + '_title').toLowerCase();
+      var description = (this.props.lang + '_description').toLowerCase();
+      var size = this.getObjectSize(content);
+
+      for (var i = 0; i < size; i++) {
+        content[i].thumbImg = "/ulac-react2/build/".concat(content[i].thumbImg);
+
+        items.push(_react2.default.createElement(
+          'div',
+          { className: 'item', key: i,
+            productId: content[i].lock_id },
+          _react2.default.createElement('img', { src: content[i].thumbImg }),
+          _react2.default.createElement(
+            'p',
+            null,
+            content[i][summary]
+          )
+        ));
+      }
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'wrapper' },
+        items
+      );
+    }
+  }]);
+
+  return ProductCategories;
+})(_react2.default.Component);
+
+exports.default = ProductCategories;
+
+},{"./lib/utility":216,"react":207}],222:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _utility = require('./lib/utility');
+
+var _utility2 = _interopRequireDefault(_utility);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductDetail = (function (_React$Component) {
+  _inherits(ProductDetail, _React$Component);
+
+  function ProductDetail(prop) {
+    _classCallCheck(this, ProductDetail);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProductDetail).call(this));
+  }
+
+  _createClass(ProductDetail, [{
+    key: 'render',
+    value: function render() {
+      var icons = [];
+      var carouselImg = [];
+      var content = this.props.content[0];
+      var title = (this.props.lang + '_title').toLowerCase();
+      var description = (this.props.lang + '_description').toLowerCase();
+
+      // process icons
+      var iconsArr = content.icons.split(",");
+      for (var i = 0; i < iconsArr.length; i++) {
+
+        // [RU ]adding prefix, will take out later
+        iconsArr[i] = "/ulac-react2/build/images/icons/".concat(iconsArr[i]);
+        icons.push(_react2.default.createElement('img', { src: iconsArr[i] }));
+      }
+
+      // process carouselImg
+      var carouselImgArr = content.carouselImg.split(",");
+      for (var i = 0; i < carouselImgArr.length; i++) {
+        carouselImgArr[i] = "/ulac-react2/build/".concat(carouselImgArr[i]);
+        carouselImg.push(_react2.default.createElement('img', { src: carouselImgArr[i] }));
+      }
+
+      var security = "/ulac-react2/build/images/security/level" + content.security + ".png";
+      var manual = "/ulac-react2/build/" + content.manual;
+
+      if (content !== undefined) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'wrapper' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            content.lock_id
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            content[title]
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            content[description]
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            content.spec
+          ),
+          icons,
+          carouselImg,
+          _react2.default.createElement('img', { src: manual }),
+          _react2.default.createElement('img', { src: security }),
+          _react2.default.createElement('iframe', { width: '420', height: '300', src: content.videoLink, frameBorder: '0', allowFullScreen: true })
+        );
+      } else {
+
+        return _react2.default.createElement(
+          'p',
+          null,
+          'Sorry I can not find your product'
+        );
+      }
+    }
+  }]);
+
+  return ProductDetail;
+})(_react2.default.Component);
+
+exports.default = ProductDetail;
+
+},{"./lib/utility":216,"react":207}],223:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25891,7 +26203,7 @@ var Representative = (function (_React$Component) {
 
 exports.default = Representative;
 
-},{"react":207,"superagent":208}],221:[function(require,module,exports){
+},{"react":207,"superagent":208}],224:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25964,7 +26276,7 @@ var Security = (function (_React$Component) {
 
 exports.default = Security;
 
-},{"react":207,"superagent":208}],222:[function(require,module,exports){
+},{"react":207,"superagent":208}],225:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -26161,7 +26473,7 @@ var Xlab = (function (_React$Component) {
 
 exports.default = Xlab;
 
-},{"./preloader":218,"react":207,"superagent":208}]},{},[216])
+},{"./preloader":219,"react":207,"superagent":208}]},{},[217])
 
 
 //# sourceMappingURL=map/bundle.js.map

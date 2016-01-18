@@ -464,10 +464,10 @@
 
   "L2C":{
       "code":"L2C",
-      "category":["Anti-cutting chain","Double locking","Dimple key"],
+      "category":["chain","key","ulac"],
       "thumbImg":"images/lock/L2C/L2C_icon.png",
       "summary":{
-        "EN":["Anti-cutting chain", "", ""],
+        "EN":["Anti-cutting chain","Double locking","Dimple key"],
         "CN":["", "", ""],
         "JP":["", "", ""],
         "KR":["", "", ""]

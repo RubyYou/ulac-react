@@ -73,9 +73,8 @@ class App extends React.Component {
 
     let Child = {};
     
-    console.log("this.state.lang: " + this.state.lang );
-    console.log("this.state.route:" + this.state.route);
-
+    // console.log("this.state.lang: " + this.state.lang );
+    // console.log("this.state.route:" + this.state.route);
 
     switch (this.state.route) {
       case '':

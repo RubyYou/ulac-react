@@ -1,3 +1,9 @@
 node_modules/*
 react/*
-build/*
+build/images/*
+build/lib/*
+build/css/*
+build/data/*
+build/map/*
+build/bundle.js
+build/index.html
