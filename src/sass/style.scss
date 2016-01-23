@@ -1,0 +1,210 @@
+*{ margin:0;padding:0; }
+
+@font-face { font-family: 'Venera100' ; src: url('../fonts/Venera-100.otf'); }
+@font-face { font-family: 'Venera300' ; src: url('../fonts/Venera-300.otf'); }
+@font-face { font-family: 'Venera500' ; src: url('../fonts/Venera-500.otf'); }
+@font-face { font-family: 'Venera700' ; src: url('../fonts/Venera-700.otf'); }
+@font-face { font-family: 'Venera900' ; src: url('../fonts/Venera-900.otf'); }
+@font-face { font-family: 'GothamBook' ; src: url('../fonts/GothamBook.otf'); }
+@font-face { font-family: 'GothamMed' ; src: url('../fonts/GothamMed.otf'); }
+
+body {
+  font-family: 'GothamBook', sans-serif ;
+  background: #111;
+  color:white;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'GothamMed';
+}
+
+#wrapper{
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav .nav-link{
+  color:white;
+  font-family: "venera500", sans-serif;
+
+}
+nav .nav-link:focus, 
+nav .nav-link:hover{
+  color:#f8d12c;
+}
+
+.nav-link li{
+  display: inline-block;
+  list-style: none;
+  margin:10px;
+}
+
+p{
+  color: #9f9f9f;
+  font-family: sans-serif;
+  line-height: 1.5em;
+  font-family: 'GothamBook';
+}
+
+a{ 
+  color: #9f9f9f;
+  text-decoration: none;
+}
+
+.clear{
+  clear:both;
+}
+
+/* ======================= Category List ========================== */
+.cat_list{
+  margin: 2em 0;
+}
+
+.cat_list a{
+  background-color: rgba(53,53,53,0.5);
+  color: #9f9f9f;
+  padding: 10px 20px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.cat_list a:active, .cat_list a:hover{
+    background-color: #ffd356;
+    color: black;
+}
+
+/* category items */
+.item{
+    list-style: none;
+    padding: 15px;
+    background-color: rgba(53,53,53,0.5);
+    margin: 15px 15px 15px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.item hr{
+  margin: 10px 0;
+  border-color: #9f9f9f;
+}
+
+.item ul{
+  padding-left: 15px;
+}
+
+.item ul li {
+    color: #9f9f9f;
+    font-family: verdana;
+    line-height: 1.8em;
+    font-size:0.8em;
+}
+
+.product-wrap h3{
+    font-size: 18px;
+    margin-top: 0;
+    color: #ffd356;
+    line-height: 1.5em;
+}
+
+.product-content{
+    display: inline-block;
+    float: left;
+    width: 50%;
+    margin-left: 20px;
+}
+.product-content .title{
+  font-family:'Venera700', sans-serif;
+}
+
+.product-content p{
+  margin:20px 0;
+}
+
+.product-content .security{
+  height: 70px;
+}
+
+.product-content .icons{
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.product-content .icons img{
+    width: 80px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: 3px solid #444444;
+}
+
+.product-wrap .manual{
+    display: inline-block;
+    float: left;
+}
+.product-wrap iframe{
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+}
+
+/* ======================= Category List ========================== */
+.slideshow{
+  display: inline-block;
+  float: left;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height:371px;
+  width: 600px;
+}
+.slideshow img{
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+  transition: 1s opacity;
+  width:100%;
+}
+
+.slideshow img.show{
+  opacity: 1;
+  position: static;
+  transition: 1s opacity;
+}
+.next, .prev{
+  color: #fff;
+  position: absolute;
+  background: #000;
+  background: rgba(0,0,0, .6);
+  top: 50%;
+  z-index: 1;
+  font-size: 2em;
+  margin-top: -.75em;
+  opacity: .3;
+  user-select: none;
+}
+.next:hover, .prev:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+.next{
+  right: 0;
+  padding: 10px 5px 15px 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.prev{
+  left: 0;
+  padding: 10px 10px 15px 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* ======================= Category List ========================== */
+
+.regions{
+  color:white;
+    font-family: sans-serif;
+    font-size:12px;
+}

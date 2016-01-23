@@ -22,7 +22,7 @@ var config = {
         watch: './src/**/*',
         outputDir: './build/',
         outputFile: 'bundle.js',
-    },
+    }
 };
 
 // Error reporting function
@@ -52,8 +52,8 @@ function bundle(bundler) {
         .pipe(source('main.jsx')) // Set source name
         .pipe(buffer()) // Convert to gulp pipeline
         .pipe(rename(config.js.outputFile)) // Rename the output file
-        .pipe(sourcemaps.init({loadMaps: true})) // Extract the inline sourcemaps
-        .pipe(sourcemaps.write('./map')) // Set folder for sourcemaps to output to
+        //.pipe(sourcemaps.init({loadMaps: true})) // Extract the inline sourcemaps
+        //.pipe(sourcemaps.write('./map')) // Set folder for sourcemaps to output to
         .pipe(gulp.dest(config.js.outputDir)) // Set the output folder
         .pipe(notify({
             message: 'Generated file: <%= file.relative %>',
@@ -79,7 +79,7 @@ gulp.task('default', function() {
 
 gulp.task('watch:browserify', function () {
     var opts = assign({}, watchify.args, {
-        entries: ['./src/app.js'],
+        entries: ['./src/main.jsx'],
         debug: true,
         basedir: './src/',
         paths: ['./lib']
@@ -98,8 +98,8 @@ gulp.task('watch:browserify', function () {
             .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify Error')))
             .pipe(source('bundle.js'))
             .pipe(buffer())
-            .pipe(sourcemaps.init({loadMaps: true}))
-            .pipe(sourcemaps.write('.'))
+            // .pipe(sourcemaps.init({loadMaps: true}))
+            // .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('app'))
             .on('end', function () {
                 var duration = Date.now() - time;

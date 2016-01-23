@@ -25013,7 +25013,7 @@ var Contact = (function (_React$Component) {
 
 exports.default = Contact;
 
-},{"./preloader":219,"react":207,"superagent":208}],213:[function(require,module,exports){
+},{"./preloader":220,"react":207,"superagent":208}],213:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25312,7 +25312,7 @@ var Innovation = (function (_React$Component) {
 
 exports.default = Innovation;
 
-},{"./preloader":219,"react":207,"superagent":208}],216:[function(require,module,exports){
+},{"./preloader":220,"react":207,"superagent":208}],216:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25416,6 +25416,10 @@ var _contact = require('./contact');
 
 var _contact2 = _interopRequireDefault(_contact);
 
+var _navigation = require('./navigation');
+
+var _navigation2 = _interopRequireDefault(_navigation);
+
 var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25499,9 +25503,6 @@ var App = (function (_React$Component) {
 
       var Child = {};
 
-      // console.log("this.state.lang: " + this.state.lang );
-      // console.log("this.state.route:" + this.state.route);
-
       switch (this.state.route) {
         case '':
           Child = _react2.default.createElement(_home2.default, { lang: this.state.lang });
@@ -25518,7 +25519,8 @@ var App = (function (_React$Component) {
         case 'security':
           Child = _react2.default.createElement(_security2.default, { lang: this.state.lang });
           break;
-        case 'product':
+        case 'lock':
+        case 'lite':
           Child = _react2.default.createElement(_product2.default, { lang: this.state.lang });
           break;
         case 'faq':
@@ -25538,95 +25540,11 @@ var App = (function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h1',
-          null,
-          'ULAC LOCK'
+          'a',
+          { href: './' },
+          _react2.default.createElement('img', { src: '/ulac-react2/build/images/logo-g.png' })
         ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'nav' },
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: './' },
-              'home'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'about' },
-              'about'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'innovation' },
-              'innovation'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'xlab' },
-              'xlab'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'product' },
-              'Product'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'security' },
-              'security'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'faq' },
-              'faq'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'representative' },
-              'representative'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: 'contact' },
-              'contact'
-            )
-          )
-        ),
+        _react2.default.createElement(_navigation2.default, { lang: this.state.lang }),
         _react2.default.createElement('div', { className: 'clear' }),
         Child
       );
@@ -25638,9 +25556,204 @@ var App = (function (_React$Component) {
 
 exports.default = App;
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('content'));
+_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('wrapper'));
 
-},{"./about":211,"./contact":212,"./faq":213,"./home":214,"./innovation":215,"./nofound":218,"./product":220,"./representative":223,"./security":224,"./xlab":225,"react":207,"react-dom":25,"react-router":45}],218:[function(require,module,exports){
+},{"./about":211,"./contact":212,"./faq":213,"./home":214,"./innovation":215,"./navigation":218,"./nofound":219,"./product":221,"./representative":224,"./security":225,"./xlab":226,"react":207,"react-dom":25,"react-router":45}],218:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Navigation = (function (_React$Component) {
+  _inherits(Navigation, _React$Component);
+
+  function Navigation(prop) {
+    _classCallCheck(this, Navigation);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navigation).call(this));
+
+    _this.state = { loadComplete: false };
+    _this.getContent = _this.getContent.bind(_this);
+    _this.loadComplete = _this.loadComplete.bind(_this);
+    _this.data = {
+      "lock": "",
+      "lite": "",
+      "xlab": "",
+      "innovation": "",
+      "security": "",
+      "faq": "",
+      "representative": "",
+      "about": "",
+      "contact": ""
+    };
+    return _this;
+  }
+
+  _createClass(Navigation, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getContent();
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent() {
+      var self = this;
+      console.log(this.props.lang.toLowerCase());
+
+      _superagent2.default.get('/ulac-react2/build/data/navigation.json').accept('application/json').end(function (err, response) {
+        self.loadComplete(JSON.parse(response.text).nav);
+      });
+    }
+  }, {
+    key: 'loadComplete',
+    value: function loadComplete(res) {
+      this.data.lock = res.lock[this.props.lang];
+      this.data.lite = res.lite[this.props.lang];
+      this.data.xlab = res.xlab[this.props.lang];
+      this.data.innovation = res.innovation[this.props.lang];
+      this.data.security = res.security[this.props.lang];
+      this.data.faq = res.faq[this.props.lang];
+      this.data.representative = res.representative[this.props.lang];
+      this.data.about = res.about[this.props.lang];
+      this.data.contact = res.contact[this.props.lang];
+
+      this.setState({ loadComplete: true });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var lang = this.props.lang;
+
+      return _react2.default.createElement(
+        'nav',
+        null,
+        _react2.default.createElement(
+          'ul',
+          { className: 'nav-link' },
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'lite' },
+              this.data.lock
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'lock' },
+              this.data.lite
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'javascript:void(0)', className: 'nav' },
+              this.data.xlab
+            ),
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: 'xlab' },
+                  this.data.xlab
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: 'innovation' },
+                  this.data.innovation
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: 'security' },
+                  this.data.security
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: 'faq' },
+                  this.data.faq
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: 'representative' },
+                  this.data.representative
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'about' },
+              this.data.about
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'contact' },
+              this.data.contact
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Navigation;
+})(_react2.default.Component);
+
+exports.default = Navigation;
+
+},{"react":207,"superagent":208}],219:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25686,7 +25799,7 @@ var NotFound = (function (_React$Component) {
 
 exports.default = NotFound;
 
-},{"react":207}],219:[function(require,module,exports){
+},{"react":207}],220:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25732,7 +25845,7 @@ var Preloader = (function (_React$Component) {
 
 exports.default = Preloader;
 
-},{"react":207}],220:[function(require,module,exports){
+},{"react":207}],221:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25803,7 +25916,7 @@ var Product = (function (_React$Component) {
 
       window.addEventListener('hashchange', function () {
         self.setState({ hashName: window.location.hash.substring(1) });
-        console.log("change Hash Name:" + window.location.hash.substring(1));
+        //console.log("change Hash Name:" + (window.location.hash).substring(1));
         _this2.onHashUpdate();
       });
     }
@@ -25825,9 +25938,9 @@ var Product = (function (_React$Component) {
       var contentType = "product";
       var catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable"];
 
-      console.log("this.state.hashName:" + this.state.hashName);
+      //console.log("this.state.hashName:" + this.state.hashName);
 
-      if (this.state.hashName == undefined) {
+      if (this.state.hashName == "") {
         contentType = 'all';
       }
 
@@ -25844,7 +25957,6 @@ var Product = (function (_React$Component) {
     key: 'getCategory',
     value: function getCategory(cat) {
       var self = this;
-      console.log("now in Categories ");
 
       _superagent2.default.get('/ulac-react2/build/template/product.php?cat=' + cat).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
         self._data.content = JSON.parse(res.text);
@@ -25854,7 +25966,6 @@ var Product = (function (_React$Component) {
   }, {
     key: 'getProduct',
     value: function getProduct(lockId) {
-      console.log("now in products");
       var self = this;
 
       _superagent2.default.get('/ulac-react2/build/template/product.php?lock=' + lockId).type('Content-Type', 'text/html; charset=utf8').end(function (err, res) {
@@ -25936,7 +26047,7 @@ var Product = (function (_React$Component) {
 
 exports.default = Product;
 
-},{"./lib/utility":216,"./preloader":219,"./productCategories":221,"./productDetail":222,"react":207,"superagent":208}],221:[function(require,module,exports){
+},{"./lib/utility":216,"./preloader":220,"./productCategories":222,"./productDetail":223,"react":207,"superagent":208}],222:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -25995,16 +26106,32 @@ var ProductCategories = (function (_React$Component) {
 
       for (var i = 0; i < size; i++) {
         content[i].thumbImg = "/ulac-react2/build/".concat(content[i].thumbImg);
+        var summaryArr = content[i][summary].split(",");
 
         items.push(_react2.default.createElement(
-          'div',
-          { className: 'item', key: i,
-            productId: content[i].lock_id },
+          'a',
+          { href: "#" + content[i].lock_id,
+            className: 'item', key: i },
           _react2.default.createElement('img', { src: content[i].thumbImg }),
+          _react2.default.createElement('hr', null),
           _react2.default.createElement(
-            'p',
+            'ul',
             null,
-            content[i][summary]
+            _react2.default.createElement(
+              'li',
+              null,
+              summaryArr[0]
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              summaryArr[1]
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              summaryArr[2]
+            )
           )
         ));
       }
@@ -26022,7 +26149,7 @@ var ProductCategories = (function (_React$Component) {
 
 exports.default = ProductCategories;
 
-},{"./lib/utility":216,"react":207}],222:[function(require,module,exports){
+},{"./lib/utility":216,"react":207}],223:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -26057,6 +26184,11 @@ var ProductDetail = (function (_React$Component) {
   }
 
   _createClass(ProductDetail, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      slideShow();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var icons = [];
@@ -26067,18 +26199,23 @@ var ProductDetail = (function (_React$Component) {
 
       // process icons
       var iconsArr = content.icons.split(",");
-      for (var i = 0; i < iconsArr.length; i++) {
 
+      for (var i = 0; i < iconsArr.length; i++) {
         // [RU ]adding prefix, will take out later
         iconsArr[i] = "/ulac-react2/build/images/icons/".concat(iconsArr[i]);
-        icons.push(_react2.default.createElement('img', { src: iconsArr[i] }));
+        icons.push(_react2.default.createElement('img', { key: "icon" + i, src: iconsArr[i] }));
       }
 
       // process carouselImg
       var carouselImgArr = content.carouselImg.split(",");
+
       for (var i = 0; i < carouselImgArr.length; i++) {
         carouselImgArr[i] = "/ulac-react2/build/".concat(carouselImgArr[i]);
-        carouselImg.push(_react2.default.createElement('img', { src: carouselImgArr[i] }));
+        if (i == 0) {
+          carouselImg.push(_react2.default.createElement('img', { key: "carousel" + i, className: 'show', src: carouselImgArr[i] }));
+        } else {
+          carouselImg.push(_react2.default.createElement('img', { key: "carousel" + i, src: carouselImgArr[i] }));
+        }
       }
 
       var security = "/ulac-react2/build/images/security/level" + content.security + ".png";
@@ -26087,32 +26224,66 @@ var ProductDetail = (function (_React$Component) {
       if (content !== undefined) {
         return _react2.default.createElement(
           'div',
-          { className: 'wrapper' },
+          { className: 'product-wrap' },
           _react2.default.createElement(
-            'h2',
-            null,
-            content.lock_id
+            'div',
+            { className: 'slideshow' },
+            carouselImg,
+            _react2.default.createElement(
+              'span',
+              { className: 'prev' },
+              '«'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'next' },
+              '»'
+            )
           ),
           _react2.default.createElement(
-            'h1',
-            null,
-            content[title]
+            'div',
+            { className: 'product-content' },
+            _react2.default.createElement(
+              'h3',
+              { className: 'title' },
+              content[title]
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              content[description]
+            ),
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Product Code: ',
+              content.lock_id
+            ),
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Spec: ',
+              content.spec
+            ),
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Weight: ',
+              content.weight
+            ),
+            _react2.default.createElement('img', { className: 'security', src: security }),
+            _react2.default.createElement(
+              'div',
+              { className: 'icons' },
+              icons
+            )
           ),
-          _react2.default.createElement(
-            'p',
-            null,
-            content[description]
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            content.spec
-          ),
-          icons,
-          carouselImg,
-          _react2.default.createElement('img', { src: manual }),
-          _react2.default.createElement('img', { src: security }),
-          _react2.default.createElement('iframe', { width: '420', height: '300', src: content.videoLink, frameBorder: '0', allowFullScreen: true })
+          _react2.default.createElement('div', { className: 'clear' }),
+          _react2.default.createElement('img', { className: 'manual', src: manual }),
+          _react2.default.createElement('iframe', { width: '500', height: '400',
+            src: content.videoLink,
+            frameBorder: '0',
+            allowFullScreen: true })
         );
       } else {
 
@@ -26130,7 +26301,7 @@ var ProductDetail = (function (_React$Component) {
 
 exports.default = ProductDetail;
 
-},{"./lib/utility":216,"react":207}],223:[function(require,module,exports){
+},{"./lib/utility":216,"react":207}],224:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -26203,7 +26374,7 @@ var Representative = (function (_React$Component) {
 
 exports.default = Representative;
 
-},{"react":207,"superagent":208}],224:[function(require,module,exports){
+},{"react":207,"superagent":208}],225:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -26276,7 +26447,7 @@ var Security = (function (_React$Component) {
 
 exports.default = Security;
 
-},{"react":207,"superagent":208}],225:[function(require,module,exports){
+},{"react":207,"superagent":208}],226:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -26473,7 +26644,7 @@ var Xlab = (function (_React$Component) {
 
 exports.default = Xlab;
 
-},{"./preloader":219,"react":207,"superagent":208}]},{},[217])
+},{"./preloader":220,"react":207,"superagent":208}]},{},[217])
 
 
 //# sourceMappingURL=map/bundle.js.map

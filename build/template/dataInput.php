@@ -8,11 +8,11 @@
 
 <?php
          if(isset($_POST['add'])) {
-         	echo 'post happen';
+         	  //echo 'post happen';
           	$servername = "localhost";
-			$username = "root";
-			$password = "root";
-			$dbname = "ULAC";
+      			$username = "root";
+      			$password = "root";
+      			$dbname = "ULAC";
 
 			$con = mysqli_connect($servername,$username,$password,$dbname);
             

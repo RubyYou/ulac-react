@@ -27,7 +27,7 @@ class Product extends React.Component {
 
     window.addEventListener('hashchange', () => {
       self.setState({hashName:(window.location.hash).substring(1)});
-      console.log("change Hash Name:" + (window.location.hash).substring(1));
+      //console.log("change Hash Name:" + (window.location.hash).substring(1));
       this.onHashUpdate();
     });
  }
@@ -47,9 +47,9 @@ class Product extends React.Component {
     let contentType = "product";
     let catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable"];
     
-    console.log("this.state.hashName:" + this.state.hashName);
+    //console.log("this.state.hashName:" + this.state.hashName);
 
-    if(this.state.hashName == undefined){
+    if(this.state.hashName == ""){
       contentType = 'all';
     }
 
@@ -65,7 +65,6 @@ class Product extends React.Component {
 
  getCategory(cat){
     let self = this;
-    console.log("now in Categories ");
    	
     Request
    		.get('/ulac-react2/build/template/product.php?cat='+ cat )
@@ -74,10 +73,9 @@ class Product extends React.Component {
    			self._data.content = JSON.parse(res.text)
         self.setState({loadComplete:true}); 
     	});
-   }
+ }
 
  getProduct(lockId){
-    console.log("now in products");
     let self = this;
 
     Request
@@ -87,7 +85,6 @@ class Product extends React.Component {
         self._data.content = JSON.parse(res.text)
         self.setState({loadComplete:true}); 
     });
-
  }
 
  render() {
