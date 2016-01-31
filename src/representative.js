@@ -27,8 +27,7 @@ class Representative extends React.Component {
 
  render() {
     return <div>
-    		<p>Representative Content</p>
-    		<div className="content" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+    		<div className="representative" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
     		</div>;
   }
 }

@@ -13,6 +13,7 @@ import Security from './security';
 import Representative from './representative';
 import Contact from './contact';
 import Navigation from './navigation';
+import Footer from './footer';
 //import Dispatcher from './dispatcher';
 //import AppStore from 'stores/AppStore';
 import { Router, Route, Link } from 'react-router';
@@ -21,9 +22,11 @@ class App extends React.Component {
 
   constructor(prop){
   	super();
+    this.langArr = ['EN','CN','KR','JP'];
   	this.getPathname = this.getPathname.bind(this);
     this.getLanguage = this.getLanguage.bind(this);
   	this.state = {route:this.getPathname(), lang: this.getLanguage() };
+    
   }
 
   componentDidMount() {
@@ -46,7 +49,15 @@ class App extends React.Component {
   
   getLanguage(){
     let pathArray = window.location.pathname.split("/");
-    let lang = (pathArray[pathArray.length-2]).toUpperCase();
+    let lastPathName = (pathArray[pathArray.length-1]).toUpperCase();
+    let lang = (pathArray[pathArray.length-2]).toUpperCase();;
+
+    // if lastPathName not equal to any of the language Array content
+    for(let i =0; i < (this.langArr).length ; i ++ ){      
+      if(lastPathName == this.langArr[i]){
+        lang = lastPathName;
+      }
+    }
 
     switch(lang){
       case "CN":
@@ -72,48 +83,57 @@ class App extends React.Component {
 
   render() {
 
-    let Child = {};
+    let Page = {};
+    let route = (this.state.route).toLowerCase();
 
-    switch (this.state.route) {
+    switch (route) {
       case '':
-          Child = <Home lang={this.state.lang}/>; 
+      case 'en':
+      case 'kr':
+      case 'cn':
+      case 'jp':
+          Page = <Home lang={this.state.lang}/>; 
           break;
       case 'about': 
-          Child = <About lang={this.state.lang} />; 
+          Page = <About lang={this.state.lang} />; 
           break;
       case 'innovation':
-          Child = <Innovation lang={this.state.lang} />; 
+          Page = <Innovation lang={this.state.lang} />; 
           break;
       case 'xlab':
-          Child = <Xlab lang={this.state.lang} />; 
+          Page = <Xlab lang={this.state.lang} />; 
           break;
       case 'security': 
-          Child = <Security lang={this.state.lang}/>; 
+          Page = <Security lang={this.state.lang}/>; 
           break;
       case 'lock': 
       case 'lite': 
-          Child = <Product lang={this.state.lang}/>; 
+          Page = <Product lang={this.state.lang}/>; 
           break;
       case 'faq': 
-          Child = <Faq lang={this.state.lang}/>; 
+          Page = <Faq lang={this.state.lang}/>; 
           break;
       case 'representative':
-          Child = <Representative />; 
+          Page = <Representative />; 
           break;
       case 'contact':
-          Child = <Contact lang={this.state.lang}/>; 
+          Page = <Contact lang={this.state.lang}/>; 
           break;
       default: 
-          Child = <NotFound />;
+          Page = <NotFound />;
     }
 
     return (
       <div>
-        <a href="./"><img src="/ulac-react2/build/images/logo-g.png" /></a>
+        <div className="wrapper">
+        <a href="./" className="logo">
+          <img src="/ulac-react2/build/images/logo-g.png" />
+        </a>
         <Navigation lang={this.state.lang} />
         <div className="clear"></div>
-        {Child}
-
+        { Page }
+        </div>
+        <Footer lang={this.state.lang} />
       </div>
     )
   }
@@ -123,5 +143,5 @@ export default App;
  
 ReactDOM.render(
   <App />,
-  document.getElementById('wrapper')
+  document.getElementById('app')
 );

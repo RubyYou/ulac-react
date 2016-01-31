@@ -43,7 +43,7 @@ class ProductDetail extends React.Component {
     let security = "/ulac-react2/build/images/security/level" + content.security + ".png";
     let manual = "/ulac-react2/build/" + content.manual;
 
-    if ( content !== undefined){
+    if ( content !== undefined ){
         return <div className="product-wrap">
                   <div className="slideshow">
                     {carouselImg}
@@ -52,10 +52,10 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="product-content">
                     <h3 className="title">{content[title]}</h3>
-                    <p>{content[description]}</p>
-                    <h3>Product Code: {content.lock_id}</h3>
-                    <h3>Spec: {content.spec}</h3>
-                    <h3>Weight: {content.weight}</h3> 
+                    <p className="main-content">{content[description]}</p>
+                    <p><b>Product Code: {content.lock_id}</b></p>
+                    <p><b>Spec: {content.spec}</b></p>
+                    <p><b>Weight: {content.weight}</b></p> 
                     <img className="security" src={security} />
                     <div className="icons">{icons}</div>
                   </div>
@@ -71,7 +71,6 @@ class ProductDetail extends React.Component {
                </div>;
 
     }else{
-
       return <p>Sorry I can not find your product</p>;
 
     }

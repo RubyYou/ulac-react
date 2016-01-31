@@ -81,7 +81,6 @@ class Innovation extends React.Component {
 
 
  		return (<div>
- 					<h3>Innovation page</h3>
  					<img className="width100" src="/ulac-react2/build/images/innovation_xlab.png" />
  					<div dangerouslySetInnerHTML={{__html: self.data.introText }}></div>
 

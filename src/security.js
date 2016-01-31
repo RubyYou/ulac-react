@@ -27,9 +27,9 @@ class Security extends React.Component {
 
  render() {
     return <div>
-    		<p>Security Content</p>
-    		<div className="content" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
-    		</div>;
+    	   		<div className="security" 
+    	   			 dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+    	   </div>;
   }
 }
 

@@ -24,6 +24,7 @@ class Xlab extends React.Component {
 
  componentDidMount(){
  	this.getContent();
+ 	slideShow();
  }
 
  getContent(){
@@ -77,29 +78,28 @@ class Xlab extends React.Component {
  		}
 
  		return (<div>
- 					<h3>Design</h3>
-					<div className="diy-slideshow">
+					<div className="slideshow">
 						{designCarousel}
 						<span className="prev">&laquo;</span>
 						<span className="next">&raquo;</span>
 					</div>
     				<div dangerouslySetInnerHTML={{__html: self.data.designText }}></div>
 
-    				<div className="diy-slideshow">
+    				<div className="slideshow">
 						{exploreCarousel}
 						<span className="prev">&laquo;</span>
 						<span className="next">&raquo;</span>
 					</div>
     				<div dangerouslySetInnerHTML={{__html: self.data.exploreText }}></div>
 
-    				<div className="diy-slideshow">
+    				<div className="slideshow">
 						{innovationCarousel}
 						<span className="prev">&laquo;</span>
 						<span className="next">&raquo;</span>
 					</div>
     				<div dangerouslySetInnerHTML={{__html: self.data.innovationText }}></div>
 
-    				<div className="diy-slideshow">
+    				<div className="slideshow">
 						{testCarousel}
 						<span className="prev">&laquo;</span>
 						<span className="next">&raquo;</span>

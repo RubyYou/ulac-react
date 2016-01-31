@@ -60,58 +60,44 @@ class Contact extends React.Component {
  	if(this.state.loadComplete == true ){
 
  		return (<div>
- 					<section id="contact">
-				      	<div className="col-md-6 col-md-offset-3">
-					        
-					        <form action="../gdform.php" method="post" role="form">
-					     
+ 					<section className="contact">
+				      	<div className="form">
+					        <form action="../gdform.php" method="post" role="form">					     
 					        <input type="hidden" name="subject" value="Contact Us"/>
 					        <input type="hidden" name="redirect" value="contact.php"/>
 					        <input type="hidden" name="email" value={this.data.emailAddress} />
 					       
 					        <div className="form-group">
-							    <label htmlFor="name" className="col-sm-2 control-label">{this.data.nameLabel}</label>
-							    <div className="col-sm-10">
-							      <input type="text" name="name" className="form-control" id="name" placeholder={this.data.nameLabel} />
-							    </div>
+							    <label htmlFor="name" className="label">{this.data.nameLabel}</label>
+							      <input type="text" name="name" className="input-field" id="name" placeholder={this.data.nameLabel} />
 							  </div>
 							  <div className="form-group">
-							    <label htmlFor="company" className="col-sm-2 control-label">{this.data.companyLabel}</label>
-							    <div className="col-sm-10">
-							      <input type="test" name="company" className="form-control" id="company" placeholder={this.data.companyLabel} />
-							    </div>
+							    <label htmlFor="company" className="label">{this.data.companyLabel}</label>
+							      <input type="test" name="company" className="input-field" id="company" placeholder={this.data.companyLabel} />
 							  </div>
 							  <div className="form-group">
-							    <label htmlFor="Email" className="col-sm-2 control-label">{this.data.emailLabel}</label>
-							    <div className="col-sm-10">
-							      <input type="email" name="email" className="form-control" id="email" placeholder={this.data.emailLabel} />
-							    </div>
+							    <label htmlFor="Email" className="label">{this.data.emailLabel}</label>
+							      <input type="email" name="email" className="input-field" id="email" placeholder={this.data.emailLabel} />
 							  </div>
 							  <div className="form-group">
-							    <label htmlFor="phone" className="col-sm-2 control-label">{this.data.phoneLabel}</label>
-							    <div className="col-sm-10">
-							      <input type="number" name="phone" className="form-control" id="phone" placeholder={this.data.phoneLabel} />
-							    </div>
+							    <label htmlFor="phone" className="label">{this.data.phoneLabel}</label>
+							      <input type="number" name="phone" className="input-field" id="phone" placeholder={this.data.phoneLabel} />
 							  </div>
 							  <div className="form-group">
-							       <label htmlFor="inquiry" className="col-sm-2 control-label">{this.data.inquiryLabel}</label>
-							    <div className="col-sm-10">
-							          <textarea type="text" name="inquiry" className="form-control" rows="6"
+							       <label htmlFor="inquiry" className="label">{this.data.inquiryLabel}</label>
+							          <textarea type="text" name="inquiry" className="input-field" rows="6"
 							          placeholder="Please fill in details"></textarea>
-							    </div>
 							  </div>
-							  <div className="form-group">
-							    <div className="col-sm-offset-2 col-sm-10">
+							  <div className="form-group text-center">
 							      <button name="reset" type="reset" className="btn btn-ulac">{this.data.resetLabel}</button>
 							      <button name="submit" type="submit" value="submit" className="btn btn-ulac" >{this.data.submitLabel}</button>
-							    </div>
 							  </div>
 				        </form>
 				        </div>
 				      </section>				      
-				      <section id="map" className="row text-center">
-						    <h3 dangerouslySetInnerHTML={{__html: this.data.nameLabel }}></h3> 
-					        <img className="img-responsive" src="/ulac-react2/build/images/ULAC_map.jpg" />
+				      <section className="map text-center">
+						    <h3 dangerouslySetInnerHTML={{__html: this.data.mapTitle }}></h3> 
+					        <img className="width100" src="/ulac-react2/build/images/ULAC_map.jpg" />
 				      </section>
 	    		</div>)
 

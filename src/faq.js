@@ -27,9 +27,8 @@ class Faq extends React.Component {
 
  render() {
     return <div>
-    		<p>FAQ Content</p>
-    		<div className="content" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
-    		</div>;
+    			<div className="faq" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+    	   </div>;
   }
 }
 

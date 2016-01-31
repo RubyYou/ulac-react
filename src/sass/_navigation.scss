@@ -1,0 +1,46 @@
+nav{
+  display: inline-block;
+  float:right;
+  text-align: right;
+  margin-top: 60px;
+}
+
+#toggle-submenu.open ~ .sub-menu{
+  display: block;
+  position: absolute;
+  width: 230px;
+  text-align: left;
+  margin-top: 5px;
+  z-index: 999;
+}
+
+#mobileToggle{
+  padding: 5px 10px;
+  background: $grey;
+  display: inline-block;
+  color: black;
+  margin: 10px;
+}
+
+.sub-menu{
+  display: none;
+  background: #696969;
+
+  li{
+    width: 100%;
+    a{
+      color:black;
+      &:hover, &:focus{
+        color:$yellow
+      }
+    }
+  }
+}
+
+.lang-nav{
+  li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,49 @@
+@media screen and (max-width:767px){
+	footer{
+		[class*='col-']{
+			padding-left: 2%;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@media screen and (min-width:701px){
+	#mobileToggle{
+		display: none;
+	}
+}
+
+@media screen and (max-width:700px){
+	.nav-link{
+		display: none;
+	}
+
+	#mobileToggle.open ~ .nav-link{
+		display: block;
+		position: absolute;
+		background:$grey;
+		width:100%;
+		left:0;
+		text-align: left;
+
+		li{
+			width:100%;
+			a{
+			color:black;
+			
+				&:hover, &:focus{
+					color:$yellow;
+				}
+			}
+		}
+	}
+	
+	#toggle-submenu.open ~ .sub-menu{
+		width:100%;
+		left:0;
+	}
+
+	nav{
+		margin-top: 30px;
+	}
+}

@@ -1,0 +1,191 @@
+*{ margin:0;padding:0; }
+
+@font-face { font-family: 'Venera100' ; src: url('../fonts/Venera-100.otf'); }
+@font-face { font-family: 'Venera300' ; src: url('../fonts/Venera-300.otf'); }
+@font-face { font-family: 'Venera500' ; src: url('../fonts/Venera-500.otf'); }
+@font-face { font-family: 'Venera700' ; src: url('../fonts/Venera-700.otf'); }
+@font-face { font-family: 'Venera900' ; src: url('../fonts/Venera-900.otf'); }
+@font-face { font-family: 'GothamBook' ; src: url('../fonts/GothamBook.otf'); }
+@font-face { font-family: 'GothamMed' ; src: url('../fonts/GothamMed.otf'); }
+
+$yellow:#f8d12c;
+$grey:#9f9f9f;
+
+/* */
+body {
+  font-family: 'GothamBook', sans-serif ;
+  background: url('../images/bg.jpg') repeat;
+  color:$grey;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: "venera500";
+}
+
+.wrapper{
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  /*/border:1px solid #333;*/
+}
+
+nav .nav-link{
+  color:white;
+  font-family: "venera500", sans-serif;
+
+}
+nav .nav-link:focus, 
+nav .nav-link:hover{
+  color:$yellow;
+}
+
+.nav-link li{
+  display: inline-block;
+  list-style: none;
+  margin:10px;
+}
+
+p{
+  color: $grey;
+  font-family: sans-serif;
+  line-height: 1.5em;
+  font-family: 'GothamBook';
+}
+
+a{ 
+  color: $grey;
+  text-decoration: none;
+}
+
+.clear{
+  clear:both;
+}
+.logo{
+  margin:15px;
+  display: inline-block;
+  float: left;
+  
+  img{
+    height:85px;
+  }
+}
+
+/* home =============================================== */
+.menuThumb{
+  text-align: center;
+  padding-top: 60px;
+
+  img{
+    width: 100%;
+  }
+
+  [class*='col-']{
+    padding-right: 10px;
+  }
+  /*[class*='col-']:last-child{
+    padding-right: 0;
+  }*/
+}
+
+.home .grid-pad{
+  padding-left:0;
+}
+
+.video-section{
+  text-align: center;
+  margin: 50px;
+  
+  p{
+    width: 80%;
+    font-size: 1.3em;
+    margin: 0 auto;
+  }
+}
+
+/* about =============================================== */
+.about{
+  width: 90%;
+  margin: 40px auto;
+
+  h3{
+    color:$yellow;
+    margin:10px 0;
+  }
+}
+
+/* faq =================================================== */
+.faq{
+  width:90%;
+  margin:40px auto;
+  h4{
+    color:$yellow;
+  }
+  p{
+    margin-bottom: 20px;
+  }
+}
+
+/* contact =============================================== */
+
+.map{
+  margin:40px 0;
+
+  h3{
+    color:$yellow;
+    margin-bottom: 40px;
+  }
+
+}
+
+/* security =============================================== */
+.security{
+  width: 95%;
+  margin: 40px auto;
+  
+  h3{
+    color:$yellow;
+  }
+
+  table{
+    margin-top: 10px;
+  }
+
+  p{
+    margin: 10px 0;
+  }
+}
+
+
+/* contact =============================================== */
+.contact{
+  margin-top:40px;
+}
+
+.regions{
+  color:white;
+  font-family: sans-serif;
+  font-size:14px;
+  width:95%;
+  margin: 40px auto;
+}
+
+/* footer =============================================== */
+footer{
+  padding: 20px 0 40px;
+  width: 100%;
+  background-color: #000;
+
+  .grid-pad{
+    /*margin: 20px 0;*/
+  }
+
+  h4{
+    color:$yellow;
+    margin-bottom: 10px;
+  }
+
+  a:hover, a:focus{
+    color:lighten($yellow, 15);
+  }
+
+}

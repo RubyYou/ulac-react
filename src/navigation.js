@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import Request from 'superagent';
 
 class Navigation extends React.Component {
@@ -8,6 +9,9 @@ class Navigation extends React.Component {
   	this.state = {loadComplete:false};
   	this.getContent = this.getContent.bind(this);
   	this.loadComplete = this.loadComplete.bind(this);
+    this.toggleSubMenu = this.toggleSubMenu.bind(this);
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+
   	this.data = {
   		"lock":"",
   		"lite":"",
@@ -19,6 +23,7 @@ class Navigation extends React.Component {
   		"about":"",
   		"contact":""
   	};
+
  }
 
  componentDidMount(){
@@ -34,7 +39,27 @@ class Navigation extends React.Component {
  		.accept('application/json')
  		.end(function(err, response){
  			self.loadComplete(JSON.parse(response.text).nav);
-  		});
+  	});
+ }
+
+ toggleSubMenu(){
+    let menu = this.refs.subMenu;
+    
+    if( menu.className !== "open"){
+      menu.className = "open";
+    }else{
+      menu.className = "";
+    }
+ }
+
+ toggleMobileMenu(){
+    let mobileToggle = this.refs.mobileToggle;
+    
+    if(mobileToggle.className !== "open"){
+       mobileToggle.className = "open";
+    }else{
+       mobileToggle.className = "";
+    }
  }
 
  loadComplete(res){
@@ -54,18 +79,43 @@ class Navigation extends React.Component {
 
  render() {
  	let lang = this.props.lang;
+  let langList = [];
+  let langArry = ['EN','CN','KR','JP'];
+  let currentLangIndex = langArry.indexOf(lang);
+  
+  if (currentLangIndex > -1) {
+     langArry.splice(currentLangIndex, 1);
+  }
+
+  for(let i=0; i < langArry.length ; i ++){
+    let link = "/ulac-react2/build/" + langArry[i];
+    langList.push(<li><a href={link}>{langArry[i]}</a></li>);
+  }
+
+  let representative = [];
+  if(lang == "CN"){
+    representative.push(<li><a href="representative">{this.data.representative}</a></li>);
+  }
 
     return <nav>
+            <ul className="lang-nav">
+              {langList}
+            </ul>
+            <span id="mobileToggle" ref="mobileToggle" 
+                  onClick={this.toggleMobileMenu}>
+                  <i className="fa fa-bars fa-2x"></i>
+            </span>
 	          <ul className="nav-link">
 	            <li><a href="lite">{this.data.lock}</a></li>
 	            <li><a href="lock">{this.data.lite}</a></li>
-	            <li><a href="javascript:void(0)" className="nav">{this.data.xlab}</a>
-	            	<ul>
+	            <li><a id="toggle-submenu" href="javascript:void(0)" ref="subMenu"
+                      onClick={this.toggleSubMenu}>{this.data.xlab}</a>
+	            	<ul className="sub-menu" >
 	            		<li><a href="xlab">{this.data.xlab}</a></li>
 	            		<li><a href="innovation">{this.data.innovation}</a></li>
 	            		<li><a href="security">{this.data.security}</a></li>
 	            		<li><a href="faq">{this.data.faq}</a></li>
-	            		<li><a href="representative">{this.data.representative}</a></li>
+	            		{ representative }
 	            	</ul>
 	            </li>	            
 	            <li><a href="about">{this.data.about}</a></li>

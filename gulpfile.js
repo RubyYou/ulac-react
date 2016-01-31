@@ -14,6 +14,8 @@ var buffer = require('vinyl-buffer'); // Vinyl stream support
 var watchify = require('watchify'); // Watchify for source changes
 var merge = require('utils-merge'); // Object merge tool
 var duration = require('gulp-duration'); // Time aspects of your gulp process
+var compass = require('gulp-compass');
+var minifyCSS = require('gulp-minify-css');
 
 // Configuration for Gulp
 var config = {
@@ -25,22 +27,45 @@ var config = {
     }
 };
 
-// Error reporting function
-function mapError(err) {
-    if (err.fileName) {
-        // Regular error
-        gutil.log(chalk.red(err.name)
-            + ': ' + chalk.yellow(err.fileName.replace(__dirname + '/src/js/', ''))
-            + ': ' + 'Line ' + chalk.magenta(err.lineNumber)
-            + ' & ' + 'Column ' + chalk.magenta(err.columnNumber || err.column)
-            + ': ' + chalk.blue(err.description));
-    } else {
-        // Browserify error..
-        gutil.log(chalk.red(err.name)
-            + ': '
-            + chalk.yellow(err.message));
-    }
-}
+gulp.task('compass', function() {
+  gulp.src('./src/sass/*.scss')
+              .pipe(compass({
+                // Gulp-compass options and paths
+                css: 'css',
+                sass: './src/sass/',
+                require: ['susy']
+         }))
+         .pipe(minifyCSS())
+         .pipe(gulp.dest('./build/css/'));;
+});
+
+// gulp.task('sass', function() {
+//   gulp.src('src/sass/**/*.{scss,sass}')
+//     // Initializes sourcemaps
+//     .pipe(sourcemaps.init())
+//     .pipe(sass({
+//       errLogToConsole: true
+//       }))
+//     // Writes sourcemaps into the CSS file
+//     .pipe(sourcemaps.write())
+//     .pipe(gulp.dest('./css'));
+// })
+
+
+// Gulp task for build
+gulp.task('default', function() {
+    var args = merge(watchify.args, { debug: true }); // Merge in default watchify args with browserify arguments
+
+    var bundler = browserify(config.js.src, args) // Browserify
+        .plugin(watchify, {ignoreWatch: ['node_modules/**', 'react/**']}) // Watchify to watch source file changes
+        .transform(babelify, {presets: ['es2015', 'react']}); // Babel tranforms
+
+    bundle(bundler); // Run the bundle the first time (required for Watchify to kick in)
+
+    bundler.on('update', function() {
+        return bundle(bundler); // Re-run bundle on source updates
+    });
+});
 
 // Completes the final file outputs
 function bundle(bundler) {
@@ -48,7 +73,6 @@ function bundle(bundler) {
 
     bundler
         .bundle()
-        .on('error', mapError) // Map error reporting
         .pipe(source('main.jsx')) // Set source name
         .pipe(buffer()) // Convert to gulp pipeline
         .pipe(rename(config.js.outputFile)) // Rename the output file
@@ -60,52 +84,3 @@ function bundle(bundler) {
         })) // Output the file being created
         .pipe(bundleTimer); // Output time timing of the file creation
 }
-
-// Gulp task for build
-gulp.task('default', function() {
-    var args = merge(watchify.args, { debug: true }); // Merge in default watchify args with browserify arguments
-
-    var bundler = browserify(config.js.src, args) // Browserify
-        .plugin(watchify, {ignoreWatch: ['node_modules/**', 'bower_components/**']}) // Watchify to watch source file changes
-        .transform(babelify, {presets: ['es2015', 'react']}); // Babel tranforms
-
-    bundle(bundler); // Run the bundle the first time (required for Watchify to kick in)
-
-    bundler.on('update', function() {
-        return bundle(bundler); // Re-run bundle on source updates
-    });
-});
-
-
-gulp.task('watch:browserify', function () {
-    var opts = assign({}, watchify.args, {
-        entries: ['./src/main.jsx'],
-        debug: true,
-        basedir: './src/',
-        paths: ['./lib']
-    });
-
-    var b = watchify(browserify(opts));
-
-    b.on('update', function () {
-        bundle();
-    });
-
-    function bundle() {
-        gutil.log(gutil.colors.blue("Starting Browserify..."));
-        var time = Date.now();
-        return b.bundle()
-            .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify Error')))
-            .pipe(source('bundle.js'))
-            .pipe(buffer())
-            // .pipe(sourcemaps.init({loadMaps: true}))
-            // .pipe(sourcemaps.write('.'))
-            .pipe(gulp.dest('app'))
-            .on('end', function () {
-                var duration = Date.now() - time;
-                gutil.log(gutil.colors.blue('Finished Browserify') + " (%dms)", duration);
-            })
-    }
-
-    return bundle();
-});

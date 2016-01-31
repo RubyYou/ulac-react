@@ -21,9 +21,7 @@ class About extends React.Component {
  		.type('Content-Type', 'text/html; charset=utf8')
  		.end(function(err, res){
  			// get lang-about
-
  			self.setState({content:res.text});
-
   		});
  }
 
@@ -31,8 +29,9 @@ class About extends React.Component {
  	let lang = this.props.lang;
 
     return <div>
-    		<p>About ULAC</p>
-    		<div className="content" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+    			<div className="about" 
+    			 	dangerouslySetInnerHTML={{__html: this.state.content }}>
+    			</div>
     	   </div>;
   }
 }
