@@ -1,7 +1,6 @@
 node_modules/*
 react/*
 build/images/*
-build/lib/*
 build/css/*
 build/data/*
 build/map/*

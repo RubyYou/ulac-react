@@ -87,9 +87,9 @@ class Navigation extends React.Component {
      langArry.splice(currentLangIndex, 1);
   }
 
-  for(let i=0; i < langArry.length ; i ++){
+  for(let i = 0; i < langArry.length ; i ++){
     let link = "/ulac-react2/build/" + langArry[i];
-    langList.push(<li><a href={link}>{langArry[i]}</a></li>);
+    langList.push(<li key={'link' + i}><a href={link}>{langArry[i]}</a></li>);
   }
 
   let representative = [];

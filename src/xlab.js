@@ -78,7 +78,7 @@ class Xlab extends React.Component {
  		}
 
  		return (<div>
-					<div className="slideshow">
+					<div className="slideshow" >
 						{designCarousel}
 						<span className="prev">&laquo;</span>
 						<span className="next">&raquo;</span>
@@ -105,8 +105,7 @@ class Xlab extends React.Component {
 						<span className="next">&raquo;</span>
 					</div>
     				<div dangerouslySetInnerHTML={{__html: self.data.testText }}></div>
-
-	    		  </div>)
+	    		</div>)
 
  	} else {
  		return (<div>

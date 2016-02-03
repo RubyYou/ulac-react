@@ -18,7 +18,7 @@ class Footer extends React.Component {
  }
 
  componentDidMount(){
- 	this.getContent();
+    this.getContent();
  }
 
  getContent(){
@@ -47,15 +47,15 @@ class Footer extends React.Component {
   let footerContent = [];
 
   if(lang == "CN" || lang == "KR"){
-        footerContent.push(<div>
-                <div className="col-1-2" dangerouslySetInnerHTML={{__html:this.data.sectionA }}></div>
-                <div className="col-1-2" dangerouslySetInnerHTML={{__html:this.data.sectionB }}></div>
+        footerContent.push(<div key={'footer'}>
+            <div className="col-1-2" dangerouslySetInnerHTML={{__html: this.data.sectionA }}></div>
+            <div className="col-1-2" dangerouslySetInnerHTML={{__html: this.data.sectionB }}></div>
                           </div>);
    }else{
-        footerContent.push(<div>
-                <div className="col-1-3" dangerouslySetInnerHTML={{__html:this.data.sectionA }}></div>
-                <div className="col-1-3" dangerouslySetInnerHTML={{__html:this.data.sectionB }}></div>
-                <div className="col-1-3" dangerouslySetInnerHTML={{__html:this.data.sectionC }}></div>
+        footerContent.push(<div key={'footer'}>
+            <div className="col-1-3" dangerouslySetInnerHTML={{__html: this.data.sectionA }}></div>
+            <div className="col-1-3" dangerouslySetInnerHTML={{__html: this.data.sectionB }}></div>
+            <div className="col-1-3" dangerouslySetInnerHTML={{__html: this.data.sectionC }}></div>
                           </div>);
    }
   
