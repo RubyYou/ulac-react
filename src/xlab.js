@@ -64,7 +64,6 @@ class Xlab extends React.Component {
  	let self = this;
 
  	if(this.state.loadComplete == true ){
- 		//loading content {designCarousel}
  		for (var key in self.data.designSliderImgs){
  			designCarousel.push(<img key={"designImg" + key} src={self.data.designSliderImgs[key]} />);
  		}
@@ -82,33 +81,48 @@ class Xlab extends React.Component {
  		}
 
  		return (<div>
-					<div className="slideshow" >
-						{designCarousel}
-						<span className="prev">&laquo;</span>
-						<span className="next">&raquo;</span>
-					</div>
-    				<div dangerouslySetInnerHTML={{__html: self.data.designText }}></div>
+ 					<div className="grid grid-pad">
+	 					<div className="col-7-12">
+							<div className="slideshow" >
+								{designCarousel}
+								<span className="prev">&laquo;</span>
+								<span className="next">&raquo;</span>
+							</div>
+						</div>
+    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.designText }}></div>
+    				</div>
+    				<div className="grid grid-pad">
+	    				<div className="col-7-12">
+		    				<div className="slideshow">
+								{exploreCarousel}
+								<span className="prev">&laquo;</span>
+								<span className="next">&raquo;</span>
+							</div>
+						</div>
+    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.exploreText }}></div>
+    				</div>
 
-    				<div className="slideshow">
-						{exploreCarousel}
-						<span className="prev">&laquo;</span>
-						<span className="next">&raquo;</span>
-					</div>
-    				<div dangerouslySetInnerHTML={{__html: self.data.exploreText }}></div>
+    				<div className="grid grid-pad">
+	    				<div className="col-7-12">
+		    				<div className="slideshow">
+								{innovationCarousel}
+								<span className="prev">&laquo;</span>
+								<span className="next">&raquo;</span>
+							</div>
+						</div>
+    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.innovationText }}></div>
+    				</div>
 
-    				<div className="slideshow">
-						{innovationCarousel}
-						<span className="prev">&laquo;</span>
-						<span className="next">&raquo;</span>
-					</div>
-    				<div dangerouslySetInnerHTML={{__html: self.data.innovationText }}></div>
-
-    				<div className="slideshow">
-						{testCarousel}
-						<span className="prev">&laquo;</span>
-						<span className="next">&raquo;</span>
-					</div>
-    				<div dangerouslySetInnerHTML={{__html: self.data.testText }}></div>
+    				<div className="grid grid-pad">
+	    				<div className="col-7-12">
+		    				<div className="slideshow">
+								{testCarousel}
+								<span className="prev">&laquo;</span>
+								<span className="next">&raquo;</span>
+							</div>
+						</div>
+    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.testText }}></div>
+    				</div>
 	    		</div>)
 
  	} else {
