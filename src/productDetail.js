@@ -56,7 +56,7 @@ class ProductDetail extends React.Component {
                     <p><b>Product Code: {content.lock_id}</b></p>
                     <p><b>Spec: {content.spec}</b></p>
                     <p><b>Weight: {content.weight}</b></p> 
-                    <img className="security" src={security} />
+                    <img className="level" src={security} />
                     <div className="icons">{icons}</div>
                   </div>
 

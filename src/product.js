@@ -27,7 +27,6 @@ class Product extends React.Component {
 
     window.addEventListener('hashchange', () => {
       self.setState({hashName:(window.location.hash).substring(1)});
-      //console.log("change Hash Name:" + (window.location.hash).substring(1));
       this.onHashUpdate();
     });
  }

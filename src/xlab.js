@@ -26,7 +26,7 @@ class Xlab extends React.Component {
  	this.getContent(); 	
  }
 
-  componentDidUpdate(){
+ componentDidUpdate(){
   	if(this.state.loadComplete){
   		slideShow();
   	}

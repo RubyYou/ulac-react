@@ -69,7 +69,7 @@
   color: #ffd356;
 }
 
-.product-content .security{
+.product-content .level{
   height: 70px;
 }
 
@@ -114,16 +114,18 @@
   display: block;
   overflow: hidden;
 }
-.slideshow img{
+.slideshow img, .slideshow iframe{
   position: absolute;
   top:0;
   left:0;
   opacity: 0;
   transition: 1s opacity;
+}
+.slideshow img{
   width:100%;
 }
 
-.slideshow img.show{
+.slideshow img.show, .slideshow iframe.show{
   opacity: 1;
   position: static;
   transition: 1s opacity;

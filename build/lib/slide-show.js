@@ -1,40 +1,52 @@
-function slideShow(){
 
-    
+function slideShow(){
     var container = document.querySelectorAll('.slideshow');
-    
     var numSlideShow = container.length;
 
     for(var i = 0; i< numSlideShow ; i ++){
+        
+        var counter = 0;
         var items = container[i].querySelectorAll('img');
+        
+        if(items.length <= 0){
+            items = container[i].querySelectorAll('iframe');
+            container[i].querySelectorAll('iframe')[0].className = 'show';
+        } else {
+            container[i].querySelectorAll('img')[0].className = 'show';
+        }
+
         var numItems = items.length;
         var next = container[i].querySelectorAll('.next');
         var prev = container[i].querySelectorAll('.prev');
 
-        next.addEventListener('click', function(e) {
-            counter ++;
-            showCurrent(items, numItems);
-        },false );
-
-        prev.addEventListener('click', function(e) {
-            counter --;
-            showCurrent(items, numItems);
-        }, false);
+        eventListener(prev[0], next[0], items, numItems);
     }
 }
 
-function showCurrent(items, numItems){
+function eventListener(prev, next, items, numItems){
     
-    var counter = 0; // to keep track of current slide
+    var counter = 0;
 
-    var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
-    
-    // http://stackoverflow.com/a/16053538/2006057
-    [].forEach.call( items, function(el){
-        el.classList.remove('show');
-    });
+    next.addEventListener('click', function(e) {
+        counter ++;
+        showCurrent(items, numItems);
+    },false );
 
-    // add .show to the one item that's supposed to have it
-    items[itemToShow].classList.add('show');    
-};
+    prev.addEventListener('click', function(e) {
+        counter --;
+        showCurrent(items, numItems);
+    }, false);
+
+
+    var showCurrent = function(){
+
+        var itemToShow = Math.abs(counter%numItems);
+        [].forEach.call( items, function(el){
+            el.classList.remove('show');
+        });
+
+        items[itemToShow].classList.add('show');            
+    }
+
+}
 
