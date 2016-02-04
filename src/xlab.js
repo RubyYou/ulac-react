@@ -23,9 +23,14 @@ class Xlab extends React.Component {
  }
 
  componentDidMount(){
- 	this.getContent();
- 	slideShow();
+ 	this.getContent(); 	
  }
+
+  componentDidUpdate(){
+  	if(this.state.loadComplete){
+  		slideShow();
+  	}
+  }
 
  getContent(){
  	let self = this;
@@ -48,8 +53,7 @@ class Xlab extends React.Component {
  	this.data.exploreSliderImgs = res.carouselImg.explore;
  	this.data.innovationSliderImgs = res.carouselImg.innovation;
  	this.data.testSliderImgs = res.carouselImg.test;
- 	this.setState({loadComplete:true});
-
+ 	this.setState({loadComplete:true}); 	
  }
 
  render() {
