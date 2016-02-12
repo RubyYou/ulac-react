@@ -23,7 +23,7 @@ class Footer extends React.Component {
 
  getContent(){
  	let self = this;
- 	console.log((this.props.lang).toLowerCase());
+ 	//console.log((this.props.lang).toLowerCase());
 
  	Request
  		.get('/ulac-react2/build/data/navigation.json')

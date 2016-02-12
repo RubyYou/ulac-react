@@ -108,7 +108,7 @@ class App extends React.Component {
           break;
       case 'lock': 
       case 'lite': 
-          Page = <Product lang={this.state.lang}/>; 
+          Page = <Product lang={this.state.lang} route={route}/>; 
           break;
       case 'faq': 
           Page = <Faq lang={this.state.lang}/>; 

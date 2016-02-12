@@ -7,6 +7,8 @@ class Xlab extends React.Component {
  constructor(prop){
   	super();
   	this.state = {loadComplete:false};
+  	this.getContent = this.getContent.bind(this);
+  	this.loadComplete = this.loadComplete.bind(this);
   	this.data = {
   		"designSliderImgs":"",
   		"exploreSliderImgs":"",
@@ -17,9 +19,6 @@ class Xlab extends React.Component {
 		"innovationText":"",
 		"testText":""
   	};
-
-  	this.getContent = this.getContent.bind(this);
-  	this.loadComplete = this.loadComplete.bind(this);
  }
 
  componentDidMount(){
@@ -80,7 +79,7 @@ class Xlab extends React.Component {
  			testCarousel.push(<img key={"test" + key} src={self.data.testSliderImgs[key]} />);
  		}
 
- 		return (<div>
+ 		return (<div className="xlab">
  					<div className="grid grid-pad">
 	 					<div className="col-7-12">
 							<div className="slideshow" >

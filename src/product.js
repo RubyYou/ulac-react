@@ -44,7 +44,7 @@ class Product extends React.Component {
  getContentType(){
     //this.state.hashName = (window.location.hash).substring(1); 
     let contentType = "product";
-    let catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable"];
+    let catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety"];
     
     //console.log("this.state.hashName:" + this.state.hashName);
 
@@ -66,7 +66,7 @@ class Product extends React.Component {
     let self = this;
    	
     Request
-   		.get('/ulac-react2/build/template/product.php?cat='+ cat )
+   		.get('/ulac-react2/build/template/' + this.props.route + '.php?cat='+ cat )
    		.type('Content-Type', 'text/html; charset=utf8')
    		.end(function(err, res){
    			self._data.content = JSON.parse(res.text)
@@ -74,11 +74,11 @@ class Product extends React.Component {
     	});
  }
 
- getProduct(lockId){
+ getProduct(productId){
     let self = this;
 
     Request
-      .get('/ulac-react2/build/template/product.php?lock='+ lockId )
+      .get('/ulac-react2/build/template/'+ this.props.route + '.php?'+ this.props.route +'='+ productId )
       .type('Content-Type', 'text/html; charset=utf8')
       .end(function(err, res){
         self._data.content = JSON.parse(res.text)
@@ -88,38 +88,52 @@ class Product extends React.Component {
 
  render() {
     let content = [];
-
+    let categoryNav = [];
    	if(this.state.loadComplete == true){
 
       if(this._data.contentType == 'all' || this._data.contentType == 'cat'){
           content.push(<ProductCategories 
-                      content = {this._data.content}
-                      lang = {this.props.lang}
-                    />);
+                          content = {this._data.content}
+                          lang = {this.props.lang}
+                          route = {this.props.route}
+                        />);
 
       }else{
           content.push(<ProductDetail 
                       content = {this._data.content}
                       lang = {this.props.lang}
+                      route = {this.props.route}
                     />);
       }
     
     }else{
+
         content.push(<Preloader />);
+    }
+
+    if(this.props.route == 'lock'){
+        categoryNav.push(<div className="cat_list">
+              <a href="#ulac" onClick={this.getCategory.bind(this,'ulac')}> ULAC</a>
+              <a href="#combo" onClick={this.getCategory.bind(this,'combo')}>Combo</a>
+              <a href="#chain" onClick={this.getCategory.bind(this,'chain')}>Chain</a>
+              <a href="#cable" onClick={this.getCategory.bind(this,'cable')}>cable</a>
+              <a href="#ulock" onClick={this.getCategory.bind(this,'ulock')}>ulock</a>
+              <a href="#special" onClick={this.getCategory.bind(this,'special')}>special</a>
+              <a href="#key" onClick={this.getCategory.bind(this,'key')}>key</a>
+              </div>);
+
+    } else {
+
+        categoryNav.push(<div className ="cat_list">
+              <a href="#front" onClick={this.getCategory.bind(this,'front')}>front</a>
+              <a href="#safety" onClick={this.getCategory.bind(this,'safety')}>safety</a>
+              </div>);
     }
 
     return (
         <div> 
-            <div className="cat_list">
-          		<a href="#ulac" onClick={this.getCategory.bind(this,'ulac')}> ULAC</a>
-          		<a href="#combo" onClick={this.getCategory.bind(this,'combo')}>Combo</a>
-          		<a href="#chain" onClick={this.getCategory.bind(this,'chain')}>Chain</a>
-          		<a href="#cable" onClick={this.getCategory.bind(this,'cable')}>cable</a>
-          		<a href="#ulock" onClick={this.getCategory.bind(this,'ulock')}>ulock</a>
-          		<a href="#special" onClick={this.getCategory.bind(this,'special')}>special</a>
-          		<a href="#key" onClick={this.getCategory.bind(this,'key')}>key</a>
-            </div>
-    		    {content}
+          	{ categoryNav }
+    		    { content }
     	  </div>
     )
   }
