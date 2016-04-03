@@ -25,8 +25,8 @@ class ProductCategories extends React.Component {
     let contentId = this.props.route+ "_id";
 
     for (let i = 0; i < size; i++){
-    	//content[i].thumbImg = ("/ulac-react2/build/").concat(content[i].thumbImg); // local
-    	content[i].thumbImg = ("/").concat(content[i].thumbImg);
+    	content[i].thumbImg = ("/ulac-react2/build/").concat(content[i].thumbImg); // local
+    	//content[i].thumbImg = ("/").concat(content[i].thumbImg);
       let summaryArr = (content[i][summary]).split(",");
 
     	items.push(<a href={"#"+content[i][contentId]} 
@@ -41,7 +41,7 @@ class ProductCategories extends React.Component {
           				</a>);
     }
 
-  	return <div className="wrapper">
+  	return <div className="product-wrapper">
   				{items}
   			</div>;
   }

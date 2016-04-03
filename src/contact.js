@@ -89,6 +89,7 @@ class Contact extends React.Component {
 							          placeholder="Please fill in details"></textarea>
 							  </div>
 							  <div className="form-group text-center">
+							  
 							      <button name="reset" type="reset" className="btn btn-ulac">{this.data.resetLabel}</button>
 							      <button name="submit" type="submit" value="submit" className="btn btn-ulac" >{this.data.submitLabel}</button>
 							  </div>

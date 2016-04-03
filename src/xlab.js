@@ -36,7 +36,7 @@ class Xlab extends React.Component {
  	console.log((this.props.lang).toLowerCase());
 
  	Request
- 		.get('/ulac-react2/build/data/xlab.json')
+ 		.get('/ulac-react2/build/data/aboutXlab.json')
  		.accept('application/json')
  		.end(function(err, response){
  			self.loadComplete(response.body);
@@ -81,46 +81,46 @@ class Xlab extends React.Component {
 
  		return (<div className="xlab">
  					<div className="grid grid-pad">
-	 					<div className="col-7-12">
+	 					<div className="col-6-12">
 							<div className="slideshow" >
 								{designCarousel}
 								<span className="prev">&laquo;</span>
 								<span className="next">&raquo;</span>
 							</div>
 						</div>
-    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.designText }}></div>
+    					<div className="col-6-12" dangerouslySetInnerHTML={{__html: self.data.designText }}></div>
     				</div>
     				<div className="grid grid-pad">
-	    				<div className="col-7-12">
+	    				<div className="col-6-12">
 		    				<div className="slideshow">
 								{exploreCarousel}
 								<span className="prev">&laquo;</span>
 								<span className="next">&raquo;</span>
 							</div>
 						</div>
-    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.exploreText }}></div>
+    					<div className="col-6-12" dangerouslySetInnerHTML={{__html: self.data.exploreText }}></div>
     				</div>
 
     				<div className="grid grid-pad">
-	    				<div className="col-7-12">
+	    				<div className="col-6-12">
 		    				<div className="slideshow">
 								{innovationCarousel}
 								<span className="prev">&laquo;</span>
 								<span className="next">&raquo;</span>
 							</div>
 						</div>
-    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.innovationText }}></div>
+    					<div className="col-6-12" dangerouslySetInnerHTML={{__html: self.data.innovationText }}></div>
     				</div>
 
     				<div className="grid grid-pad">
-	    				<div className="col-7-12">
+	    				<div className="col-6-12">
 		    				<div className="slideshow">
 								{testCarousel}
 								<span className="prev">&laquo;</span>
 								<span className="next">&raquo;</span>
 							</div>
 						</div>
-    					<div className="col-5-12" dangerouslySetInnerHTML={{__html: self.data.testText }}></div>
+    					<div className="col-6-12" dangerouslySetInnerHTML={{__html: self.data.testText }}></div>
     				</div>
 	    		</div>)
 

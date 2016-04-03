@@ -37,30 +37,39 @@ class Home extends React.Component {
                  <span className="prev">&laquo;</span>
                  <span className="next">&raquo;</span>
                </div>
-               <div className="grid grid-pad menuThumb">
-            		<div className="col-1-3" >
+               <div className="clear"></div>
+               <div className="menuThumb">
+            		<div className="col-1" >
                   <a href={linkPrefix + "/lock"}>
             			   <img src="/ulac-react2/build/images/block-1.jpg" />
             			   <h3>BICYCLE LOCK</h3>
                   </a>
             		</div>
-            		<div className="col-1-3" >
+            		<div className="col-1" >
                   <a href={linkPrefix + "/lite"}>
             			   <img src="/ulac-react2/build/images/block-2.jpg" />
             			   <h3>BICYCLE LIGHT</h3>
                   </a>
             		</div>
-            		<div className="col-1-3" >
+            		<div className="col-1" >
                   <a href={linkPrefix + "/innovation"}>
             			   <img src="/ulac-react2/build/images/block-3.jpg" />
             			   <h3>INNOVATION</h3>
                   </a>
-            		</div>	   	
+            		</div>
+                <div className="clear"></div>	   	
                </div>
-              <div className="video-section">
-  		    		<iframe width="640" height="360" src="//www.youtube.com/embed/43wOlX-7Ynw" frameBorder="0" allowFullScreen></iframe>
-  		    		<p>Since its founding in Taiwan in 1985, ULAC has promoted consumer safety and security through the manufacture of secure and fashionable bicycle locks and lights.</p>
-  	    		</div>
+              <div className="grid grid-pad">
+                <div className="col-6-12 video-section">
+    		    		  <iframe width="100%" height="360" src="//www.youtube.com/embed/43wOlX-7Ynw" frameBorder="0" allowFullScreen></iframe>
+    		    		  <p>Since its founding in Taiwan in 1985, ULAC has promoted consumer safety and security through the manufacture of secure and fashionable bicycle locks and lights.</p>
+    	    		  </div>
+                <div className="col-6-12 catalog">
+                    <a href="images/ULAC_catalogue_2016.pdf" target="_blank">
+                      <img src="/ulac-react2/build/images/ULAC_catalogue_cover.jpg" />
+                    </a>
+                </div>
+              </div>
       	   </div>;
   }
 }

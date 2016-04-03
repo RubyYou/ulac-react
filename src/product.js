@@ -113,7 +113,8 @@ class Product extends React.Component {
 
     if(this.props.route == 'lock'){
         categoryNav.push(<div className="cat_list">
-              <a href="#ulac" onClick={this.getCategory.bind(this,'ulac')}> ULAC</a>
+              <a href="#ulac" onClick={this.getCategory.bind(this,'ulac')}>ULAC</a>
+              <a href="#all" onClick={this.getCategory.bind(this,'all')}>ALL</a>
               <a href="#combo" onClick={this.getCategory.bind(this,'combo')}>Combo</a>
               <a href="#chain" onClick={this.getCategory.bind(this,'chain')}>Chain</a>
               <a href="#cable" onClick={this.getCategory.bind(this,'cable')}>cable</a>
