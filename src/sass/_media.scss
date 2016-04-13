@@ -1,4 +1,5 @@
 @media screen and (max-width:767px){
+	
 	footer{
 		[class*='col-']{
 			padding-left: 2%;
@@ -25,6 +26,7 @@
 		width:100%;
 		left:0;
 		text-align: left;
+		z-index: 999;
 
 		li{
 			width:100%;
@@ -45,5 +47,56 @@
 
 	nav{
 		margin-top: 30px;
+	}
+	.video-section{
+		margin: 20px;
+
+		iframe{
+			width:100%;
+			height: 300px;
+		}
+		p{
+			font-size: 1em;
+		}
+	}
+}
+@media screen and (max-width:650px){
+
+	.menuThumb{
+		margin-top:10px;
+
+		h3{
+			font-size:1em;
+		}
+	}
+
+	.video-section{
+		iframe{
+			height: 250px;
+		}
+		p{
+			margin-top: 10px;
+		}
+	}
+
+}
+
+@media screen and (max-width:480px){
+	.menuThumb{
+	 	[class*='col-']{
+	    	padding: 0;
+	    	width:100%;
+	    	display: block;
+	    	float:none;
+	  	}
+	  	h3{
+			font-size:1.3em;
+		}
+	}
+	nav{
+		margin-top: 15px;
+	}
+	#mobileToggle{
+		margin:5px 10px;
 	}
 }

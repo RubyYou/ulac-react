@@ -1,14 +1,18 @@
 /* ======================= Category List ========================== */
 .cat_list{
-  margin: 2em 0;
+  margin: 5px 0;
 }
 
 .cat_list a{
   background-color: rgba(53,53,53,0.5);
   color: #9f9f9f;
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 8px;
   display: inline-block;
+
+  @media screen and (max-width:768px){
+    padding: 5px 10px;
+  }
 }
 
 .cat_list a:active, .cat_list a:hover{
@@ -19,21 +23,48 @@
 /* category items */
 .item{
     list-style: none;
-    padding: 15px;
+    padding: 14px;
     background-color: rgba(53,53,53,0.5);
-    margin: 15px 15px 15px 5px;
+    margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
+
+    img{
+      width:100%;
+      max-width: 180px;
+    } 
+
+    @media screen and (min-width:1001px){
+        width:18%;
+    }
+
+    @media screen and (max-width:1000px){
+      width:22%;
+      padding:10px;
+      margin:10px;
+    }
+
+    @media screen and (max-width:768px){
+      width:30%;
+      padding:10px;
+      margin:8px;
+    }
+
+    @media screen and (max-width:550px){
+      width:45%;
+    }
+
 }
 
 .item hr{
   margin: 10px 0;
-  border-color: #9f9f9f;
+  border-color: #565353;
 }
 
 .item ul{
   padding-left: 15px;
+  text-align: left;
 }
 
 .item ul li {
@@ -51,56 +82,124 @@
 }
 
 .product-content{
-    display: inline-block;
-    float: left;
-    width: 45%;
-    margin-left: 20px;
-}
-.product-content .title{
-  font-family:'Venera700', sans-serif;
-}
-
-.product-content .main-content{
-  margin:15px 0;
-}
-
-.product-content b{
-  font-size: 16px;
-  color: #ffd356;
-}
-
-.product-content .level{
-  height: 70px;
-}
-
-.product-content .icons{
-  margin-left: 20px;
   display: inline-block;
-}
+  float: left;
+  width: 45%;
+  margin-left: 20px;
 
-.product-content .icons img{
-    width: 80px;
-    margin-right: 5px;
-    margin-top: 10px;
-    border: 3px solid #444444;
-}
+  @media screen and (max-width:768px){
+    float: none;
+    width: 90%;
+    max-width: 600px;
+    margin: 5px auto;
+    display: block;
+  }
 
-.product-wrap .manual{
+  .title{
+    font-family:'Venera700', sans-serif;
+
+    @media screen and (max-width:1000px){
+      font-size:16px;
+    }
+  }
+  
+  .main-content{
+    margin:10px 0;
+
+    @media screen and (max-width:1000px){
+      font-size:14px;
+      margin:5px 0;
+    }
+  }
+
+  b{
+    font-size: 16px;
+    color: #ffd356;
+    @media screen and (max-width:1000px){
+      font-size:14px;
+    }
+  }
+
+  .level{
+    margin-top:2px;
+    height: 70px;
+    @media screen and (max-width:1000px){
+      height: 60px;
+    }
+  }
+
+  .icons{
     display: inline-block;
-    float: left;
-}
-.product-wrap iframe{
-    display: inline-block;
-    float: left;
-    margin-left: 20px;
 
+    img{
+      width: 80px;
+      margin-right: 5px;
+      margin-top: 3px;
+      border: 3px solid #444444;
+      
+      @media screen and (max-width:1000px){
+        width: 65px;
+      }
+    }
+  }
 }
 
-/* ======================= Category List ========================== */
-.product-wrap .slideshow{
-  height:371px;
-  width: 600px;
+.product-wrap{
+  
+  @media screen and (min-width:769px){
+    margin-left:12px;
+  }
+
+  .slideshow{
+    max-width: 600px;
+    width:52%;
+
+    @media screen and (max-width:768px){
+      float: none;
+      width: 90%;
+      margin:0 auto;
+    }
+  }
+ 
+  // .manual{
+  //   display: inline-block;
+  //   float: left;
+  //   width:52%;
+  //   max-width: 600px;
+
+  //   @media screen and (max-width:768px){
+  //     float: none;
+  //     width: 90%;
+  //     max-width: 600px;
+  //     margin: 0 auto;
+  //     display: block;
+  //   }
+  // }
+
+  // download button
+  button{
+    border: none;
+    background: transparent;
+    vertical-align: top;
+    margin: 24px 10px 0;
+  }
+
+  iframe{
+    display: block;
+    margin: 40px auto 0;
+    max-width: 600px;
+
+    @media screen and (max-width:768px){
+      float: none;
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }
+
+/* ======================= Slide show ========================== */
 
 .home .slideshow{
   max-width: 1140px;

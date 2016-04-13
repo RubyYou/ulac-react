@@ -2,7 +2,7 @@ nav{
   display: inline-block;
   float:right;
   text-align: right;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 #toggle-submenu.open ~ .sub-menu{
@@ -38,6 +38,7 @@ nav{
 }
 
 .lang-nav{
+  margin-bottom: 15px;
   li{
     list-style: none;
     display: inline-block;

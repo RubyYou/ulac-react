@@ -11,7 +11,6 @@
 $yellow:#f8d12c;
 $grey:#9f9f9f;
 
-/* */
 body {
   font-family: 'GothamBook', sans-serif ;
   background: url('../images/bg.jpg') repeat;
@@ -26,7 +25,6 @@ h1, h2, h3, h4, h5{
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-  /*/border:1px solid #333;*/
 }
 
 nav .nav-link{
@@ -60,31 +58,44 @@ a{
 .clear{
   clear:both;
 }
+
 .logo{
   margin:15px;
   display: inline-block;
   float: left;
   
   img{
-    height:85px;
+    height: 85px;
+    @media screen and (max-width:480px){
+      height: 65px;
+    }
   }
 }
 
 /* home =============================================== */
 .menuThumb{
   text-align: center;
-  padding-top: 60px;
+  margin: 30px auto;
 
   img{
     width: 100%;
   }
 
   [class*='col-']{
-    padding-right: 10px;
+    padding: 0px;
+    width:33.33%;
+    display: inline-block;
+    float:left;
   }
-  /*[class*='col-']:last-child{
+
+  [class*='col-']:first-child{
+    padding-left: 0;
+  }
+
+  [class*='col-']:last-child{
     padding-right: 0;
-  }*/
+  }
+
 }
 
 .home .grid-pad{
@@ -93,19 +104,32 @@ a{
 
 .video-section{
   text-align: center;
-  margin: 50px;
-  
   p{
-    width: 80%;
     font-size: 1.3em;
-    margin: 0 auto;
+    margin: 20px auto 0;
   }
 }
+.catalog{
+  text-align: center;  
+  img{
+    width:80%;
+  }
+}
+
+
 
 /* about =============================================== */
 .about{
   width: 90%;
-  margin: 40px auto;
+  margin: 30px auto;
+  max-width: 850px;
+
+  .slideshow{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    float:none;
+  }
 
   h3{
     color:$yellow;
@@ -113,13 +137,46 @@ a{
   }
 }
 
+/* innovation =============================================== */
+.innovation{
+  .slideshow{
+    width: 100%;
+  }
+  h3{
+    color:$yellow;
+    margin:10% 0 10px;
+  }
+  .intro{ 
+    margin-top:10%; 
+  }
+  .lab-graphic{ 
+    width:80%; 
+    margin: 0 10%; 
+  }
+}
+
+/* xlab =============================================== */
+.xlab{
+  .grid-pad{ 
+    margin-bottom:20px;
+    p{
+      @media screen and (min-width:987px){
+        margin-top: 5%;
+      }
+    }
+  }
+}
+
+
 /* faq =================================================== */
 .faq{
   width:90%;
   margin:40px auto;
   h4{
     color:$yellow;
+    font-family: inherit;
   }
+
   p{
     margin-bottom: 20px;
   }

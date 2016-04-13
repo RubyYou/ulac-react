@@ -8,31 +8,17 @@
 
 <?php
 
-header('Content-Type: text/html;charset=utf-8');
 
 if(isset($_GET['id'])){
-    $id=$_GET['id'];
+  
+  $lite_id=$_GET['id'];
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "root";
-  $dbname = "ULAC";
-
-  $con = mysqli_connect($servername,$username,$password,$dbname);
-  if( function_exists('mysqli_set_charset') ){
-      mysqli_set_charset($con, 'utf8');
-
-  }else{
-      mysqli_query("SET NAMES 'utf8'", $con);
-  }
-
-  if(! $con ) {
-    die('Could not connect: ' . mysql_error());
-  }
-
+  require_once('serverConfig.php');
 
   if(isset($_POST['update'])){
-    $lock_id_p = $_POST['lock_id_p'];
+
+    $id_p = $_POST['id_p'];
+    $lite_id_p = $_POST['lite_id_p'];
     $thumbImg_p = $_POST['thumbImg_p'];
     $en_summary_p = $_POST['en_summary_p'];
     $cn_summary_p = $_POST['cn_summary_p'];
@@ -46,27 +32,36 @@ if(isset($_GET['id'])){
     $cn_description_p = $_POST['cn_description_p'];
     $jp_description_p = $_POST['jp_description_p'];
     $kr_description_p = $_POST['kr_description_p'];
-    $spec_p = $_POST['spec_p'];
-    $weight_p = $_POST['weight_p'];
-    $security_p = $_POST['security_p'];
+    $en_details_p = $_POST['en_details_p'];
+    $cn_details_p = $_POST['cn_details_p'];
+    $jp_details_p = $_POST['jp_details_p'];
+    $kr_details_p = $_POST['kr_details_p'];
     $icons_p = $_POST['icons_p'];
-    $manual_p = $_POST['manual_p'];
     $carouselImg_p = $_POST['carouselImg_p'];
-    $videoLink_p = $_POST['videoLink_p'];
 
-    $updateSql = "UPDATE lock_content SET lock_id = '$lock_id_p',
-                  thumbImg = '$thumbImg_p', en_summary = '$en_summary_p',
-                  cn_summary = '$cn_summary_p', jp_summary = '$jp_summary_p',
-                  kr_summary = '$kr_summary_p', en_title = '$en_title_p',
-                  cn_title = '$cn_title_p', jp_title = '$jp_title_p', 
-                  kr_title = '$kr_title_p', cn_description = '$cn_description_p',
-                  en_description = '$en_description_p', jp_description = '$jp_description_p',
-                  kr_description = '$kr_description_p', spec = '$spec_p', security = '$security_p',
-                  weight = '$weight_p', icons = '$icons_p', manual = '$manual_p', 
-                  carouselImg = '$carouselImg_p', videoLink = '$videoLink_p'
-                  WHERE id = '$id'";
+    $updateSql = "UPDATE lite_content SET lite_id = '$lite_id_p',
+                  thumbImg = '$thumbImg_p', 
+                  en_summary = '$en_summary_p',
+                  cn_summary = '$cn_summary_p', 
+                  jp_summary = '$jp_summary_p',
+                  kr_summary = '$kr_summary_p', 
+                  en_title = '$en_title_p',
+                  cn_title = '$cn_title_p', 
+                  jp_title = '$jp_title_p', 
+                  kr_title = '$kr_title_p', 
+                  cn_description = '$cn_description_p',
+                  en_description = '$en_description_p', 
+                  jp_description = '$jp_description_p',
+                  kr_description = '$kr_description_p', 
+                  en_details = '$en_details_p',
+                  cn_details = '$cn_details_p', 
+                  jp_details = '$jp_details_p',
+                  kr_details = '$kr_details_p', 
+                  icons = '$icons_p', 
+                  carouselImg = '$carouselImg_p'
+                  WHERE id = '$id_p'";
 
-    $update = mysqli_query( $con, $updateSql);
+    $update = mysqli_query($con, $updateSql);
     
     if(!$update ) {
        die('Could not enter data: ' . mysqli_error());
@@ -77,13 +72,13 @@ if(isset($_GET['id'])){
     }
   }
 
-    $query="SELECT * FROM lock_content WHERE id='".$id."'";
+    $query="SELECT * FROM lite_content WHERE lite_id='".$lite_id."'";
     
     $result = mysqli_query( $con, $query);
 
-    while($row=mysqli_fetch_array($result)){
-
-            $lock_id = $row['lock_id'];
+    while($row = mysqli_fetch_array($result)){
+            $id = $row['id'];
+            $lite_id = $row['lite_id'];
             $thumbImg = $row['thumbImg'];
             $en_summary = $row['en_summary'];
             $cn_summary = $row['cn_summary'];
@@ -97,25 +92,26 @@ if(isset($_GET['id'])){
             $cn_description = $row['cn_description'];
             $jp_description = $row['jp_description'];
             $kr_description = $row['kr_description'];
-            $security = $row['security'];
-            $spec = $row['spec'];
-            $weight = $row['weight'];
+            $en_details = $row['en_details'];
+            $cn_details = $row['cn_details'];
+            $jp_details = $row['jp_details'];
+            $kr_details = $row['kr_details'];
             $icons = $row['icons'];
-            $manual = $row['manual'];
             $carouselImg = $row['carouselImg'];
-            $videoLink = $row['videoLink'];
     }
+
 }
  ?>
 
-	<form action="edit.php?id=<? echo $id; ?>" method="post">
+	<form action="editLite.php?id=<? echo $lite_id; ?>" method="post">
+     <input type="hidden" name="id_p" value="<?php echo $id; ?>">
 		 <table width = "400" border = "0" cellspacing = "1" 
              cellpadding = "2">
-          
+            
              <tr>
-                <td width = "200">Lock_ID</td>
-                <td><input name = "lock_id_p" type = "text" size="50"
-                   id = "lock_id" value="<?php echo $lock_id; ?>">
+                <td width = "200">lite_ID</td>
+                <td><input name = "lite_id_p" type = "text" size="50"
+                   id = "lite_id" value="<?php echo $lite_id; ?>">
                 </td>
              </tr>
           
@@ -194,24 +190,31 @@ if(isset($_GET['id'])){
                 <td><textarea name = "kr_description_p" type = "text" rows="4" cols="50"
                    id = "kr_description"><?php echo htmlspecialchars($kr_description); ?></textarea></td>
              </tr>
-
-             <tr>
-                <td width = "200">security</td>
-                <td><input name = "security_p" type = "text" size="50"
-                   id = "security" value="<?php echo $security; ?>"></td>
+  
+            <tr>
+                <td width = "200">en_details</td>
+                <td><textarea name = "en_details_p" type = "text" rows="4" cols="50"
+                   id = "en_details"><?php echo htmlspecialchars($en_details); ?></textarea></td>
              </tr>
 
              <tr>
-                <td width = "200">spec</td>
-                <td><input name = "spec_p" type = "text" size="50"
-                   id = "spec" value="<?php echo $spec; ?>"></td>
+                <td width = "200">cn_details</td>
+                <td><textarea name = "cn_details_p" type = "text" rows="4" cols="50"
+                   id = "cn_details"><?php echo htmlspecialchars($cn_details); ?></textarea></td>
              </tr>
 
              <tr>
-                <td width = "200">weight</td>
-                <td><input name = "weight_p" type = "text" size="50"
-                   id = "weight" value="<?php echo $weight; ?>"></td>
+                <td width = "200">jp_details</td>
+                <td><textarea name = "jp_details_p" type = "text" rows="4" cols="50"
+                   id = "jp_details"><?php echo htmlspecialchars($jp_details); ?></textarea></td>
              </tr>
+
+             <tr>
+                <td width = "200">kr_details</td>
+                <td><textarea name = "kr_details_p" type = "text" rows="4" cols="50"
+                   id = "kr_details"><?php echo htmlspecialchars($kr_details); ?></textarea></td>
+             </tr>
+             
           	<tr>
                 <td width = "200">icons</td>
                 <td><textarea name = "icons_p" type = "text" rows="4" cols="50"
@@ -224,16 +227,6 @@ if(isset($_GET['id'])){
                    id = "carouselImg" ><?php echo htmlspecialchars($carouselImg); ?></textarea></td>
              </tr>
 
-             <tr>
-                <td width = "200">manualLink</td>
-                <td><textarea name = "manual_p" type = "text" rows="4" cols="50"
-                   id = "manual" ><?php echo htmlspecialchars($manual); ?></textarea></td>
-             </tr>
-             <tr>
-                <td width = "200">videoEmbedLink</td>
-                <td><textarea name = "videoLink_p" type = "text" rows="4" cols="50"
-                   id = "videoLink" ><?php echo htmlspecialchars($videoLink); ?></textarea></td>
-             </tr>
              <tr>
                 <td width = "200"> </td>
                 <td>

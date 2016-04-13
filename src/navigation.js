@@ -32,7 +32,7 @@ class Navigation extends React.Component {
 
  getContent(){
  	let self = this;
- 	console.log((this.props.lang).toLowerCase());
+ 	//console.log((this.props.lang).toLowerCase());
 
  	Request
  		.get('/ulac-react2/build/data/navigation.json')
@@ -80,7 +80,7 @@ class Navigation extends React.Component {
  render() {
  	let lang = this.props.lang;
   let langList = [];
-  let langArry = ['EN','CN','KR','JP'];
+  let langArry = ['EN','KR','CN','JP'];
   let currentLangIndex = langArry.indexOf(lang);
   
   if (currentLangIndex > -1) {
@@ -89,16 +89,26 @@ class Navigation extends React.Component {
 
   for(let i = 0; i < langArry.length ; i ++){
     let link = "/ulac-react2/build/" + langArry[i];
-    langList.push(<li key={'link' + i}><a href={link}>{langArry[i]}</a></li>);
+    langList.push(<li key={'link' + i}><a href={link}>{ langArry[i] }</a></li>);
   }
 
   let representative = [];
   if(lang == "CN"){
-    representative.push(<li><a href="representative">{this.data.representative}</a></li>);
+    representative.push(<li><a href="representative">{ this.data.representative }</a></li>);
   }
+
+  let prefixUrl = '/ulac-react2/build/'; // take out after when live
 
     return <nav>
             <ul className="lang-nav">
+              <li><a href="https://twitter.com/ULAClock" target="_blank">
+                    <i className="fa fa-facebook-square"></i>
+                  </a>
+              </li>
+              <li><a href="https://www.facebook.com/ULAC-732085670258072/timeline/" target="_blank">
+                    <i className="fa fa-twitter"></i>
+                  </a>
+              </li>
               {langList}
             </ul>
             <span id="mobileToggle" ref="mobileToggle" 
@@ -106,20 +116,20 @@ class Navigation extends React.Component {
                   <i className="fa fa-bars fa-2x"></i>
             </span>
 	          <ul className="nav-link">
-	            <li><a href="lite">{this.data.lock}</a></li>
-	            <li><a href="lock">{this.data.lite}</a></li>
+	            <li><a href={`${prefixUrl}${lang}/lock`}>{ this.data.lock }</a></li>
+	            <li><a href={`${prefixUrl}${lang}/lite`}>{ this.data.lite }</a></li>
 	            <li><a id="toggle-submenu" href="javascript:void(0)" ref="subMenu"
-                      onClick={this.toggleSubMenu}>{this.data.xlab}</a>
+                      onClick={this.toggleSubMenu}>{ this.data.xlab }</a>
 	            	<ul className="sub-menu" >
-	            		<li><a href="xlab">{this.data.xlab}</a></li>
-	            		<li><a href="innovation">{this.data.innovation}</a></li>
-	            		<li><a href="security">{this.data.security}</a></li>
-	            		<li><a href="faq">{this.data.faq}</a></li>
+	            		<li><a href={`${prefixUrl}${lang}/xlab`}>{ this.data.xlab }</a></li>
+	            		<li><a href={`${prefixUrl}${lang}/innovation`}>{ this.data.innovation }</a></li>
+	            		<li><a href={`${prefixUrl}${lang}/security`}>{ this.data.security }</a></li>
+	            		<li><a href={`${prefixUrl}${lang}/faq`}>{ this.data.faq }</a></li>
 	            		{ representative }
 	            	</ul>
 	            </li>	            
-	            <li><a href="about">{this.data.about}</a></li>
-	            <li><a href="contact">{this.data.contact}</a></li>
+	            <li><a href={`${prefixUrl}${lang}/about`}>{ this.data.about }</a></li>
+	            <li><a href={`${prefixUrl}${lang}/contact`}>{ this.data.contact }</a></li>
 	          </ul>
         	</nav>;
   }
