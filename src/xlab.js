@@ -34,7 +34,7 @@ class Xlab extends React.Component {
 
  getContent(){
  	let self = this;
- 	console.log((this.props.lang).toLowerCase());
+ 	//console.log((this.props.lang).toLowerCase());
 
  	Request
  		.get('/ulac-react2/build/data/xlab.json')
