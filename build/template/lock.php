@@ -67,6 +67,7 @@
 				'kr_description' => $list['kr_description'],
 				'security' => $list['security'],
 				'spec' => $list['spec'],
+				'weight' => $list['weight'],
 				'icons' => $list['icons'],
 				'carouselImg' => $list['carouselImg'],
 				'manual' => $list['manual'],

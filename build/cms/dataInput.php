@@ -36,8 +36,6 @@
             $videoLink = $_POST['videoLink'];
             $carouselImg = $_POST['carouselImg'];
 
-            echo $lock_id." / ".$kr_summary." / ".$cn_summary." / ".$jp_summary;
-
             $contentTableName = 'lock_content';
             $sql = '';
 
@@ -46,12 +44,12 @@
               $sql = "INSERT INTO lite_content". "(lite_id, thumbImg, en_summary, 
                      cn_summary, jp_summary, kr_summary, en_title, cn_title, jp_title, kr_title,
                      en_description, cn_description, jp_description, kr_description, en_details,
-                     jp_details, cn_details, kr_details, icons, carouselImg) "
+                     jp_details, cn_details, kr_details, icons, carouselImg, manual, videoLink) "
                      ."VALUES('$product_id','$thumbImg','$en_summary', 
                      '$cn_summary', '$jp_summary', '$kr_summary', '$en_title', '$cn_title', 
                      '$jp_title', '$kr_title', '$en_description', '$cn_description', 
                      '$jp_description', '$kr_description', '$en_details', '$jp_details',
-                     '$cn_details', '$kr_details', '$icons', '$carouselImg')";
+                     '$cn_details', '$kr_details', '$icons', '$carouselImg', '$manual', '$videoLink')";
               
               $contentTableName = 'lite_content';
               
@@ -140,7 +138,7 @@
               <input type="checkbox" name="lock_cat[]" value="3"> cable lock <br/>
               <input type="checkbox" name="lock_cat[]" value="4"> chain lock <br/>
               <input type="checkbox" name="lock_cat[]" value="5"> ulock <br/>
-              <input type="checkbox" name="lock_cat[]" value="6"> special lock <br/>
+              <input type="checkbox" name="lock_cat[]" value="6"> speciality lock <br/>
               <input type="checkbox" name="lock_cat[]" value="7"> key lock <br/>
            </td>
          </tr>
@@ -280,12 +278,12 @@
             <td>images/lock/A600/A600_1.jpg,images/lock/A600/A600_2.jpg,images/lock/A600/A600_3.jpg,images/lock/A600/A600_4.jpg,images/lock/A600/A600_5.jpg,images/lock/A600/A600_6.jpg,images/lock/A600/A600_7.jpg,images/lock/A600/A600_8.jpg,images/lock/A600/A600_9.jpg</td>
          </tr>
 
-         <tr class="lock-section">
+         <tr>
             <td width = "100">manualLink</td>
             <td><textarea name = "manual" type = "text" id = "manual"></textarea></td>
             <td>images/manual/ULAC_A600_manual.png</td>
          </tr>
-         <tr  class="lock-section">
+         <tr >
             <td width = "100">videoEmbedLink</td>
             <td><textarea name = "videoLink" type = "text" id = "videoLink"></textarea></td>
             <td>//www.youtube.com/embed/R53gWcNNizA</td>

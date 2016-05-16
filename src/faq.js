@@ -21,13 +21,20 @@ class Faq extends React.Component {
  		.type('Content-Type', 'text/html; charset=utf8')
  		.end(function(err, res){
  			self.setState({content:res.text});
-
   		});
  }
 
  render() {
-    return <div>
-    			<div className="faq" dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+    return <div className="faq" >
+    			<div dangerouslySetInnerHTML={{__html: this.state.content }}></div>
+				<div className="grid grid-pad">
+                  <div className="col-1-2">
+                  	<iframe width="100%" height="260" src="https://www.youtube.com/embed/ryY-qMFLcfo" frameborder="0"></iframe>
+                  </div>
+                  <div className="col-1-2">
+					<img src="/images/keepItSafe.jpg" alt="keep_it_safe" />
+                  </div>
+                </div>
     	   </div>;
   }
 }

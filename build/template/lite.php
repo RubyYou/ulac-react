@@ -70,7 +70,9 @@
 				'cn_details' => $list['cn_details'],
 				'kr_details' => $list['kr_details'],
 				'icons' => $list['icons'],
-				'carouselImg' => $list['carouselImg']
+				'carouselImg' => $list['carouselImg'],
+				'manual' => $list['manual'],
+				'videoLink' => $list['videoLink']
 			);
 		
 			$listArray = array($arryIndex => $innerlistArray);

@@ -14,7 +14,6 @@ class Home extends React.Component {
  }
 
  componentDidMount(){
-    slideShow();
     this.getContent();
  }
 
@@ -31,8 +30,9 @@ class Home extends React.Component {
 
 loadComplete(res){
   this.data.carouselImg = res.carousel;
-  this.setState({loadComplete:true});   
- }
+  this.setState({loadComplete:true});
+  slideShow();
+}
 
  render() {
   let lang = this.props.lang;
@@ -80,16 +80,22 @@ loadComplete(res){
                     </a>
                   </div>
                   <div className="col-1-3" >
-                    <a href={linkPrefix + "/innovation"}>
+                    <a href={linkPrefix + "/accessories"}>
                        <img src="/ulac-react2/build/images/block-3.jpg" />
-                       <h3>INNOVATION</h3>
+                       <h3>accessories</h3>
                     </a>
                   </div>      
                  </div>
-                <div className="video-section">
-                <iframe width="640" height="360" src="//www.youtube.com/embed/43wOlX-7Ynw" frameBorder="0" allowFullScreen></iframe>
-                <p>Since its founding in Taiwan in 1985, ULAC has promoted consumer safety and security through the manufacture of secure and fashionable bicycle locks and lights.</p>
-              </div>
+                <div className="grid grid-pad">
+                  <div className="col-1-2 video-section">
+                  <iframe width="100%" height="360" src="//www.youtube.com/embed/43wOlX-7Ynw" frameBorder="0" allowFullScreen></iframe>
+                  <p>Since its founding in Taiwan in 1985, ULAC has promoted consumer safety and security through the manufacture of secure and fashionable bicycle locks and lights.</p>
+                  </div>
+                  <div className="col-1-2 catalog">
+                  <a href="images/ULAC_catalogue_2016.pdf" target="_blank"><img src="/images/ULAC_catalogue_cover.jpg" /></a>
+                  <p><a className="btn" target="_blank" href="/images/ULAC_catalogue_2016.pdf">CLICK TO DOWNLOAD</a></p>
+                  </div>
+                </div>
              </div>)
     
     } else {

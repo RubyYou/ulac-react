@@ -60,7 +60,7 @@ a{
 }
 
 .logo{
-  margin:15px;
+  margin:30px 15px;
   display: inline-block;
   float: left;
   
@@ -105,7 +105,6 @@ a{
 .video-section{
   text-align: center;
   p{
-    font-size: 1.3em;
     margin: 20px auto 0;
   }
 }
@@ -144,14 +143,19 @@ a{
   }
   h3{
     color:$yellow;
-    margin:10% 0 10px;
+    margin:10px 0;
   }
   .intro{ 
-    margin-top:10%; 
+    @media screen and (min-width:987px){
+      margin-top:10%; 
+    }
   }
   .lab-graphic{ 
     width:80%; 
     margin: 0 10%; 
+  }
+  .grid-pad{
+    margin-top:10px;
   }
 }
 
@@ -159,11 +163,11 @@ a{
 .xlab{
   .grid-pad{ 
     margin-bottom:20px;
-    p{
-      @media screen and (min-width:987px){
-        margin-top: 5%;
-      }
-    }
+    // p{
+    //   @media screen and (min-width:987px){
+    //     margin-top: 5%;
+    //   }
+    // }
   }
 }
 
@@ -179,6 +183,12 @@ a{
 
   p{
     margin-bottom: 20px;
+  }
+
+  .grid{
+    @media screen and (max-width:767px){
+      padding-left:0;
+    }
   }
 }
 

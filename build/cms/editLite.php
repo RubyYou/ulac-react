@@ -1,6 +1,7 @@
 <html>
    
    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>Edit a old Record in ULAC CONTENT</title>
    </head>
    
@@ -38,6 +39,8 @@ if(isset($_GET['id'])){
     $kr_details_p = $_POST['kr_details_p'];
     $icons_p = $_POST['icons_p'];
     $carouselImg_p = $_POST['carouselImg_p'];
+    $manual_p = $_POST['manual_p'];
+    $videoLink_p = $_POST['videoLink_p'];
 
     $updateSql = "UPDATE lite_content SET lite_id = '$lite_id_p',
                   thumbImg = '$thumbImg_p', 
@@ -58,7 +61,9 @@ if(isset($_GET['id'])){
                   jp_details = '$jp_details_p',
                   kr_details = '$kr_details_p', 
                   icons = '$icons_p', 
-                  carouselImg = '$carouselImg_p'
+                  carouselImg = '$carouselImg_p',
+                  manual = '$manual_p',
+                  videoLink = '$videoLink_p'
                   WHERE id = '$id_p'";
 
     $update = mysqli_query($con, $updateSql);
@@ -98,6 +103,9 @@ if(isset($_GET['id'])){
             $kr_details = $row['kr_details'];
             $icons = $row['icons'];
             $carouselImg = $row['carouselImg'];
+            $manual = $row['manual'];
+            $videoLink = $row['videoLink'];
+
     }
 
 }
@@ -225,6 +233,18 @@ if(isset($_GET['id'])){
                 <td width = "200">carouselImg</td>
                 <td><textarea name = "carouselImg_p" type = "text" rows="8" cols="50"
                    id = "carouselImg" ><?php echo htmlspecialchars($carouselImg); ?></textarea></td>
+             </tr>
+
+             <tr>
+                <td width = "200">manual</td>
+                <td><textarea name = "manual_p" type = "text" rows="8" cols="50"
+                   id = "manual" ><?php echo htmlspecialchars($manual); ?></textarea></td>
+             </tr>
+
+             <tr>
+                <td width = "200">videoLink</td>
+                <td><textarea name = "videoLink_p" type = "text" rows="8" cols="50"
+                   id = "videoLink" ><?php echo htmlspecialchars($videoLink); ?></textarea></td>
              </tr>
 
              <tr>

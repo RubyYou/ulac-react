@@ -14,8 +14,6 @@ import Representative from './representative';
 import Contact from './contact';
 import Navigation from './navigation';
 import Footer from './footer';
-//import Dispatcher from './dispatcher';
-//import AppStore from 'stores/AppStore';
 import { Router, Route, Link } from 'react-router';
 
 class App extends React.Component {
@@ -38,15 +36,6 @@ class App extends React.Component {
     });
   }
 
-  componentWillMount() {
-      //this.appStoreEvent = AppStore.registerView(() => { this.updateState(); });
-      //this.updateState();
-  }
-
-  componentWillUnmount() {
-      //AppStore.deregisterView(this.appStoreEvent);
-  }
-  
   getLanguage(){
     let pathArray = window.location.pathname.split("/");
     let lastPathName = (pathArray[pathArray.length-1]).toUpperCase();

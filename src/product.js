@@ -44,9 +44,10 @@ class Product extends React.Component {
  getContentType(){
     //this.state.hashName = (window.location.hash).substring(1); 
     let contentType = "product";
-    let catList = ["ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety"];
+
+    let catList = ["all", "ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety"];
     
-    //console.log("this.state.hashName:" + this.state.hashName);
+    console.log("this.state.hashName:" + this.state.hashName);
 
     if(this.state.hashName == ""){
       contentType = 'all';
@@ -119,13 +120,14 @@ class Product extends React.Component {
               <a href="#chain" onClick={this.getCategory.bind(this,'chain')}>Chain</a>
               <a href="#cable" onClick={this.getCategory.bind(this,'cable')}>cable</a>
               <a href="#ulock" onClick={this.getCategory.bind(this,'ulock')}>ulock</a>
-              <a href="#special" onClick={this.getCategory.bind(this,'special')}>special</a>
+              <a href="#special" onClick={this.getCategory.bind(this,'special')}>speciality</a>
               <a href="#key" onClick={this.getCategory.bind(this,'key')}>key</a>
               </div>);
 
     } else {
 
         categoryNav.push(<div className ="cat_list">
+              <a href="#all" onClick={this.getCategory.bind(this,'all')}>ALL</a>
               <a href="#front" onClick={this.getCategory.bind(this,'front')}>front</a>
               <a href="#safety" onClick={this.getCategory.bind(this,'safety')}>safety</a>
               </div>);

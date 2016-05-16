@@ -9,6 +9,8 @@
   padding: 10px 20px;
   margin: 8px;
   display: inline-block;
+  border-radius:6px;
+  text-transform: uppercase;
 
   @media screen and (max-width:768px){
     padding: 5px 10px;
@@ -145,7 +147,8 @@
 }
 
 .product-wrap{
-  
+  margin: 20px 0;
+
   @media screen and (min-width:769px){
     margin-left:12px;
   }
@@ -160,21 +163,6 @@
       margin:0 auto;
     }
   }
- 
-  // .manual{
-  //   display: inline-block;
-  //   float: left;
-  //   width:52%;
-  //   max-width: 600px;
-
-  //   @media screen and (max-width:768px){
-  //     float: none;
-  //     width: 90%;
-  //     max-width: 600px;
-  //     margin: 0 auto;
-  //     display: block;
-  //   }
-  // }
 
   // download button
   button{

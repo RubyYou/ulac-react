@@ -54,7 +54,7 @@ gulp.task('compass', function() {
 
 // Gulp task for build
 gulp.task('default', function() {
-    var args = merge(watchify.args, { debug: true }); // Merge in default watchify args with browserify arguments
+    var args = merge(watchify.args, { debug: false }); // Merge in default watchify args with browserify arguments
 
     var bundler = browserify(config.js.src, args) // Browserify
         .plugin(watchify, {ignoreWatch: ['node_modules/**', 'react/**']}) // Watchify to watch source file changes

@@ -1,22 +1,26 @@
+.btn{
+	width: 120px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #353535;
+    margin: 0 10px;
+    color: $yellow;
+
+    &:hover{
+		background-color: $yellow;
+		color:#000;
+    }
+}
+
 .form{
 	max-width: 800px;
 	width:90%;
 	margin: 0 auto 40px;
 	
 	button{
-		width: 120px;
-	    padding: 12px;
-	    border: none;
-	    border-radius: 5px;
-	    font-size: 14px;
-	    background-color: #353535;
-	    margin: 0 10px;
-	    color: $yellow;
-
-	    &:hover{
-			background-color: $yellow;
-			color:#000;
-	    }
+		@extend .btn;
 	}
 }
 
