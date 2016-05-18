@@ -22,13 +22,13 @@ class ProductCategories extends React.Component {
     let title = (this.props.lang+'_title').toLowerCase();
     let description = (this.props.lang+'_description').toLowerCase();
     let size = this.getObjectSize(content);
-    let contentId = this.props.route+ "_id";
+    let contentId = (this.props.route == "lock") ? this.props.route+"_id" : "product_id";
+
 
     for (let i = 0; i < size; i++){
     	//content[i].thumbImg = ("/ulac-react2/build/").concat(content[i].thumbImg); // local
     	content[i].thumbImg = ("/").concat(content[i].thumbImg);
       let summaryArr = (content[i][summary]).split(",");
-
     	items.push(<a href={"#"+content[i][contentId]} 
           				  className="item" key={i}>
           					<img src={content[i].thumbImg} />

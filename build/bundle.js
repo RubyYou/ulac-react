@@ -25666,7 +25666,7 @@ var App = (function (_React$Component) {
           Page = _react2.default.createElement(_security2.default, { lang: this.state.lang });
           break;
         case 'lock':
-        case 'lite':
+        case 'accessories':
           Page = _react2.default.createElement(_product2.default, { lang: this.state.lang, route: route });
           break;
         case 'faq':
@@ -25691,7 +25691,7 @@ var App = (function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: './', className: 'logo' },
-            _react2.default.createElement('img', { src: '/ulac-react2/build/images/logo-g.png' })
+            _react2.default.createElement('img', { src: '/ulac-react2/build/images/ULAC_logo_2016_grey.png' })
           ),
           _react2.default.createElement(_navigation2.default, { lang: this.state.lang }),
           _react2.default.createElement('div', { className: 'clear' }),
@@ -25754,7 +25754,7 @@ var Navigation = (function (_React$Component) {
 
     _this.data = {
       "lock": "",
-      "lite": "",
+      "accessories": "",
       "xlab": "",
       "innovation": "",
       "security": "",
@@ -25808,7 +25808,7 @@ var Navigation = (function (_React$Component) {
     key: 'loadComplete',
     value: function loadComplete(res) {
       this.data.lock = res.lock[this.props.lang];
-      this.data.lite = res.lite[this.props.lang];
+      this.data.accessories = res.accessories[this.props.lang];
       this.data.xlab = res.xlab[this.props.lang];
       this.data.innovation = res.innovation[this.props.lang];
       this.data.security = res.security[this.props.lang];
@@ -25908,8 +25908,8 @@ var Navigation = (function (_React$Component) {
             null,
             _react2.default.createElement(
               'a',
-              { href: '' + prefixUrl + lang + '/lite' },
-              this.data.lite
+              { href: '' + prefixUrl + lang + '/accessories' },
+              this.data.accessories
             )
           ),
           _react2.default.createElement(
@@ -26172,11 +26172,9 @@ var Product = (function (_React$Component) {
     key: 'getContentType',
     value: function getContentType() {
       //this.state.hashName = (window.location.hash).substring(1);
+
       var contentType = "product";
-
-      var catList = ["all", "ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety"];
-
-      console.log("this.state.hashName:" + this.state.hashName);
+      var catList = ["all", "ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety", "strap"];
 
       if (this.state.hashName == "") {
         contentType = 'all';
@@ -26300,6 +26298,11 @@ var Product = (function (_React$Component) {
             'a',
             { href: '#safety', onClick: this.getCategory.bind(this, 'safety') },
             'safety'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#strap', onClick: this.getCategory.bind(this, 'strap') },
+            'strap'
           )
         ));
       }
@@ -26374,13 +26377,12 @@ var ProductCategories = (function (_React$Component) {
       var title = (this.props.lang + '_title').toLowerCase();
       var description = (this.props.lang + '_description').toLowerCase();
       var size = this.getObjectSize(content);
-      var contentId = this.props.route + "_id";
+      var contentId = this.props.route == "lock" ? this.props.route + "_id" : "product_id";
 
       for (var i = 0; i < size; i++) {
         //content[i].thumbImg = ("/ulac-react2/build/").concat(content[i].thumbImg); // local
         content[i].thumbImg = "/".concat(content[i].thumbImg);
         var summaryArr = content[i][summary].split(",");
-
         items.push(_react2.default.createElement(
           'a',
           { href: "#" + content[i][contentId],
@@ -26480,11 +26482,10 @@ var ProductDetail = (function (_React$Component) {
       var dynamicSectionA = [];
       var dynamicSectionB = [];
       var content = this.props.content[0];
-      console.log(content);
+
       var title = (this.props.lang + '_title').toLowerCase();
       var description = (this.props.lang + '_description').toLowerCase();
       var details = (this.props.lang + '_details').toLowerCase();
-      // console.log(this.props.route);
 
       // process icons
       var iconsArr = content.icons.split(",");
@@ -26518,7 +26519,7 @@ var ProductDetail = (function (_React$Component) {
 
       // process dynamic area
       switch (this.props.route) {
-        case 'lite':
+        case 'accessories':
           dynamicSectionA.push(_react2.default.createElement(
             'div',
             null,
@@ -26589,6 +26590,7 @@ var ProductDetail = (function (_React$Component) {
       }
 
       if (content !== undefined) {
+        var contentId = this.props.route == "lock" ? this.props.route + "_id" : "product_id";
         return _react2.default.createElement(
           'div',
           { className: 'product-wrap' },
@@ -26627,7 +26629,7 @@ var ProductDetail = (function (_React$Component) {
                 'b',
                 null,
                 'Product Code: ',
-                content[this.props.route + '_id']
+                content[contentId]
               )
             ),
             dynamicSectionA,

@@ -12,14 +12,14 @@
 
 if(isset($_GET['id'])){
   
-  $lite_id=$_GET['id'];
+  $product_id=$_GET['id'];
 
   require_once('serverConfig.php');
 
   if(isset($_POST['update'])){
 
     $id_p = $_POST['id_p'];
-    $lite_id_p = $_POST['lite_id_p'];
+    $product_id_p = $_POST['product_id_p'];
     $thumbImg_p = $_POST['thumbImg_p'];
     $en_summary_p = $_POST['en_summary_p'];
     $cn_summary_p = $_POST['cn_summary_p'];
@@ -42,7 +42,7 @@ if(isset($_GET['id'])){
     $manual_p = $_POST['manual_p'];
     $videoLink_p = $_POST['videoLink_p'];
 
-    $updateSql = "UPDATE lite_content SET lite_id = '$lite_id_p',
+    $updateSql = "UPDATE acc_content SET product_id = '$product_id_p',
                   thumbImg = '$thumbImg_p', 
                   en_summary = '$en_summary_p',
                   cn_summary = '$cn_summary_p', 
@@ -77,13 +77,13 @@ if(isset($_GET['id'])){
     }
   }
 
-    $query="SELECT * FROM lite_content WHERE lite_id='".$lite_id."'";
+    $query="SELECT * FROM acc_content WHERE product_id='".$product_id."'";
     
     $result = mysqli_query( $con, $query);
 
     while($row = mysqli_fetch_array($result)){
             $id = $row['id'];
-            $lite_id = $row['lite_id'];
+            $product_id = $row['product_id'];
             $thumbImg = $row['thumbImg'];
             $en_summary = $row['en_summary'];
             $cn_summary = $row['cn_summary'];
@@ -111,15 +111,15 @@ if(isset($_GET['id'])){
 }
  ?>
 
-	<form action="editLite.php?id=<? echo $lite_id; ?>" method="post">
+	<form action="editAccessories.php?id=<? echo $product_id; ?>" method="post">
      <input type="hidden" name="id_p" value="<?php echo $id; ?>">
 		 <table width = "400" border = "0" cellspacing = "1" 
              cellpadding = "2">
             
              <tr>
-                <td width = "200">lite_ID</td>
-                <td><input name = "lite_id_p" type = "text" size="50"
-                   id = "lite_id" value="<?php echo $lite_id; ?>">
+                <td width = "200">product_ID</td>
+                <td><input name = "product_id_p" type = "text" size="50"
+                   id = "product_id" value="<?php echo $product_id; ?>">
                 </td>
              </tr>
           

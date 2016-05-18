@@ -14,7 +14,7 @@ class Navigation extends React.Component {
 
   	this.data = {
   		"lock":"",
-  		"lite":"",
+  		"accessories":"",
   		"xlab":"",
   		"innovation":"",
   		"security":"",
@@ -64,7 +64,7 @@ class Navigation extends React.Component {
 
  loadComplete(res){
  	this.data.lock = res.lock[this.props.lang];
- 	this.data.lite = res.lite[this.props.lang];
+ 	this.data.accessories = res.accessories[this.props.lang];
  	this.data.xlab = res.xlab[this.props.lang];
  	this.data.innovation = res.innovation[this.props.lang];
  	this.data.security = res.security[this.props.lang];
@@ -117,7 +117,7 @@ class Navigation extends React.Component {
             </span>
 	          <ul className="nav-link">
 	            <li><a href={`${prefixUrl}${lang}/lock`}>{ this.data.lock }</a></li>
-	            <li><a href={`${prefixUrl}${lang}/lite`}>{ this.data.lite }</a></li>
+	            <li><a href={`${prefixUrl}${lang}/accessories`}>{ this.data.accessories }</a></li>
 	            <li><a id="toggle-submenu" href="javascript:void(0)" ref="subMenu"
                       onClick={this.toggleSubMenu}>{ this.data.xlab }</a>
 	            	<ul className="sub-menu" >

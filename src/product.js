@@ -43,12 +43,10 @@ class Product extends React.Component {
 
  getContentType(){
     //this.state.hashName = (window.location.hash).substring(1); 
-    let contentType = "product";
-
-    let catList = ["all", "ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety"];
     
-    console.log("this.state.hashName:" + this.state.hashName);
-
+    let contentType = "product";
+    let catList = ["all", "ulac", "combo", "chain", "ulock", "special", "key", "ulock", "cable", "front", "safety", "strap"];
+    
     if(this.state.hashName == ""){
       contentType = 'all';
     }
@@ -79,7 +77,7 @@ class Product extends React.Component {
     let self = this;
 
     Request
-      .get('/ulac-react2/build/template/'+ this.props.route + '.php?'+ this.props.route +'='+ productId )
+      .get('/ulac-react2/build/template/'+ this.props.route + '.php?'+  this.props.route+'='+ productId )
       .type('Content-Type', 'text/html; charset=utf8')
       .end(function(err, res){
         self._data.content = JSON.parse(res.text)
@@ -130,6 +128,7 @@ class Product extends React.Component {
               <a href="#all" onClick={this.getCategory.bind(this,'all')}>ALL</a>
               <a href="#front" onClick={this.getCategory.bind(this,'front')}>front</a>
               <a href="#safety" onClick={this.getCategory.bind(this,'safety')}>safety</a>
+              <a href="#strap" onClick={this.getCategory.bind(this,'strap')}>strap</a>
               </div>);
     }
 

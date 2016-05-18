@@ -105,7 +105,6 @@ if(isset($_GET['id'])){
      <input type="hidden" name="id_p" value="<?php echo $id; ?>">
 		 <table width = "400" border = "0" cellspacing = "1" 
              cellpadding = "2">
-            
              <tr>
                 <td width = "200">Lock_ID</td>
                 <td><input name = "lock_id_p" type = "text" size="50"

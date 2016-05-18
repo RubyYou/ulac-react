@@ -39,9 +39,9 @@
             $contentTableName = 'lock_content';
             $sql = '';
 
-            if($_POST['product_type'] == 'lite'){
+            if($_POST['product_type'] == 'acc'){
 
-              $sql = "INSERT INTO lite_content". "(lite_id, thumbImg, en_summary, 
+              $sql = "INSERT INTO acc_content". "(product_id, thumbImg, en_summary, 
                      cn_summary, jp_summary, kr_summary, en_title, cn_title, jp_title, kr_title,
                      en_description, cn_description, jp_description, kr_description, en_details,
                      jp_details, cn_details, kr_details, icons, carouselImg, manual, videoLink) "
@@ -51,7 +51,7 @@
                      '$jp_description', '$kr_description', '$en_details', '$jp_details',
                      '$cn_details', '$kr_details', '$icons', '$carouselImg', '$manual', '$videoLink')";
               
-              $contentTableName = 'lite_content';
+              $contentTableName = 'acc_content';
               
               
             }else{
@@ -76,8 +76,8 @@
             echo "Entered data successfully\n <br/>";
 
             //insert the categories for each product 
-            if(!empty($_POST['lite_cat'] && $_POST['product_type'] == 'lite')){
-              $lastId_query = "SELECT * FROM lite_content ORDER BY id DESC LIMIT 1";
+            if(!empty($_POST['acc_cat'] && $_POST['product_type'] == 'acc')){
+              $lastId_query = "SELECT * FROM acc_content ORDER BY id DESC LIMIT 1";
               $lastId_result = mysqli_query( $con, $lastId_query);
 
               while($row = mysqli_fetch_array($lastId_result)){ 
@@ -86,10 +86,10 @@
 
               echo "lastID: ".$lastId."<br/>";
 
-              foreach($_POST['lite_cat'] as $check) {  
-                $cat_sql = "INSERT INTO lite_cat_list (cat_id, product_id) VALUES ('$check', '$lastId')";
+              foreach($_POST['acc_cat'] as $check) {  
+                $cat_sql = "INSERT INTO acc_cat_list (cat_id, product_id) VALUES ('$check', '$lastId')";
                 mysqli_query( $con, $cat_sql);
-                echo "lite_cat ".$check."<br/>";
+                echo "acc_cat ".$check."<br/>";
                 echo $cat_sql;
               }
 
@@ -117,12 +117,15 @@
     ?>
 
 	<form action="dataInput.php" method="post">
-    <h3>Select lock or lite to start and follow the right text example to add infomation</h3>
+    <h3>Select lock or acc to start and follow the right text example to add infomation</h3>
 		 <table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
          <tr>
             <td width = "100">Product_Type</td>
-            <td>Lock <input id="lock_product_type" type="radio" checked="checked" name="product_type" value="lock" onclick="switchSection('lock')"><br>
-                Lite <input id="lite_product_type" type="radio" name="product_type" value="lite" onclick="switchSection('lite')"></td>
+            <td>Lock 
+                <input id="lock_product_type" type="radio" checked="checked" name="product_type" value="lock" onclick="switchSection('lock')">
+                <br/>
+                accessories 
+                <input id="acc_product_type" type="radio" name="product_type" value="acc" onclick="switchSection('acc')"></td>
             <td></td>
          </tr>
          <tr>
@@ -142,11 +145,12 @@
               <input type="checkbox" name="lock_cat[]" value="7"> key lock <br/>
            </td>
          </tr>
-         <tr class="lite-section">
-           <td>Lite categories</td>
+         <tr class="acc-section">
+           <td>acc categories</td>
            <td>
-              <input type="checkbox" name="lite_cat[]" value="1"> front lite<br/>
-              <input type="checkbox" name="lite_cat[]" value="2"> safety lite<br/>
+              <input type="checkbox" name="acc_cat[]" value="1"> front lite<br/>
+              <input type="checkbox" name="acc_cat[]" value="2"> safety lite<br/>
+              <input type="checkbox" name="acc_cat[]" value="3"> phone strap<br/>
             </td>
          </tr>
 
@@ -225,25 +229,25 @@
             <td>ULAC 제품 중 많이 판매되고 있는 비밀번호 잠금의 강철 케이블 자물쇠입니다. 2011년 출시 이후 지금까지 전 세계적으로 50만 개 이상이 판매되었고, 친환경 소재로 제작되어 차체 손상을 방지해줍니다.</td>
          </tr>
 
-         <tr class="lite-section">
+         <tr class="acc-section">
             <td width = "100">en_details</td>
             <td><textarea name = "en_details" type = "text"></textarea></td>
             <td>Weight: 81g. including batteries | Mode: High beam (3H) / Low beam (18H) / Flashing (50H) | Aluminum + PC | D:98L x 26W x 26Hmm | Alkaline AA x 1</td>
          </tr>
 
-         <tr class="lite-section">
+         <tr class="acc-section">
             <td width = "100">cn_details</td>
             <td><textarea name = "cn_details" type = "text"></textarea></td>
             <td>Weight: 81g. including batteries | Mode: High beam (3H) / Low beam (18H) / Flashing (50H) | Aluminum + PC | D:98L x 26W x 26Hmm | Alkaline AA x 1</td>
          </tr>
 
-         <tr class="lite-section">
+         <tr class="acc-section">
             <td width = "100">jp_details</td>
             <td><textarea name = "jp_details" type = "text"></textarea></td>
             <td>Weight: 81g. including batteries | Mode: High beam (3H) / Low beam (18H) / Flashing (50H) | Aluminum + PC | D:98L x 26W x 26Hmm | Alkaline AA x 1</td>
          </tr>
 
-         <tr class="lite-section">
+         <tr class="acc-section">
             <td width = "100">kr_details</td>
             <td><textarea name = "kr_details" type = "text"></textarea></td>
             <td>Weight: 81g. including batteries | Mode: High beam (3H) / Low beam (18H) / Flashing (50H) | Aluminum + PC | D:98L x 26W x 26Hmm | Alkaline AA x 1</td>
@@ -305,15 +309,15 @@
       ?>
    </body>
    <script>
-      var liteSections = document.querySelectorAll('.lite-section');
+      var accSections = document.querySelectorAll('.acc-section');
       var lockSections = document.querySelectorAll('.lock-section');
       
       function switchSection(sectionName){
 
-          if(sectionName == 'lite'){
+          if(sectionName == 'acc'){
             
-            for(var i = 0; i <liteSections.length ; i++){
-                liteSections[i].style.display = 'block';
+            for(var i = 0; i <accSections.length ; i++){
+                accSections[i].style.display = 'block';
             }
             
             for(var j = 0; j <lockSections.length ; j++){
@@ -322,8 +326,8 @@
 
           } else {
             
-            for(var i = 0; i <liteSections.length ; i++){
-                liteSections[i].style.display = 'none';
+            for(var i = 0; i <accSections.length ; i++){
+                accSections[i].style.display = 'none';
             }
             
             for(var j = 0; j <lockSections.length ; j++){
@@ -336,6 +340,6 @@
    <style>
     /* default setting*/
     tr{display: block}
-    .lite-section{ display: none;}
+    .acc-section{ display: none;}
    </style>
 </html>

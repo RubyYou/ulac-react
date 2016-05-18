@@ -27,11 +27,11 @@ class ProductDetail extends React.Component {
     let dynamicSectionA = [];
     let dynamicSectionB = [];
     let content = this.props.content[0];
-    console.log(content);
+
     let title = (this.props.lang+'_title').toLowerCase();
     let description = (this.props.lang+'_description').toLowerCase();
     let details = (this.props.lang+'_details').toLowerCase();
-    // console.log(this.props.route);
+
     
     // process icons
     let iconsArr = (content.icons).split(",");
@@ -65,7 +65,7 @@ class ProductDetail extends React.Component {
 
     // process dynamic area
     switch(this.props.route){
-      case 'lite':
+      case 'accessories':
         dynamicSectionA.push(<div>
                                 <p>{content[details]}</p>
                                 <button onClick={this.toggleModal}>
@@ -103,6 +103,7 @@ class ProductDetail extends React.Component {
     }
 
     if ( content !== undefined ){
+        let contentId = (this.props.route == "lock") ? this.props.route+"_id" : "product_id";
         return <div className="product-wrap">
                   <div className="slideshow">
                     {carouselImg}
@@ -112,7 +113,7 @@ class ProductDetail extends React.Component {
                   <div className="product-content">
                     <h3 className="title">{content[title]}</h3>
                     <p className="main-content">{content[description]}</p>
-                    <p><b>Product Code: {content[this.props.route+'_id']}</b></p>
+                    <p><b>Product Code: {content[contentId]}</b></p>
                     { dynamicSectionA }
                     <div className="icons">{icons}</div>
                   </div>

@@ -21,29 +21,30 @@
    	  // output all the data into table
    	  require_once('serverConfig.php');
 
-   	  $allLite = "SELECT * FROM lite_content";
-   	  $allLiteResult = mysqli_query($con, $allLite);
+   	  $allAcc = "SELECT * FROM acc_content";
+   	  $allAccResult = mysqli_query($con, $allAcc);
 
-   	 if($allLiteResult){
+   	 if($allAccResult){
 
    	  	echo "<table><thead><tr>";
-   	  	echo "<td>ID</td><td>lite_Id</td><td>categories</td><td>thumbImg</td><td>en_summary</td><td>cn_summary</td>";
+   	  	echo "<td>ID</td><td>acc_Id</td><td>categories</td><td>thumbImg</td><td>en_summary</td><td>cn_summary</td>";
    	  	echo "<td>jp_summary</td><td>kr_summary</td><td>en_title</td><td>cn_title</td><td>jp_title</td>";
 		   echo "<td>jp_title</td><td>en_description</td><td>cn_description</td><td>jp_description</td><td>kr_description</td>";
+         echo "<td>en_details</td><td>cn_details</td><td>jp_details</td><td>kr_details</td>";
          echo "<td>icons</td><td>manual</td><td>carouselImg</td><td>videoLink</td>";
          echo "<td>actions</td>";
    	  	echo "</tr></thead>";
 
-   	  	while($row = mysqli_fetch_array($allLiteResult)){
+   	  	while($row = mysqli_fetch_array($allAccResult)){
 
             // get id and output all id's categories name
-            $catQuery = "SELECT lite_cat_list.*, lite_categories.* FROM lite_cat_list INNER JOIN lite_categories ON lite_cat_list.cat_id = lite_categories.cat_id AND lite_cat_list.product_id = '".$row['id']."'";
+            $catQuery = "SELECT acc_cat_list.*, acc_categories.* FROM acc_cat_list INNER JOIN acc_categories ON acc_cat_list.cat_id = acc_categories.cat_id AND acc_cat_list.product_id = '".$row['id']."'";
 
-            $allLiteCat = mysqli_query($con, $catQuery);
+            $allaccCat = mysqli_query($con, $catQuery);
             $name = null;
 
-            if($allLiteCat){
-                  while($catList = mysqli_fetch_array($allLiteCat)){
+            if($allaccCat){
+                  while($catList = mysqli_fetch_array($allaccCat)){
                      $name .= $catList['name']."<br/>";
                   }
             }
@@ -51,7 +52,7 @@
 
    	  		echo '<tr>';
    	  		echo '<td class=\'short\'>'.$row['id'].'</td>';
-   	  		echo '<td class=\'short\'>'.$row['lite_id'].'</td>';
+   	  		echo '<td class=\'short\'>'.$row['product_id'].'</td>';
             echo '<td class=\'short\'>'.$name.'</td>';
    	  		echo '<td class=\'mid\'>'.$row['thumbImg'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['en_summary'].'</td>';
@@ -66,14 +67,18 @@
    	  		echo '<td class=\'long\'>'.$row['cn_description'].'</td>';
    	  		echo '<td class=\'long\'>'.$row['jp_description'].'</td>';
    	  		echo '<td class=\'long\'>'.$row['kr_description'].'</td>';
+            echo '<td class=\'long\'>'.$row['en_details'].'</td>';
+            echo '<td class=\'long\'>'.$row['cn_details'].'</td>';
+            echo '<td class=\'long\'>'.$row['jp_details'].'</td>';
+            echo '<td class=\'long\'>'.$row['kr_details'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['icons'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['manual'].'</td>';
    	  		echo '<td class=\'long\'>'.$row['carouselImg'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['videoLink'].'</td>';
-   	  		echo '<td><form action=\'showAllLite.php\' method=\'post\'>';
+   	  		echo '<td><form action=\'showAllacc.php\' method=\'post\'>';
    	  		echo '<input type=\'hidden\' name=\'delete_id\' value=\''.$row['id'].'\'/>';
    	  		echo '<button type="submit" name="delete">DELETE</button></form>';
-   	  		echo '<a href=\'editLite.php?id='.$row['lite_id'].'\' target="_blank">UPDATE</a></td>';
+   	  		echo '<a href=\'editAcc.php?id='.$row['acc_id'].'\' target="_blank">UPDATE</a></td>';
    	  		echo '</tr>';
     	}
     	echo "</table>";
@@ -82,9 +87,9 @@
 
       if(isset($_POST['delete'])) {
      	 
-       $deleteItemCat = "DELETE FROM lite_cat_list WHERE product_id='".$_POST['delete_id']."'";
+       $deleteItemCat = "DELETE FROM acc_cat_list WHERE product_id='".$_POST['delete_id']."'";
 
-     	 $deleteItem = "DELETE FROM lite_content WHERE id='".$_POST['delete_id']."'";
+     	 $deleteItem = "DELETE FROM acc_content WHERE id='".$_POST['delete_id']."'";
 
    	  	$deleteItemCatResult = mysqli_query($con, $deleteItemCat);
          

@@ -2,17 +2,18 @@
 	require_once('../cms/serverConfig.php');
 
 	$catName = $_GET["cat"];
-	$lite_id = $_GET["lite"];
+	$product_id = $_GET["accessories"];
 
-	//echo "Connected successfully";
+	//echo "Connected successfully".$catName;
 
-	if(!empty($_GET["cat"]) && $catName == all){
-		$query = "SELECT * From lite_content";
+	if(!empty($_GET["cat"]) && $catName == "all"){
+		$query = "SELECT * From acc_content";
 		//echo $query;
 
 	// all other category
 	}else if(!empty($_GET["cat"])){
-		$catQuery = "SELECT * FROM lite_categories WHERE lite_categories.name='".$catName."'";
+		$catQuery = "SELECT * FROM acc_categories WHERE acc_categories.name='".$catName."'";
+
     	$cat_list = mysqli_query( $con, $catQuery);
 
     	if($cat_list){
@@ -26,19 +27,19 @@
 		}
 
 		// get cat
-		$query = "SELECT lite_content.id, lite_content.* From lite_cat_list INNER JOIN lite_content 
-				  ON lite_cat_list.product_id = lite_content.id AND lite_cat_list.cat_id = '".$cat_id."'";
+		$query = "SELECT acc_content.id, acc_content.* From acc_cat_list INNER JOIN acc_content 
+				  ON acc_cat_list.product_id = acc_content.id AND acc_cat_list.cat_id = '".$cat_id."'";
 		
 		//echo $query;
 
 	// if get the product
-	}else if(!empty($_GET["lite"])){
-		$query = "SELECT * From lite_content WHERE lite_id = '".$lite_id."'";
+	}else if(!empty($_GET["accessories"])){
+		$query = "SELECT * From acc_content WHERE product_id = '".$product_id."'";
 
 
 	// other condition all treat as category = all
 	}else{
-		$query = "SELECT * From lite_content";
+		$query = "SELECT * From acc_content";
 	}
 
 	$result = mysqli_query($con, $query);
@@ -51,7 +52,7 @@
 		while($list = mysqli_fetch_array($result)){
 
 		$innerlistArray = array(
-				'lite_id' => $list['lite_id'],
+				'product_id' => $list['product_id'],
 				'thumbImg' => $list['thumbImg'],
 				'en_summary' => $list['en_summary'],
 				'jp_summary' => $list['jp_summary'],
@@ -90,5 +91,5 @@
         die();
     }
 
-	$conn->close();
+	$con->close();
 ?>

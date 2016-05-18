@@ -96,7 +96,7 @@ class App extends React.Component {
           Page = <Security lang={this.state.lang}/>; 
           break;
       case 'lock': 
-      case 'lite': 
+      case 'accessories': 
           Page = <Product lang={this.state.lang} route={route}/>; 
           break;
       case 'faq': 
@@ -116,7 +116,7 @@ class App extends React.Component {
       <div>
         <div className="wrapper">
         <a href="./" className="logo">
-          <img src="/ulac-react2/build/images/logo-g.png" />
+          <img src="/ulac-react2/build/images/ULAC_logo_2016_grey.png" />
         </a>
         <Navigation lang={this.state.lang} />
         <div className="clear"></div>
