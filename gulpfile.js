@@ -76,8 +76,8 @@ function bundle(bundler) {
         .pipe(source('main.jsx')) // Set source name
         .pipe(buffer()) // Convert to gulp pipeline
         .pipe(rename(config.js.outputFile)) // Rename the output file
-        //.pipe(sourcemaps.init({loadMaps: true})) // Extract the inline sourcemaps
-        //.pipe(sourcemaps.write('./map')) // Set folder for sourcemaps to output to
+        .pipe(sourcemaps.init({loadMaps: true})) // Extract the inline sourcemaps
+        .pipe(sourcemaps.write('./map')) // Set folder for sourcemaps to output to
         .pipe(gulp.dest(config.js.outputDir)) // Set the output folder
         .pipe(notify({
             message: 'Generated file: <%= file.relative %>',

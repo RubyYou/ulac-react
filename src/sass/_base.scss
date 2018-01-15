@@ -7,6 +7,7 @@
 @font-face { font-family: 'Venera900' ; src: url('../fonts/Venera-900.otf'); }
 @font-face { font-family: 'GothamBook' ; src: url('../fonts/GothamBook.otf'); }
 @font-face { font-family: 'GothamMed' ; src: url('../fonts/GothamMed.otf'); }
+@font-face { font-family: 'GothamUltra' ; src: url('../fonts/gotham-ultra.ttf'); }
 
 $yellow:#f8d12c;
 $grey:#9f9f9f;
@@ -20,34 +21,35 @@ body {
 h1, h2, h3, h4, h5{
   font-family: "venera500";
 }
-
+#app{
+  transition-duration: 0.3s;
+}
 .wrapper{
-  max-width: 1140px;
   width: 100%;
   margin: 0 auto;
-}
+  &.wide{
+    max-width: none;
+    .logo {
+      margin-top: -10px;
+      margin-left:0;
+    }
+  }
 
-nav .nav-link{
-  color:white;
-  font-family: "venera500", sans-serif;
+  .page-container{
+    max-width: 1140px;
+    margin: auto;
+    padding-top: 30px;
 
-}
-nav .nav-link:focus, 
-nav .nav-link:hover{
-  color:$yellow;
-}
-
-.nav-link li{
-  display: inline-block;
-  list-style: none;
-  margin:10px;
+    @media screen and (max-width:640px){
+      padding-top: 0;
+    }
+  }
 }
 
 p{
   color: $grey;
-  font-family: sans-serif;
+  font-family: 'GothamBook', sans-serif;
   line-height: 1.5em;
-  font-family: 'GothamBook';
 }
 
 a{ 
@@ -55,27 +57,150 @@ a{
   text-decoration: none;
 }
 
+.home{
+  max-width: 1140px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 320px;
+
+  @media screen and (min-width: 481px){
+    margin-top: 520px;
+  }
+  @media screen and (min-width: 769px){
+    margin-top: 640px;
+  }
+  @media screen and (min-width: 992px){
+    margin-top: 700px;
+  }
+}
+
+.hero-unit{
+  position: absolute;
+  top:60px;
+  width:100%;
+  max-height: 680px;
+  overflow: hidden;
+  height:280px;
+  @media screen and (min-width: 481px){
+    height: 480px;
+  }
+  @media screen and (min-width: 641px){
+    top:0px;
+    left:0px;
+  }
+  @media screen and (min-width: 769px){
+    height: 600px;
+  }
+  @media screen and (min-width: 992px){
+    height: 748px;
+  }
+
+  li{
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity:0;
+    z-index:1;
+    text-align: center;
+    transition: 2s opacity;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top:0;
+    list-style:none;
+
+    h1{
+      color: white;
+      font-family: "GothamUltra", sans-serif;
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 0px 0px 30px black;
+      margin-bottom: 40px;
+      margin-top: 50px;
+
+      @media screen and (min-width: 481px){
+        font-size: 5em;
+        margin-top: 100px;
+      }
+      @media screen and (min-width: 641px){
+        margin-top: 200px;
+      }
+      @media screen and (min-width: 769px){
+        margin-top: 300px;
+      }
+    }
+    a {
+      color: white;
+      border: 5px solid white;
+      background: rgba(70, 65, 65, 0.3);
+      padding: 15px 30px;
+      font-size: 24px;
+      cursor:pointer;
+      @media screen and (max-width: 480px){
+        padding: 10px 20px;
+      }
+      &:hover, &:focus{
+        background:white;
+        color:$grey;
+      }
+    }
+
+    &.show{
+      opacity:1;
+      z-index:3;
+      //visibility:visible;
+    }
+  }
+
+  .fa{
+    z-index: 100;
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 20px);
+    color: white;
+    font-size: 24px;
+
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    cursor: pointer;
+  }
+}
+
 .clear{
   clear:both;
 }
 
 .logo{
-  margin:30px 15px;
+  margin: -13px 22px;
   display: inline-block;
   float: left;
-  
+
   img{
-    height: 85px;
-    @media screen and (max-width:480px){
-      height: 65px;
-    }
+    width: 160px;
+    margin-top:10px;
   }
 }
 
 /* home =============================================== */
 .menuThumb{
-  text-align: center;
   margin: 30px auto;
+  
+  .grid-pad{
+    text-align: center;
+
+    @media screen and (max-width:767px){
+      padding-top:0;
+    }
+
+    h3{
+      margin-top: 10px;
+    }
+  }
 
   img{
     width: 100%;
@@ -98,20 +223,93 @@ a{
 
 }
 
-.home .grid-pad{
-  padding-left:0;
+.home{
+   .grid-pad{
+    padding-left:0;
+  }
+
+  .slideshow{
+    float:none;
+     @media screen and (max-width:480px){
+        display: none;
+     }
+  }
 }
 
 .video-section{
-  text-align: center;
+
+  h3{
+    margin-bottom: 15px;
+    margin-left: 15px;
+  }
+
+  @media screen and (max-width:480px){
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  iframe{
+    @media screen and (max-width:880px){
+      height: 490px;
+    }
+    @media screen and (max-width:760px){
+      height: 400px;
+    }
+    @media screen and (max-width:640px){
+      height: 360px;
+    }
+    @media screen and (max-width:600px){
+      height: 300px;
+    }
+    @media screen and (max-width:500px){
+      height: 250px;
+    }
+    @media screen and (max-width:400px){
+      height: 180px;
+    }
+  }
+
   p{
     margin: 20px auto 0;
   }
+  
 }
+
+.instegram-section{
+  margin-top:45px;
+  h3{
+    margin-bottom: 15px;
+  }
+
+  iframe{
+    @media screen and (min-width:951px){
+      height: 380px;
+    }
+    @media screen and (max-width:950px){
+      height: 340px;
+    }
+
+    @media screen and (max-width:700px){
+      height: 225px;
+    }
+
+    @media screen and (max-width:500px){
+      height: 150px;
+    }
+  }
+}
+
 .catalog{
   text-align: center;  
   img{
-    width:80%;
+    width:70%;
+    
+    @media screen and (min-width:768px){
+      margin: 0px 0px 0px 40px;
+    }
+  }
+  p{
+    margin-top: 20px;
   }
 }
 
@@ -119,15 +317,41 @@ a{
 
 /* about =============================================== */
 .about{
-  width: 90%;
-  margin: 30px auto;
-  max-width: 850px;
+  margin: 110px auto 20px;
+  @media screen and (max-width:640px) {
+    margin: 20px auto;
+  }
 
-  .slideshow{
+  .video-wrapper{
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto 20px;
-    float:none;
+    max-width:900px;
+    text-align: center;
+    display: block;
+
+    iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    @media screen and (min-width:641px){
+        height:336px;
+
+    }
+    @media screen and (min-width:481px) and (max-width: 640px){
+        height:220px;
+        margin: 20px auto;
+    }
+    @media screen and (max-width:480px){
+        height:180px;
+        margin: 20px auto;
+    }
+  }
+
+  .content{
+    width: 90%;
+    margin: 20px auto;
+    max-width: 850px;
   }
 
   h3{
@@ -146,28 +370,79 @@ a{
     margin:10px 0;
   }
   .intro{ 
+    font-family: 'GothamMed', sans-serif ;
+    color:white;
+    font-size:1.1em;
     @media screen and (min-width:987px){
-      margin-top:10%; 
+      margin-top:2%; 
     }
   }
-  .lab-graphic{ 
-    width:80%; 
-    margin: 0 10%; 
-  }
+  
   .grid-pad{
     margin-top:10px;
   }
+}
+
+.media{
+  margin-top: 20px;
+  
+  .header-image{
+    position:relative;
+    background-size: cover;
+    @media screen and (min-width:641px){
+        background-image: url('/images/media/header-img/1248x336.jpg'); 
+        height:336px;
+        margin-top: 86px;
+    }
+    @media screen and (min-width:481px) and (max-width: 640px){
+        background-image: url('/images/media/header-img/640x280.jpg');
+        height:280px;
+    }
+    @media screen and (max-width:480px){
+        background-image: url('/images/media/header-img/480x180.jpg');
+        height:180px;
+    }
+  }
+
+  .list-content{
+    margin: 50px auto 100px;
+    width: 90%;
+    max-width: 850px;
+    li{
+      padding: 10px;
+      border-bottom: 1px solid grey;
+      margin-bottom: 10px;
+      list-style:none;
+      a:hover{
+        color:$yellow;
+      }
+
+      > ul{
+        display: none;
+      }
+
+      &.open{
+        border-bottom:none;
+        padding:0;
+        > a{
+          padding:10px;
+          display: inline-block;
+        }
+        > ul{
+          margin-top:10px;
+          display: block;
+        }
+      }
+    }
+
+  }
+
 }
 
 /* xlab =============================================== */
 .xlab{
   .grid-pad{ 
     margin-bottom:20px;
-    // p{
-    //   @media screen and (min-width:987px){
-    //     margin-top: 5%;
-    //   }
-    // }
   }
 }
 
@@ -176,6 +451,7 @@ a{
 .faq{
   width:90%;
   margin:40px auto;
+
   h4{
     color:$yellow;
     font-family: inherit;
@@ -185,7 +461,12 @@ a{
     margin-bottom: 20px;
   }
 
+  .grid-pad{
+    padding: 0 0 20px 0;
+  }
+
   .grid{
+
     @media screen and (max-width:767px){
       padding-left:0;
     }
@@ -220,6 +501,12 @@ a{
   p{
     margin: 10px 0;
   }
+  ul{
+    margin:10px 0 10px 20px;
+    li{
+      line-height: 1.5em;
+    }
+  }
 }
 
 
@@ -241,9 +528,11 @@ footer{
   padding: 20px 0 40px;
   width: 100%;
   background-color: #000;
+  font-size:14px;
+  position:relative;
 
-  .grid-pad{
-    /*margin: 20px 0;*/
+  .row{
+    margin-top:20px;
   }
 
   h4{
@@ -255,4 +544,84 @@ footer{
     color:lighten($yellow, 15);
   }
 
+  hr{
+    margin:20px 0 10px;
+    border-color: #585757;
+  }
+
+  .copy-area{
+    padding:20px 0;
+
+    .logo-wrap{
+      width: 18%;
+      float: left;
+      padding-right: 20px;
+      opacity: 0.75;
+      @media screen and (max-width:770px) {
+        width: 31%;
+      }
+      @media screen and (max-width:480px){
+        width:100%;
+        text-align: center;
+      }
+      img{
+        width:100%;
+        @media screen and (max-width:480px){
+          width: 160px;
+        }
+      }
+    }
+    .copy{
+      width: 45%;
+      float: left;
+      margin-top: 12px;
+      @media screen and (max-width:770px){
+        width: 65%;
+      }
+      @media screen and (max-width:480px){
+        width:100%;
+        margin:20px auto;
+      }
+    }
+    .social{
+      width: 32%;
+      float: right;
+      margin-top: 10px;
+
+      @media screen and (max-width:770px){
+        width: 100%;
+      }
+      
+      > a{
+        width: 25%;
+        float: left;
+        text-align:center;
+        i{
+          font-size: 3em;
+          @media screen and (max-width:770px){
+            font-size: 2.5em;
+          }
+        }
+      }
+      .trade-mark{
+        width:100%;
+        font-size: 10px;
+        margin-top: 12px;
+        display: block;
+        text-align: center;
+      }
+
+    }
+  }
+  .colors{
+    width:100%;
+    height:20px;
+    position: absolute;
+    bottom:0;
+    > div { 
+      width: 14.285%; height:100%;
+      display: inline-block;
+      float: left;
+    }
+  }
 }

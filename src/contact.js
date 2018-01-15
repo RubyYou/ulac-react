@@ -32,7 +32,7 @@ class Contact extends React.Component {
  	console.log((this.props.lang).toLowerCase());
 
  	Request
- 		.get('/ulac-react2/build/data/contact.json')
+ 		.get('/data/contact.json')
  		.accept('application/json')
  		.end(function(err, response){
  			self.loadComplete(response.body);
@@ -64,7 +64,7 @@ class Contact extends React.Component {
 				      	<div className="form">
 					        <form action="../gdform.php" method="post" role="form">					     
 					        <input type="hidden" name="subject" value="Contact Us"/>
-					        <input type="hidden" name="redirect" value="contact.php"/>
+					        <input type="hidden" name="redirect" value="/contact"/>
 					        <input type="hidden" name="email" value={this.data.emailAddress} />
 					       
 					        <div className="form-group">
@@ -98,7 +98,7 @@ class Contact extends React.Component {
 				      </section>				      
 				      <section className="map text-center">
 						    <h3 dangerouslySetInnerHTML={{__html: this.data.mapTitle }}></h3> 
-					        <img className="width100" src="/ulac-react2/build/images/ULAC_map.jpg" />
+					        <img className="width100" src="/images/ULAC_map.jpg" />
 				      </section>
 	    		</div>)
 

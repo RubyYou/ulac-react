@@ -17,7 +17,7 @@ class Security extends React.Component {
  	let self = this;
 
  	Request
- 		.get('/ulac-react2/build/template/security.php?lang=' + (this.props.lang).toLowerCase())
+ 		.get('/template/security.php?lang=' + (this.props.lang).toLowerCase())
  		.type('Content-Type', 'text/html; charset=utf8')
  		.end(function(err, res){
  			self.setState({content:res.text});

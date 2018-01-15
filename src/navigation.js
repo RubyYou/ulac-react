@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import Request from 'superagent';
+import { prefixUrl } from './config';
 
 class Navigation extends React.Component {
  
@@ -32,23 +33,22 @@ class Navigation extends React.Component {
 
  getContent(){
  	let self = this;
- 	//console.log((this.props.lang).toLowerCase());
 
  	Request
- 		.get('/ulac-react2/build/data/navigation.json')
+ 		.get(prefixUrl+'data/navigation.json')
  		.accept('application/json')
  		.end(function(err, response){
  			self.loadComplete(JSON.parse(response.text).nav);
   	});
  }
 
- toggleSubMenu(){
-    let menu = this.refs.subMenu;
+ toggleSubMenu(refsName){
+    let menu = this.refs[refsName];
     
-    if( menu.className !== "open"){
-      menu.className = "open";
+    if(!menu.classList.contains("open")){
+      menu.classList.add("open");
     }else{
-      menu.className = "";
+      menu.classList.remove("open");
     }
  }
 
@@ -71,8 +71,9 @@ class Navigation extends React.Component {
  	this.data.faq = res.faq[this.props.lang];
  	this.data.representative = res.representative[this.props.lang];
  	this.data.about = res.about[this.props.lang];
+  this.data.media = res.media[this.props.lang];
  	this.data.contact = res.contact[this.props.lang];
- 	
+
  	this.setState({loadComplete:true});
  }
 
@@ -80,7 +81,7 @@ class Navigation extends React.Component {
  render() {
  	let lang = this.props.lang;
   let langList = [];
-  let langArry = ['EN','KR','CN','JP'];
+  let langArry = ['EN','JP','CN','KR'];
   let currentLangIndex = langArry.indexOf(lang);
   
   if (currentLangIndex > -1) {
@@ -88,8 +89,9 @@ class Navigation extends React.Component {
   }
 
   for(let i = 0; i < langArry.length ; i ++){
-    let link = "/ulac-react2/build/" + langArry[i];
-    langList.push(<li key={'link' + i}><a href={link}>{ langArry[i] }</a></li>);
+    let link = prefixUrl+langArry[i];
+
+    langList.push(<li key={'link' + i}><a href={link}>{langArry[i]}</a></li>);
   }
 
   let representative = [];
@@ -97,41 +99,65 @@ class Navigation extends React.Component {
     representative.push(<li><a href="representative">{ this.data.representative }</a></li>);
   }
 
-  let prefixUrl = '/ulac-react2/build/'; // take out after when live
-
-    return <nav>
+  return (<nav>
+            <div className="nav-container">
+            <a href="./" className="logo">
+                <img src={`${prefixUrl}images/logo-new.png`} />
+            </a>
             <ul className="lang-nav">
-              <li><a href="https://twitter.com/ULAClock" target="_blank">
-                    <i className="fa fa-facebook-square"></i>
+              <li className="email">
+                <a href="mailto:inquiry@ulaclock.com">
+                  inquiry@ulaclock.com
+                </a>
+                <span>|</span>
+              </li>
+              <li><a href="https://vimeo.com/ulaclock" target="_blank">
+                    <i className="fa fa-vimeo" />
                   </a>
               </li>
               <li><a href="https://www.facebook.com/ULAC-732085670258072/timeline/" target="_blank">
-                    <i className="fa fa-twitter"></i>
+                    <i className="fa fa-facebook-square" />
                   </a>
               </li>
-              {langList}
+              <li><a href="https://twitter.com/ULAClock" target="_blank">
+                    <i className="fa fa-twitter" />
+                  </a>
+              </li>
+              <li><a href="https://www.instagram.com/ulaclock/" target="_blank">
+                    <i className="fa fa-instagram" />
+                  </a>
+              </li>
+              <li><a className="toggle-submenu" href="javascript:void(0)" ref="language"
+                    onClick={this.toggleSubMenu.bind(this, "language")}>{ this.props.lang } 
+                    <span style={{fontSize: "12px"}}> &#9660;</span></a>
+                  <ul className="sub-menu" > {langList} </ul>
+              </li>
             </ul>
-            <span id="mobileToggle" ref="mobileToggle" 
-                  onClick={this.toggleMobileMenu}>
-                  <i className="fa fa-bars fa-2x"></i>
-            </span>
 	          <ul className="nav-link">
 	            <li><a href={`${prefixUrl}${lang}/lock`}>{ this.data.lock }</a></li>
-	            <li><a href={`${prefixUrl}${lang}/accessories`}>{ this.data.accessories }</a></li>
-	            <li><a id="toggle-submenu" href="javascript:void(0)" ref="subMenu"
-                      onClick={this.toggleSubMenu}>{ this.data.xlab }</a>
+	            <li><a className="toggle-submenu" href="javascript:void(0)" ref="xlab"
+                      onClick={this.toggleSubMenu.bind(this, "xlab")}>{ this.data.xlab } &#x25BC;</a>
 	            	<ul className="sub-menu" >
 	            		<li><a href={`${prefixUrl}${lang}/xlab`}>{ this.data.xlab }</a></li>
 	            		<li><a href={`${prefixUrl}${lang}/innovation`}>{ this.data.innovation }</a></li>
 	            		<li><a href={`${prefixUrl}${lang}/security`}>{ this.data.security }</a></li>
-	            		<li><a href={`${prefixUrl}${lang}/faq`}>{ this.data.faq }</a></li>
 	            		{ representative }
 	            	</ul>
 	            </li>	            
 	            <li><a href={`${prefixUrl}${lang}/about`}>{ this.data.about }</a></li>
-	            <li><a href={`${prefixUrl}${lang}/contact`}>{ this.data.contact }</a></li>
+              <li><a href={`${prefixUrl}${lang}/media`}>{ this.data.media }</a></li>
+	            <li>
+                <a className="toggle-submenu" href="javascript:void(0)" ref="contact"
+                      onClick={this.toggleSubMenu.bind(this, "contact")}>{ this.data.contact } &#x25BC;</a>
+                <ul className="sub-menu" >
+                  <li><a href={`${prefixUrl}${lang}/contact`}>{ this.data.contact }</a></li>
+                  <li><a href={`${prefixUrl}${lang}/faq`}>{ this.data.faq }</a></li>
+                </ul>
+              </li>
 	          </ul>
-        	</nav>;
+            <div className="clear"></div>
+            </div>
+        </nav>);
   }
 }
 

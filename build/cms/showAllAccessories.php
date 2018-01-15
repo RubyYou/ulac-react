@@ -78,7 +78,7 @@
    	  		echo '<td><form action=\'showAllacc.php\' method=\'post\'>';
    	  		echo '<input type=\'hidden\' name=\'delete_id\' value=\''.$row['id'].'\'/>';
    	  		echo '<button type="submit" name="delete">DELETE</button></form>';
-   	  		echo '<a href=\'editAcc.php?id='.$row['acc_id'].'\' target="_blank">UPDATE</a></td>';
+   	  		echo '<a href=\'editAccessories.php?id='.$row['product_id'].'\' target="_blank">UPDATE</a></td>';
    	  		echo '</tr>';
     	}
     	echo "</table>";

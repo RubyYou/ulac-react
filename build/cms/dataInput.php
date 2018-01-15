@@ -1,6 +1,7 @@
 <html>
    
    <head>
+   	  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
       <title>Add New Record in ULAC CONTENT</title>
    </head>
    
@@ -9,6 +10,7 @@
 <?php
       if(isset($_POST['add'])) {
           	require_once('serverConfig.php');
+            header('Content-Type: text/html;charset=utf-8');
             
             $product_id = $_POST['product_id'];
             $thumbImg = $_POST['thumbImg'];
@@ -76,7 +78,7 @@
             echo "Entered data successfully\n <br/>";
 
             //insert the categories for each product 
-            if(!empty($_POST['acc_cat'] && $_POST['product_type'] == 'acc')){
+            if(!empty($_POST['acc_cat']) && $_POST['product_type'] == 'acc'){
               $lastId_query = "SELECT * FROM acc_content ORDER BY id DESC LIMIT 1";
               $lastId_result = mysqli_query( $con, $lastId_query);
 

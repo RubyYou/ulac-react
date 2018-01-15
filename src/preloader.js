@@ -3,8 +3,8 @@ import React from 'react';
 class Preloader extends React.Component {
 
  render() {
-    return <div class="preloader">
-  			<div class="spinner"></div>
+    return <div className="preloader">
+  			<div className="spinner"></div>
   		   </div>;
   }
 }

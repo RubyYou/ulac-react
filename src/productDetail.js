@@ -47,7 +47,7 @@ class ProductDetail extends React.Component {
     let carouselImgArr = (content.carouselImg).split(",");
 
     for (let i = 0; i < carouselImgArr.length ; i ++){
-      //carouselImgArr[i] = ("/ulac-react2/build/").concat(carouselImgArr[i]); //local
+      //carouselImgArr[i] = ("/").concat(carouselImgArr[i]); //local
       carouselImgArr[i] = ("/").concat(carouselImgArr[i]);
 
       if( i == 0 ){
@@ -57,10 +57,16 @@ class ProductDetail extends React.Component {
       }
     }
     
-    //let security = "/ulac-react2/build/images/security/level" + content.security + ".png"; // local
+    //let security = "/images/security/level" + content.security + ".png"; 
     //let manual = "/ulac-react2/build/" + content.manual; // local
 
-    let security = "/images/security/level" + content.security + ".png";
+    let securityHtml = null;
+    if (parseInt (content.security) > 0) 
+    {
+      let security = "/images/security/level" + content.security + ".png";
+      securityHtml = <img className="level" src= {security} />;
+    }
+   
     let manual = "/" + content.manual;
 
     // process dynamic area
@@ -68,16 +74,16 @@ class ProductDetail extends React.Component {
       case 'accessories':
         dynamicSectionA.push(<div>
                                 <p>{content[details]}</p>
+                                <div className="icons">{icons}</div><br/>
                                 <button onClick={this.toggleModal}>
-                                  <img src="/ulac-react2/build/images/manual-button.png" />
+                                  <img src="/images/manual-button.png" />
                                 </button>
                             </div>);
 
         dynamicSectionB.push(<div key={'lock-bottom'}>
                               <iframe width="100%" height="300" 
                                     src={content.videoLink} 
-                                    frameBorder="0" 
-                                    allowFullScreen>
+                                    frameBorder="0" allowFullScreen>
                               </iframe>
                             </div>);
         break;
@@ -86,41 +92,58 @@ class ProductDetail extends React.Component {
         dynamicSectionA.push(<div key={'lock-content'}>
                                 <p><b>Spec: {content.spec}</b></p>
                                 <p><b>Weight: {content.weight}</b></p><br/>
-                                <img className="level" src={security} />
+                                { securityHtml } <br/>
+                                <div className="icons">{icons}</div><br/>
                                 <button onClick={this.toggleModal}>
-                                  <img src="/ulac-react2/build/images/manual-button.png" />
+                                  <img src="/images/manual-button.png" />
                                 </button>
                               </div>);
 
         dynamicSectionB.push(<div key={'lock-bottom'}>
                                 <iframe width="100%" height="300" 
                                       src={content.videoLink} 
-                                      frameBorder="0" 
-                                      allowFullScreen>
+                                      frameBorder="0" allowFullScreen>
                                 </iframe>
                               </div>);
         break;
     }
 
-    if ( content !== undefined ){
+    if ( content !== undefined )
+    {
         let contentId = (this.props.route == "lock") ? this.props.route+"_id" : "product_id";
+        let colors = [];
+        if (content.colors) {
+          content.colors.split(",").map(item => { 
+            let info = item.split("/");
+            colors.push (
+              <div className="color-block" key={'color-' + info[1]}>
+                  <div style={{backgroundColor: info[1] }}></div>
+                  <p>{info[0].toUpperCase ()} </p>
+              </div>
+            );
+          });
+        }
+
         return <div className="product-wrap">
-                  <div className="slideshow">
-                    {carouselImg}
-                    <span className="prev">&laquo;</span>
-                    <span className="next">&raquo;</span>
+                  <div className="product-images">
+                    <div className="slideshow">
+                      {carouselImg}
+                      <span className="prev">&laquo;</span>
+                      <span className="next">&raquo;</span>
+                    </div>
+                    { dynamicSectionB } 
                   </div>
                   <div className="product-content">
                     <h3 className="title">{content[title]}</h3>
                     <p className="main-content">{content[description]}</p>
-                    <p><b>Product Code: {content[contentId]}</b></p>
+                    { colors ? 
+                      <div className="colors">
+                        { colors }
+                        <p className="info">*Product selection and availability may vary</p>
+                      </div>: null }
                     { dynamicSectionA }
-                    <div className="icons">{icons}</div>
                   </div>
-
                   <div className="clear"></div>
-                  { dynamicSectionB } 
-
                   <div id="modal" onClick={this.toggleModal.bind(this)}>
                     <div>
                         <img id="manual" src={manual} />

@@ -1,18 +1,18 @@
 <?php
 	require_once('../cms/serverConfig.php');
-	
+
 	$catName = $_GET["cat"];
-	$lock_id = $_GET["lock"];
+	$lite_id = $_GET["lite"];
 
 	//echo "Connected successfully";
 
 	if(!empty($_GET["cat"]) && $catName == all){
-		$query = "SELECT * From lock_content";
+		$query = "SELECT * From lite_content";
 		//echo $query;
 
 	// all other category
 	}else if(!empty($_GET["cat"])){
-		$catQuery = "SELECT * FROM lock_categories WHERE lock_categories.name='".$catName."'";
+		$catQuery = "SELECT * FROM lite_categories WHERE lite_categories.name='".$catName."'";
     	$cat_list = mysqli_query( $con, $catQuery);
 
     	if($cat_list){
@@ -26,19 +26,19 @@
 		}
 
 		// get cat
-		$query = "SELECT lock_content.id, lock_content.* From lock_cat_list INNER JOIN lock_content 
-				  ON lock_cat_list.product_id = lock_content.id AND lock_cat_list.cat_id = '".$cat_id."'";
+		$query = "SELECT lite_content.id, lite_content.* From lite_cat_list INNER JOIN lite_content 
+				  ON lite_cat_list.product_id = lite_content.id AND lite_cat_list.cat_id = '".$cat_id."'";
 		
 		//echo $query;
 
 	// if get the product
-	}else if(!empty($_GET["lock"])){
-		$query = "SELECT * From lock_content WHERE lock_id = '".$lock_id."'";
+	}else if(!empty($_GET["lite"])){
+		$query = "SELECT * From lite_content WHERE lite_id = '".$lite_id."'";
 
 
 	// other condition all treat as category = all
 	}else{
-		$query = "SELECT * From lock_content";
+		$query = "SELECT * From lite_content";
 	}
 
 	$result = mysqli_query($con, $query);
@@ -51,7 +51,7 @@
 		while($list = mysqli_fetch_array($result)){
 
 		$innerlistArray = array(
-				'lock_id' => $list['lock_id'],
+				'lite_id' => $list['lite_id'],
 				'thumbImg' => $list['thumbImg'],
 				'en_summary' => $list['en_summary'],
 				'jp_summary' => $list['jp_summary'],
@@ -65,11 +65,11 @@
 				'jp_description' => $list['jp_description'],
 				'cn_description' => $list['cn_description'],
 				'kr_description' => $list['kr_description'],
-				'security' => $list['security'],
-				'spec' => $list['spec'],
+				'en_details' => $list['en_details'],
+				'jp_details' => $list['jp_details'],
+				'cn_details' => $list['cn_details'],
+				'kr_details' => $list['kr_details'],
 				'icons' => $list['icons'],
-				'colors' => $list['colors'],
-				'weight' => $list['weight'],
 				'carouselImg' => $list['carouselImg'],
 				'manual' => $list['manual'],
 				'videoLink' => $list['videoLink']
@@ -81,7 +81,8 @@
 			$arryIndex = $arryIndex + 1;
 		}
 
-		echo json_encode($listResult, JSON_UNESCAPED_UNICODE); 
+		echo json_encode($listResult, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
 
     } else {
 

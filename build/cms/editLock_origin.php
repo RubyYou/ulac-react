@@ -1,7 +1,7 @@
 <html>
    
    <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>Edit a old Record in ULAC CONTENT</title>
    </head>
    
@@ -16,12 +16,14 @@ if(isset($_GET['id'])){
 
   require_once('serverConfig.php');
 
-  //echo $id;
+  echo $id;
 
   if(isset($_POST['update'])){
 
     $id_p = $_POST['id_p'];
+    
     echo $id_p;
+
     $lock_id_p = $_POST['lock_id_p'];
     $thumbImg_p = $_POST['thumbImg_p'];
     $en_summary_p = $_POST['en_summary_p'];
@@ -40,15 +42,9 @@ if(isset($_GET['id'])){
     $weight_p = $_POST['weight_p'];
     $security_p = $_POST['security_p'];
     $icons_p = $_POST['icons_p'];
-    $colors_p = $_POST['colors_p'];
     $manual_p = $_POST['manual_p'];
     $carouselImg_p = $_POST['carouselImg_p'];
     $videoLink_p = $_POST['videoLink_p'];
-
-    // get the lock category info and clean up and reinsert it again
-    $lock_cat_p = $_POST['lock_cat'];
-
-    echo $lock_cat_p."lock_cat_p";
 
     $updateSql = "UPDATE lock_content SET lock_id = '$lock_id_p',
                   thumbImg = '$thumbImg_p', en_summary = '$en_summary_p',
@@ -58,25 +54,11 @@ if(isset($_GET['id'])){
                   kr_title = '$kr_title_p', cn_description = '$cn_description_p',
                   en_description = '$en_description_p', jp_description = '$jp_description_p',
                   kr_description = '$kr_description_p', spec = '$spec_p', security = '$security_p',
-                  weight = '$weight_p', icons = '$icons_p', colors = '$colors_p', manual = '$manual_p', 
+                  weight = '$weight_p', icons = '$icons_p', manual = '$manual_p', 
                   carouselImg = '$carouselImg_p', videoLink = '$videoLink_p'
                   WHERE id = '$id_p'";
 
-    $deleteCatSql = "DELETE FROM lock_cat_list WHERE product_id='".$id_p."'";
-    
-    $delete = mysqli_query($con, $deleteCatSql);
-
-    if($delete){  
-      foreach($lock_cat_p as $catName){
-        $insertCatSql = "INSERT INTO lock_cat_list (cat_id, product_id) VALUES ('".$catName."', '".$id_p."')";
-        mysqli_query($con, $insertCatSql);
-      }
-
-    }else{
-      die('Could not enter category: ' . mysqli_error());
-    }
-
-    $update = mysqli_query($con, $updateSql);
+    $update = mysqli_query( $con, $updateSql);
     
     if(!$update ) {
        die('Could not enter data: ' . mysqli_error());
@@ -89,7 +71,7 @@ if(isset($_GET['id'])){
 
     $query="SELECT * FROM lock_content WHERE lock_id='".$lock_id."'";
     
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query( $con, $query);
 
     while($row = mysqli_fetch_array($result)){
             $id = $row['id'];
@@ -111,21 +93,9 @@ if(isset($_GET['id'])){
             $spec = $row['spec'];
             $weight = $row['weight'];
             $icons = $row['icons'];
-            $colors = $row['colors'];
             $manual = $row['manual'];
             $carouselImg = $row['carouselImg'];
             $videoLink = $row['videoLink'];
-    }
-
-    // get the category result for this id
-    $cat_query = "SELECT lock_cat_list.*, lock_categories.* FROM lock_cat_list INNER JOIN lock_categories ON lock_cat_list.cat_id = lock_categories.cat_id AND lock_cat_list.product_id='".$id."'";
-    
-    $cat_result = mysqli_query($con, $cat_query);
-    
-    $cat_idArr = array();
-
-    while($cat_row = mysqli_fetch_array($cat_result)){
-      array_push($cat_idArr, $cat_row["cat_id"]);
     }
 
 }
@@ -133,42 +103,13 @@ if(isset($_GET['id'])){
 
 	<form action="editLock.php?id=<? echo $lock_id; ?>" method="post">
      <input type="hidden" name="id_p" value="<?php echo $id; ?>">
-		 <table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
+		 <table width = "400" border = "0" cellspacing = "1" 
+             cellpadding = "2">
+            
              <tr>
                 <td width = "200">Lock_ID</td>
                 <td><input name = "lock_id_p" type = "text" size="50"
                    id = "lock_id" value="<?php echo $lock_id; ?>">
-                </td>
-             </tr>
-             <tr>
-                <td width = "200">Lock_Categories</td>
-                <td><input type="checkbox" name="lock_cat[]" value="1"
-                      <?php if(in_array("1", $cat_idArr)){ echo "checked"; } ?>
-                    > ulac lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="2"
-                      <?php if(in_array("2", $cat_idArr)){ echo "checked"; } ?>
-                    > combo lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="3"
-                      <?php if(in_array("3", $cat_idArr)){ echo "checked"; } ?>
-                    > cable lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="4"
-                      <?php if(in_array("4", $cat_idArr)){ echo "checked"; } ?>
-                    > chain lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="5"
-                      <?php if(in_array("5", $cat_idArr)){ echo "checked"; } ?>
-                    > ulock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="6"
-                      <?php if(in_array("6", $cat_idArr)){ echo "checked"; } ?>
-                    > speciality lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="7"
-                      <?php if(in_array("7", $cat_idArr)){ echo "checked"; } ?>
-                    > key lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="8"
-                      <?php if(in_array("8", $cat_idArr)){ echo "checked"; } ?>
-                    > alarm lock <br/>
-                    <input type="checkbox" name="lock_cat[]" value="9"
-                      <?php if(in_array("9", $cat_idArr)){ echo "checked"; } ?>
-                    >  promotion items <br/>
                 </td>
              </tr>
           
@@ -269,11 +210,6 @@ if(isset($_GET['id'])){
                 <td width = "200">icons</td>
                 <td><textarea name = "icons_p" type = "text" rows="4" cols="50"
                    id = "icons"><?php echo htmlspecialchars($icons); ?></textarea></td>
-             </tr>
-             <tr>
-                <td width = "200">colors</td>
-                <td><textarea name = "colors_p" type = "text" rows="4" cols="50"
-                   id = "colors"><?php echo htmlspecialchars($colors); ?></textarea></td>
              </tr>
 
              <tr>

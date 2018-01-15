@@ -13,7 +13,10 @@ import Security from './security';
 import Representative from './representative';
 import Contact from './contact';
 import Navigation from './navigation';
+import MobileTopNavigation from './mobileTopNavigation';
 import Footer from './footer';
+import Media from './media';
+import Popup from './popup';
 import { Router, Route, Link } from 'react-router';
 
 class App extends React.Component {
@@ -23,8 +26,10 @@ class App extends React.Component {
     this.langArr = ['EN','CN','KR','JP'];
   	this.getPathname = this.getPathname.bind(this);
     this.getLanguage = this.getLanguage.bind(this);
-  	this.state = {route:this.getPathname(), lang: this.getLanguage() };
-    
+    this.showVideoAtHomePage = this.showVideoAtHomePage.bind(this);
+  	this.state = {route:this.getPathname(), 
+                  lang: this.getLanguage()
+                   };
   }
 
   componentDidMount() {
@@ -70,21 +75,35 @@ class App extends React.Component {
     return pathArray[pathArray.length-1];
   }
 
+  showVideoAtHomePage(){
+    let path = this.getPathname().toLowerCase();
+    
+    if (path == "" || path == "kr" || path == "en" || path == "jp"){
+        return true;
+
+    }else{
+        return false;
+    }
+
+  }
+
   render() {
 
     let Page = {};
     let route = (this.state.route).toLowerCase();
-
+    let isFullScreenPage = false;
     switch (route) {
       case '':
       case 'en':
       case 'kr':
       case 'cn':
       case 'jp':
-          Page = <Home lang={this.state.lang}/>; 
+          Page = <Home lang={this.state.lang}/>;
+          isFullScreenPage = true;
           break;
       case 'about': 
-          Page = <About lang={this.state.lang} />; 
+          Page = <About lang={this.state.lang} />;
+          isFullScreenPage = true;
           break;
       case 'innovation':
           Page = <Innovation lang={this.state.lang} />; 
@@ -105,6 +124,10 @@ class App extends React.Component {
       case 'representative':
           Page = <Representative />; 
           break;
+      case 'media':
+          Page = <Media lang={this.state.lang}/>;
+          isFullScreenPage = true;
+          break;
       case 'contact':
           Page = <Contact lang={this.state.lang}/>; 
           break;
@@ -112,17 +135,20 @@ class App extends React.Component {
           Page = <NotFound />;
     }
 
-    return (
+
+    let wrapperClass = isFullScreenPage ? "wide" : "";
+
+      return (
       <div>
-        <div className="wrapper">
-        <a href="./" className="logo">
-          <img src="/ulac-react2/build/images/ULAC_logo_2016_grey.png" />
-        </a>
-        <Navigation lang={this.state.lang} />
-        <div className="clear"></div>
-        { Page }
+        <div className={"wrapper " + wrapperClass}>
+            <Navigation lang={this.state.lang} route={this.state.route} />
+            <div className="page-container">
+              <MobileTopNavigation />
+              { Page }
+            </div>
+            <Footer lang={this.state.lang} />
         </div>
-        <Footer lang={this.state.lang} />
+
       </div>
     )
   }

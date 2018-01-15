@@ -3,20 +3,27 @@
 ?>
 
 <div id="en-about">
-	<h3>ABOUT ULAC</h3>
-	<p>Since its founding in Taiwan in 1985, ULAC has promoted consumer safety and security through the manufacture of secure and fashionable bicycle locks and lights. With a sense for aesthetics and security, ULAC continues to strive to develop products which satisfy the needs and taste of the discerning cyclist.</p>
-	<p>ULAC’s own manufacturing facility in Guangdong, China and emphasis on high quality production promises products that are reliable and user friendly with a long lifespan.</p>
+	<h3>Cult Classic</h3>
+	<p>The ULAC cyclist believes in riding as a way of life, and we do too. That’s why ULAC has been setting trends in bike accessory fashion for 30 years with one thing in mind: the discerning urban cyclist.</p>
 	<br/>
-    <h3>HISTORY</h3>
-	<p>KC Shen started ULAC in 1985 in Taipei, Taiwan, focusing on the development of innovative, secure and fashionable portable security products.</p>
-	<p>When the manufacturing world shifted from the West to Mainland China in the early 1990s, Shen decided to pursue his interest in designing and manufacturing mobile security products there, leaving Taiwan and acquiring ULAC’s manufacturing plant and machinery in Guangdong.</p>
-	<p>In 1994, changes in the security products market led Shen to shift concentration away from ULAC’s former core products, such as previously high-demand merchandise like the Card Lock and the Laptop Cable Lock. Maintaining his dedication to portable security and theft deterrence, Shen decided to devote his knowledge, skillset and craftsmanship to developing bicycle locks and safety lights.</p>	        
+    <h3>Neo Lock</h3>
+	<p>In 2014, ULAC challenged the idea that “safe” must mean “bulky” and “heavy.” Neo Locks by ULAC are lightweight and easy to carry for strength that won’t slow you down on the road.</p>	        
 	<br/>
-    <h3>BRAND</h3>
-	<p>With an established OEM and ODM foundation spanning more than 20 years, ULAC works with leading US, German and Japanese brands and retailers to design and manufacture various types of bicycle locks and lights. In 2008, ULAC launched its own brand in Mainland China and is currently expanding in Greater China, Taiwan, Korea, Japan and Thailand. </p>
+    <h3>Milestones</h3>
+	<p>1982 ULAC born in Taiwan<br/>
+        1985 Steel braided cable locks enter mass production<br/>
+        1988 SafeGuardTM card locks<br/>
+        1991 Alarm-fitted cable locks<br/>
+        1996 First sponsorships<br/>
+        2000 Collaborations with European, Japanese and North American brands<br/>
+        2002 The idea of Lock as a Lifestyle is born<br/>
+        2005 AlluxTM technology shackle locks become an industry first<br/>
+        2010 Brooklyn: the first complete silicon overmoulded U-lock<br/>
+        2014 Neo Lock expands worldwide
+    </p>
 	<br/>
-    <h3>ULAC VALUES</h3>
-	<p>ULAC strongly believes that “A lock is not just a lock”, and we want to change that perception by bringing highly crafted + fashionable cycle lock to the table. We are confident that the dialogue between employees, partners and us are “Art + Design”, which is our ultimate goal. – to provide an unique cycle lock yet affordable.</p>
+    <h3>Lifestyle</h3>
+	<p>The Neo Lock is a riding companion for the Neo Lifestyle, as colorful and self-assured as the fearless urban roadies who know riding is about more than just getting from here to there.</p>
 </div>
 
 <?php }else if( $_GET["lang"] == 'kr' ){ ?>

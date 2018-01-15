@@ -33,10 +33,8 @@ class Innovation extends React.Component {
 
  getContent(){
  	let self = this;
- 	console.log((this.props.lang).toLowerCase());
-
  	Request
- 		.get('/ulac-react2/build/data/innovation.json')
+ 		.get('/data/innovation.json')
  		.accept('application/json')
  		.end(function(err, response){
  			self.loadComplete(response.body);
@@ -64,21 +62,21 @@ class Innovation extends React.Component {
 
  	if(this.state.loadComplete == true ){
 
- 		for (var key in self.data.classicVideos){
+ 		for (var key in self.data.classicVideos) {
  			classicCarousel.push(
  				<iframe width="100%" height="300" key={"classicVideo"+key} 
  						src={self.data.classicVideos[key]} frameBorder="0" allowFullScreen>
 			    </iframe>);
  		}
 
- 		for (var key in self.data.modernVideos){
+ 		for (var key in self.data.modernVideos) {
  			modernCarousel.push(
  				<iframe width="100%" height="300" key={"modernVideo"+key} 
  						src={self.data.modernVideos[key]} frameBorder="0" allowFullScreen>
 			    </iframe>);
  		}
 
- 		for (var key in self.data.futureVideos){
+ 		for (var key in self.data.futureVideos) {
  			futureCarousel.push(
  				<iframe width="100%" height="300" key={"futureVideo"+key} 
  						src={self.data.futureVideos[key]} frameBorder="0" allowFullScreen>
@@ -86,12 +84,8 @@ class Innovation extends React.Component {
  		}
 
 
- 		return (<div className="innovation">
- 					<div className="grid grid-pad">
- 						<div className="col-6-12" dangerouslySetInnerHTML={{__html: self.data.introText }}></div>
- 						<div className="col-6-12" ><img className="lab-graphic" src="/ulac-react2/build/images/innovation_xlab.png" /></div>
- 					</div>
-
+		 return (<div className="innovation">
+		 
  					<div className="grid grid-pad">
  						<div className="col-6-12">
 							<div className="slideshow">

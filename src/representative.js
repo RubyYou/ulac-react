@@ -17,7 +17,7 @@ class Representative extends React.Component {
  	let self = this;
 
  	Request
- 		.get('/ulac-react2/build/template/representative-cn.html')
+ 		.get('/template/representative-cn.html')
  		.type('Content-Type', 'text/html; charset=utf8')
  		.end(function(err, res){
  			self.setState({content:res.text});

@@ -1,12 +1,12 @@
 <?php
-	$servername = "localhost"; //72.167.233.38
-	$username = "root"; // ULAC123
-	$password = "root"; // Luluvirus@2016
-	$dbname = "ULAC"; // ULAC123
+	$servername = "68.178.143.15"; //72.167.233.38
+	$username = "ULAC123"; // ULAC123
+	$password = "Luluvirus@2016"; // Luluvirus@2016
+	$dbname = "ULAC123"; // ULAC123
 
 	$con = mysqli_connect($servername,$username,$password,$dbname);
 	
-	header('Content-Type: text/html;charset=utf-8');
+	//header('Content-Type: text/html;charset=utf-8');
 	
 	// Check connection
 	if (mysqli_connect_errno()){

@@ -4,11 +4,11 @@
 
 <div id="en-security">
    <h3>ULAC Standard</h3>
-   <p>ULAC has developed an in-house assessment method around industry standards to guarantee the quality of its wide selection of security products. ATS stands for Anti-Theft Security and includes seven levels with an ATS rating of 1 representing minimum resistance to attack by lock-picking or circumvention and 7 representing the highest standard of protection available from ULAC.</p>
-   <p>ULAC manufactures different types of locks including cable, karabiner, joint, folding, chain locks, U locks and alarm locks. Each type of lock has its own characteristics that dictate its inherent security level. For example, joint lock has a higher cutting resistance than a cable. Therefore, a customer’s lock selection will depend on their intended usage, environment and time away from the bicycle. A high crime area will demand a higher level of security than a rural area, and the maximum security would naturally be preferred by one leaving their bicycle unattended for an extended period of time in an urban setting. Also, the kind of lock purchased should match the value of the bicycle. In sum, the three factors to be considered when purchasing a lock, in terms of security rating, are: 1) parking location; 2) how much time the bicycle will be left idle; 3) the value of the bicycle.</p>
+   <p>ULAC’s ATS (Anti-Theft Security) assessment method was developed around international industry standards and real-world situations to guarantee the quality of its wide selection of security products. An ATS rating of 1 representing minimum resistance to attack by lock-picking or circumvention and 7 representing the highest standard of protection available from ULAC. The ATS rating advises the customer to select a lock depending on intended usage, parking environment, time away from their bicycle and its value.</p>
+   <p>ULAC manufactures different types of locks including cable, karabiner, joint, folding, chain locks, U-locks and alarm locks, each with its own characteristics and inherent security level. The steel fibrous core of our 6mm braided cables frustrates would-be thiefs, while shackle locks offer a higher degree of inherent cutting resistance.</p>
    <br/>
    <h3>Testing Methodology</h3>
-   <p>The goal of ULAC’s testing methodology is to assess as objectively as possible, as a guide to purchase decision-making, the resistance of each particular lock to attack. Guiding the definition of each level of security are factors such as resistance to certain tools commonly used in lock-picking and destruction, as well as time required to pick, disassemble or destroy the lock, cable, chain, and other components.</p>
+   <p>As a guide to purchase decision-making, the goal of ULAC’s testing methodology is to assess each lock’s resistance to attack as objectively as possible. The seven ATS levels are defined by factors such as resistance to tools commonly used in lock-picking and destruction, as well as time required to pick, disassemble or destroy the lock, cable, chain, and other components.</p>
    <br/>
 	 <h3>ULAC Standardized Bicycle LOCK Test Process</h3>
 	 <table class="table-bordered">
@@ -89,7 +89,7 @@
    	
    	<br/><br/>
    	<h3>ULAC Standardized Bicycle LIGHT Test Process</h3>
-   	<table class="table-bordered">
+   		<table class="table-bordered">
 		<thead>
 	   		<tr>
 		   		<td>Test Description</td>
@@ -130,7 +130,29 @@
    		</tr>
    		</tbody>
 	 </table>
-</div>
+   	
+   	<br/><br/>
+   	<h4>BRAIDED STEEL FIBER NEO CABLES</h4>
+   	<ul>
+	   	<li>Hardened 6mm cable around a steel core</li>
+	   	<li>Available in 4-digit combination locks or ULAC dimple key</li>
+	   	<li>Versatile mounting</li>
+   	</ul>
+   	<br/>
+   	<h4>DUAL LOCKING NEO SHACKLE LOCKS</h4>
+   	<ul>
+	   	<li>Allux TM alluminum alloy</li>
+	   	<li>Dual locking mechanism</li>
+	   	<li>Abloy and dimple key locks available</li>
+   	</ul>
+   	<br/>
+   	<h4>NEO ALARMS</h4>
+   	<ul>
+	   	<li>Cutting sensor</li>
+	   	<li>Shock sensor</li>
+	   	<li>110 dB alarm buzzer</li>
+   	</ul>
+   	</div>
 
 <?php }else if( $_GET["lang"] == 'kr' ){ ?>
 

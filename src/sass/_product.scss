@@ -1,12 +1,15 @@
 /* ======================= Category List ========================== */
 .cat_list{
   margin: 5px 0;
+  @media screen and (max-width:640px){
+      margin: 15px 0 5px;
+  }
 }
 
 .cat_list a{
   background-color: rgba(53,53,53,0.5);
   color: #9f9f9f;
-  padding: 10px 20px;
+  padding: 10px 16px;
   margin: 8px;
   display: inline-block;
   border-radius:6px;
@@ -17,7 +20,7 @@
   }
 }
 
-.cat_list a:active, .cat_list a:hover{
+.cat_list a:active, .cat_list a:hover, .cat_list a.yellow{
     background-color: #ffd356;
     color: black;
 }
@@ -31,7 +34,9 @@
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-
+    text-align: center;
+    vertical-align: top;
+    
     img{
       width:100%;
       max-width: 180px;
@@ -56,6 +61,11 @@
     @media screen and (max-width:550px){
       width:45%;
     }
+    
+    @media screen and (max-width:400px){
+      height: 200px;
+      float: left;
+    }
 
 }
 
@@ -64,20 +74,14 @@
   border-color: #565353;
 }
 
-.item ul{
-  padding-left: 15px;
-  text-align: left;
-}
-
-.item ul li {
-    color: #9f9f9f;
-    font-family: verdana;
-    line-height: 1.8em;
-    font-size:0.8em;
+.item p{
+  color: #9f9f9f;
+  font-size: 12px;
+  text-align: center;
 }
 
 .product-wrap h3{
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 0;
     color: #ffd356;
     line-height: 1.5em;
@@ -124,6 +128,7 @@
 
   .level{
     margin-top:2px;
+    margin-bottom: 5px;
     height: 70px;
     @media screen and (max-width:1000px){
       height: 60px;
@@ -132,6 +137,7 @@
 
   .icons{
     display: inline-block;
+    margin-top: 12px;
 
     img{
       width: 80px;
@@ -144,6 +150,30 @@
       }
     }
   }
+  .colors {
+
+    .info{
+      margin: 20px 0;
+      color: #555356;
+      font-size: 14px;
+    }
+  }
+  .color-block {
+    background: #414042;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 4px 4px 0px;
+    margin-top: 10px;
+
+    div{
+      width: 70px;
+      height:70px;
+    }
+    p{
+      color: #A7A9AC;
+      font-size: 12px;
+    }
+  }
 }
 
 .product-wrap{
@@ -153,7 +183,8 @@
     margin-left:12px;
   }
 
-  .slideshow{
+  .product-images{
+    float:left;
     max-width: 600px;
     width:52%;
 
@@ -164,12 +195,16 @@
     }
   }
 
+  .slideshow{
+    width:100%;
+  }
+
   // download button
   button{
     border: none;
     background: transparent;
     vertical-align: top;
-    margin: 24px 10px 0;
+    margin-top: 20px;
   }
 
   iframe{
@@ -179,8 +214,7 @@
 
     @media screen and (max-width:768px){
       float: none;
-      width: 90%;
-      max-width: 600px;
+      width:100%;
       margin: 0 auto;
       display: block;
     }
@@ -188,11 +222,6 @@
 }
 
 /* ======================= Slide show ========================== */
-
-.home .slideshow{
-  max-width: 1140px;
-  width: 100%;
-}
 
 .slideshow{
   display: inline-block;
@@ -206,7 +235,8 @@
   top:0;
   left:0;
   opacity: 0;
-  transition: 1s opacity;
+  transition: 2s opacity;
+  visibility: hidden;
 }
 .slideshow img{
   width:100%;
@@ -215,8 +245,10 @@
 .slideshow img.show, .slideshow iframe.show{
   opacity: 1;
   position: static;
-  transition: 1s opacity;
+  transition: 2s opacity;
+  visibility: visible;
 }
+
 .next, .prev{
   color: #fff;
   position: absolute;

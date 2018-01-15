@@ -29,9 +29,9 @@
    	  	echo "<table><thead><tr>";
    	  	echo "<td>ID</td><td>lock_Id</td><td>categories</td><td>thumbImg</td><td>en_summary</td><td>cn_summary</td>";
    	  	echo "<td>jp_summary</td><td>kr_summary</td><td>en_title</td><td>cn_title</td><td>jp_title</td>";
-		   echo "<td>jp_title</td><td>en_description</td><td>cn_description</td><td>jp_description</td><td>kr_description</td>";
-         echo "<td>security</td><td>icons</td><td>manual</td><td>carouselImg</td><td>videoLink</td>";
-         echo "<td>actions</td>";
+		echo "<td>jp_title</td><td>en_description</td><td>cn_description</td><td>jp_description</td><td>kr_description</td>";
+        echo "<td>security</td><td>icons</td><td>colors</td><td>manual</td><td>carouselImg</td><td>videoLink</td>";
+        echo "<td>actions</td>";
    	  	echo "</tr></thead>";
 
    	  	while($row = mysqli_fetch_array($allLockResult)){
@@ -67,7 +67,8 @@
    	  		echo '<td class=\'long\'>'.$row['jp_description'].'</td>';
    	  		echo '<td class=\'long\'>'.$row['kr_description'].'</td>';
    	  		echo '<td class=\'short\'>'.$row['security'].'</td>';
-   	  		echo '<td class=\'mid\'>'.$row['icons'].'</td>';
+			echo '<td class=\'mid\'>'.$row['icons'].'</td>';
+			echo '<td class=\'mid\'>'.$row['colors'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['manual'].'</td>';
    	  		echo '<td class=\'long\'>'.$row['carouselImg'].'</td>';
    	  		echo '<td class=\'mid\'>'.$row['videoLink'].'</td>';

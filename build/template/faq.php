@@ -3,24 +3,34 @@
 ?>
 
 <div id="en-faq">
-	<h4>1. How can I get a new key ?</h4>
-    <p>Please contact your local dealer or retailer. You can order a new key from authorized dealers by giving the key code or by presenting a master key.</p>
+	<h4>1. Can I order a new key?</h4>
+    <p>Depending on model, it may be possible to order a replacement key. A replacement fee and shipping and handling costs will be charged to the customer.</p>
 	   
-	<h4>2. Can I order a new key without a key or key code?</h4>
-	<p>In order to have new key made, you must have either master key or key code. A new key can’t be made without this information.</p>
-	<h4>3. Can you make new keys by batch of production?</h4>
-	<p>No, this is why you will need to keep the key code (tag) in a safe place after purchasing the lock.</p>
-	<h4>4. The key doesn’t turn properly or gets stuck in the cylinder, any ideas?</h4>
-	<p>As the lock becomes aged under rain or other weather conditions, it might happen from time to time. Our recommendation is to lubricate the lock to prevent it from happening.</p>
-	<h4>5. My combination lock doesn’t open and it seems like the code has shifted, what to do ?</h4>
-	<p>We are afraid that it is not possible to unlock without memorizing the correct code. Always remember the code!</p>
-	<h4>6. How to lock your bicycle properly ? </h4>
+	<h4>2. The key doesn’t turn properly or gets stuck in the cylinder. What should I do?</h4>
+	<p>This may happen with age, usage and weathering. Our recommendation is to lubricate the lock from time to time to keep it in good working condition.</p>
+	<h4>3. My combination lock doesn’t open and it seems like the code has shifted. What should I do?</h4>
+	<p>If the code seems to have shifted, try turning the first or last digits of the combination. If this is not successful, you may need to cut the cable.</p>
+	<h4>4. What should I consider when choosing a bike lock?</h4>
+	<p>Factors to consider when purchasing a lock for your bicycle include where you will be parking your bicycle and the length of time you will spend away from it. Locks made of heavier and stiffer materials are preferable in higher risk environments, while lighter locks will be appropriate for shorter trips.</p>
+	<h4>5. What type of lock is safest?</h4>
+	<p>Insurance companies and law enforcement typically recommend U-locks as the safest.</p>
+	<h4>6. Are mounting brackets interchangeable for different bicycle designs?</h4>
+	<p>Almost all brackets are designed for round tube shape bikes. Bicycle tube shapes are now available in a greater variety of shapes and sizes compared to the earlier rounded tube design, so there’s no guarantee that a bracket will fit your bike. The memory cable design, however, eliminates any need for a mounting bracket and can be attached to any bicycle.</p>
+	
+	<h4>7. Can mounting brackets be ordered separately?</h4>
+	<p>We do not sell mounting brackets separately. In the event your mounting bracket becomes lost or damaged, a velcro strap can be used to mount your lock to your bike.</p>
+	<h4>8. Can I order directly from ULAC?</h4>
+	<p>ULAC works with dealers all over the world. Contact us for local distributors and dealers.</p>
+	<h4>9. Can one key unlock all locks?</h4>
+	<p>This is possible with dimple keys. To reduce this likelihood of mutual opening, ULAC uses a large of pool of key codes.</p>
+	<h4>10. How to lock your bicycle properly:</h4>
+
 	<p>i. Always lock your bike before you leave.<br/>
 		ii. Always lock your bike around a fixed object. (parking meter, pole etc.)<br/>
 		iii. Always lock your bike in a crowded / safer area.<br/>
 		iv. Make sure you can’t lift your bike over the fixed object it is locked to.<br/>
 		v. Never lock your bike to itself.<br/><br/>
-		- ULock: Place shackle around a fixed object and seatstays. If possible, make sure both wheels are locked.<br/>
+		- U-Lock: Place shackle around a fixed object and seatstays. If possible, make sure both wheels are locked.<br/>
 		- Cable Lock: Wrap cable around wheels, frames and a fixed object.<br/>
 		- Chain Lock: Wrap cable around wheels, frames and a fixed object.</p>
 </div>

@@ -7,3 +7,4 @@ build/map/*
 build/bundle.js
 build/index.html
 .sass-cache/*
+.idea/*
