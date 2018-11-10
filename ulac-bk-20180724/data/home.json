@@ -1,0 +1,225 @@
+{
+	"carousel":{
+		"0":{
+			"images":[
+				"/images/home-banner/1/480x272.jpg",
+				"/images/home-banner/1/768x434.jpg",
+				"/images/home-banner/1/992x561.jpg",
+				"/images/home-banner/1/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"1":{
+			"images":[
+				"/images/home-banner/2/480x272.jpg",
+				"/images/home-banner/2/768x434.jpg",
+				"/images/home-banner/2/992x561.jpg",
+				"/images/home-banner/2/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+	
+		},
+		"2":{
+			"images":[
+				"/images/home-banner/3/480x272.jpg",
+				"/images/home-banner/3/768x434.jpg",
+				"/images/home-banner/3/992x561.jpg",
+				"/images/home-banner/3/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"3":{
+			"images":[
+				"/images/home-banner/4/480x272.jpg",
+				"/images/home-banner/4/768x434.jpg",
+				"/images/home-banner/4/992x561.jpg",
+				"/images/home-banner/4/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"4":{
+			"images":[
+				"/images/home-banner/5/480x272.jpg",
+				"/images/home-banner/5/768x434.jpg",
+				"/images/home-banner/5/992x561.jpg",
+				"/images/home-banner/5/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"5":{
+			"images":[
+				"/images/home-banner/6/480x272.jpg",
+				"/images/home-banner/6/768x434.jpg",
+				"/images/home-banner/6/992x561.jpg",
+				"/images/home-banner/6/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"6":{
+			"images":[
+				"/images/home-banner/7/480x272.jpg",
+				"/images/home-banner/7/768x434.jpg",
+				"/images/home-banner/7/992x561.jpg",
+				"/images/home-banner/7/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"7":{
+			"images":[
+				"/images/home-banner/8/480x272.jpg",
+				"/images/home-banner/8/768x434.jpg",
+				"/images/home-banner/8/992x561.jpg",
+				"/images/home-banner/8/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"8":{
+			"images":[
+				"/images/home-banner/9/480x272.jpg",
+				"/images/home-banner/9/768x434.jpg",
+				"/images/home-banner/9/992x561.jpg",
+				"/images/home-banner/9/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"9":{
+			"images":[
+				"/images/home-banner/10/480x272.jpg",
+				"/images/home-banner/10/768x434.jpg",
+				"/images/home-banner/10/992x561.jpg",
+				"/images/home-banner/10/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"10":{
+			"images":[
+				"/images/home-banner/11/480x272.jpg",
+				"/images/home-banner/11/768x434.jpg",
+				"/images/home-banner/11/992x561.jpg",
+				"/images/home-banner/11/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"11":{
+			"images":[
+				"/images/home-banner/12/480x272.jpg",
+				"/images/home-banner/12/768x434.jpg",
+				"/images/home-banner/12/992x561.jpg",
+				"/images/home-banner/12/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"12":{
+			"images":[
+				"/images/home-banner/13/480x272.jpg",
+				"/images/home-banner/13/768x434.jpg",
+				"/images/home-banner/13/992x561.jpg",
+				"/images/home-banner/13/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"13":{
+			"images":[
+				"/images/home-banner/14/480x272.jpg",
+				"/images/home-banner/14/768x434.jpg",
+				"/images/home-banner/14/992x561.jpg",
+				"/images/home-banner/14/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"14":{
+			"images":[
+				"/images/home-banner/15/480x272.jpg",
+				"/images/home-banner/15/768x434.jpg",
+				"/images/home-banner/15/992x561.jpg",
+				"/images/home-banner/15/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"15":{
+			"images":[
+				"/images/home-banner/16/480x272.jpg",
+				"/images/home-banner/16/768x434.jpg",
+				"/images/home-banner/16/992x561.jpg",
+				"/images/home-banner/16/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"16":{
+			"images":[
+				"/images/home-banner/17/480x272.jpg",
+				"/images/home-banner/17/768x434.jpg",
+				"/images/home-banner/17/992x561.jpg",
+				"/images/home-banner/17/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"17":{
+			"images":[
+				"/images/home-banner/18/480x272.jpg",
+				"/images/home-banner/18/768x434.jpg",
+				"/images/home-banner/18/992x561.jpg",
+				"/images/home-banner/18/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"18":{
+			"images":[
+				"/images/home-banner/19/480x272.jpg",
+				"/images/home-banner/19/768x434.jpg",
+				"/images/home-banner/19/992x561.jpg",
+				"/images/home-banner/19/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		},
+		"19":{
+			"images":[
+				"/images/home-banner/20/480x272.jpg",
+				"/images/home-banner/20/768x434.jpg",
+				"/images/home-banner/20/992x561.jpg",
+				"/images/home-banner/20/1248x706.jpg"
+			],
+			"headerText":"",
+			"buttonText": "",
+			"buttonLinks": ""
+		}
+	}
+}

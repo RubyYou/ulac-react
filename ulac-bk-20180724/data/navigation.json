@@ -1,0 +1,170 @@
+{
+	"nav":{
+		"lock":{
+			"EN":"PRODUCTS",
+			"CN":"产品",
+			"JP":"プロダクト",
+			"KR":"PRODUCTS"
+		},
+		"accessories":{
+			"EN":"ACCESSORIES",
+			"CN":"配件",
+			"JP":"アクセサリー",
+			"KR":"ACCESSORIES"
+		},
+		"lite":{
+			"EN":"LITE",
+			"CN":"车灯",
+			"JP":"ライト",
+			"KR":"LITE"
+		},
+		"xlab":{
+			"EN":"XLAB",
+			"CN":"XLAB",
+			"JP":"XLAB",
+			"KR":"XLAB"
+		},
+		"innovation":{
+			"EN":"INNOVATION",
+			"CN":"设计",
+			"JP":"デザイン",
+			"KR":"INNOVATION"
+		},
+		"security":{
+			"EN":"SECURITY",
+			"CN":"车锁",
+			"JP":"セキュリティ",
+			"KR":"SECURITY"
+		},
+		"faq":{
+			"EN":"FAQ",
+			"CN":"常见问题",
+			"JP":"サポート",
+			"KR":"SUPPORT"
+		},
+		"representative":{
+			"EN":"REPRESENTATIVE",
+			"CN":"地区代理",
+			"JP":"REPRESENTATIVE",
+			"KR":"REPRESENTATIVE"
+		},
+		"about":{
+			"EN":"ABOUT",
+			"CN":"关于ULAC",
+			"JP":"ULACについて",
+			"KR":"ULAC"				
+		},
+		"contact":{
+			"EN":"CONTACT",
+			"CN":"联系我们",
+			"JP":"お問い合わせ",
+			"KR":"CONTACT"	
+		},
+		"media":{
+			"EN":"MEDIA",
+			"CN":"下载",
+			"JP":"メディア",
+			"KR":"MEDIA"	
+		}
+	},
+	"categories":{
+		"all":{
+			"EN":"ALL",
+			"CN":"全部产品",
+			"JP":"全部商品",
+			"KR":"ALL"
+		},
+		"combo":{
+			"EN":"COMBO",
+			"CN":"密码锁",
+			"JP":"マイセット",
+			"KR":"COMBO"
+		},
+		"cable":{
+			"EN":"CABLE",
+			"CN":"钢缆锁",
+			"JP":"ケーブル",
+			"KR":"CABLE"
+		},
+		"chain":{
+			"EN":"CHAIN",
+			"CN":"链条锁",
+			"JP":"チエーン",
+			"KR":"CHAIN"
+		},
+		"ulock":{
+			"EN":"ULOCK",
+			"CN":"U形锁",
+			"JP":"U型ロック",
+			"KR":"ULOCK"
+		},
+		"specialty":{
+			"EN":"SPECIALTY",
+			"CN":"特色产品",
+			"JP":"特色商品",
+			"KR":"SPECIALTY"
+		},
+		"key":{
+			"EN":"KEY",
+			"CN":"锁匙锁",
+			"JP":"キーロック",
+			"KR":"KEY"
+		},
+		"alarm":{
+			"EN":"ALARM",
+			"CN":"报警锁",
+			"JP":"アラーム",
+			"KR":"ALARM"
+		},
+		"folding":{
+			"EN":"FOLDING",
+			"CN":"折叠锁",
+			"JP":"フォールディング",
+			"KR":"FOLDING"
+		},
+		"accessories":{
+			"EN":"ACCESSORIES",
+			"CN":"配件",
+			"JP":"アクセサリ",
+			"KR":"ACCESSORIES"
+		}
+	},
+	"footer":{
+		"sectionA":{
+			"EN":"<h4>Manufacture</h4><p>ULAC Corporation</p><p>No.148, Chungfeng Rd. Longbeiling,Tangxia, Dongguan, Guandong, PRC / Zip 523710</p><p>T: +86.769.8208.0366 </p><p>F: +86.769.8208.5133 </p><p>E: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>",
+			"CN":"<h4>制造 </h4><p>ULAC Corporation</p><p>中国广东省东莞市塘厦镇龙背岭春风路148号</p><p>邮编: 523710</p><p>电话: 0769.8213.8451 </p><p>免费专线: 400.808.5290</p><p>传真: 0769.8208.5133</p><p>电邮: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>",
+			"JP":"<h4>マニュファクチャー</h4><p>ULAC Corporation</p><p>中国广東省東莞市塘廈鎮龍背嶺春風路148號</p><p>郵便番号: 523710</p><p>電話: +86.769.8213.8451 </p><p>ファックス: +86.769.8208.5133</p><p>Email: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>",
+			"KR":"<h4>제조</h4><p>ULAC Corporation</p><p>No.148, Chungfeng Rd. Longbeiling, Tangxia, Dongguan, Guandong, PRC </p><p>Zip 523710</p><p>T: +86.769.8208.0366 </p><p>F: +86.769.8208.5133 </p><p>E: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>"
+		},
+		"sectionB":{
+			"EN":"<h4>Design </h4><p>ULAC Corporation</p><p>No.141, Sec. 1, Keelung Rd. 13F-1, Xinyi Dist.</p><p>Taipei, Taiwan / Zip 110</p><p>T: +886.2.2766.5969</p><p>F: +886.2.2766.3679</p><p>E: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>",
+			"CN":"<h4>设计</h4><p>ULAC Corporation</p><p>台湾台北市信义区基隆路1段141号13F-1</p><p>邮编: 110</p><p>电话: +886.2.2766.5969</p><p>传真: +886.2.2766.3679</p><p>电邮: inquiry@ulaclock.com</p>",
+			"JP":"<h4>販売</h4><p>ULAC Corporation</p><p>台湾台北市基隆路1段141號13F-1</p><p>郵便番号: 110</p><p>電話: +886.2.2766.5969</p><p>ファックス: +886.2.2766.3679</p><p>Email: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>",
+			"KR":"<h4>디자인</h4><p>ULAC Corporation</p><p>No.141, Sec. 1, Keelung Rd. 13F-1, Xinyi Dist.</p><p>Taipei, Taiwan / Zip 110</p><p>T: +886.2.2766.5969</p><p>F: +886.2.2766.3679</p><p>E: <a href='mailto:inquiry@ulaclock.com'>inquiry@ulaclock.com</a></p>"
+		},
+		"sectionC":{
+			"EN":"<h4>JAPAN AGENCY</h4><p>E-COSMO Co.,Ltd</p><p>Suda-Bld,8-2, Kuramae4, Taito-ku Tokyo, Japan P.S.C111-0051</p><p>T: + 81.3.5823.4458</p><p>F: + 81.3.5823.4459</p><p>E: <a href='mailto:e-cosmo@gc5.so-net.ne.jp'>e-cosmo@gc5.so-net.ne.jp</a></p>",
+			"CN":"",
+			"JP":"<h4>日本代理店</h4><p>E-COSMO Co.,Ltd</p><p>東京都台東区蔵前4丁目8番2号</p><p>須田ビル, 郵便番号111-0051</p><p>電話: 03.5823.4458</p><p>FAX: 03.5823.4459</p><p>Email: <a href='mailto:e-cosmo@gc5.so-net.ne.jp'>e-cosmo@gc5.so-net.ne.jp</a></p>",
+			"KR":""
+		},
+		"sectionD":{
+			"EN":"<h4>SCANDINAVIA AGENCY</h4><p>NORWAY DELER A.S. PB 1004 </p><p>1442 DRØBAK</p><p>T: + 47 649.899.50</p><p><a href='http://WWW.DELER.NO' target='_blank'>www.deler.no</a></p>",
+			"CN":"<h4>SCANDINAVIA AGENCY</h4><p>NORWAY DELER A.S. PB 1004 </p><p>1442 DRØBAK</p><p>T: + 47 649.899.50</p><p><a href='http://WWW.DELER.NO' target='_blank'>www.deler.no</a></p>",
+			"JP":"<h4>SCANDINAVIA AGENCY</h4><p>NORWAY DELER A.S. PB 1004 </p><p>1442 DRØBAK</p><p>T: + 47 649.899.50</p><p><a href='http://WWW.DELER.NO' target='_blank'>www.deler.no</a></p>",
+			"KR":"<h4>SCANDINAVIA AGENCY</h4><p>NORWAY DELER A.S. PB 1004 </p><p>1442 DRØBAK</p><p>T: + 47 649.899.50</p><p><a href='http://WWW.DELER.NO' target='_blank'>www.deler.no</a></p>"
+		},
+		"sectionE":{
+			"EN":"<h4>ITALY AGENCY</h4><p>Barbieri SNC</p><p>Di Barbieri Nadia e Kalman Via Montecassino, 2 40050 Funo di Argelato Bologna - Italia</p><p>T: +39.051.664.6278</p><p>F: +39.051.664.7308</p><p><a href='http://www.barbieripnk.it' target='_blank'>www.barbieripnk.it</a></p>",
+			"CN":"<h4>ITALY AGENCY</h4><p>Barbieri SNC</p><p>Di Barbieri Nadia e Kalman Via Montecassino, 2 40050 Funo di Argelato Bologna - Italia</p><p>T: +39.051.664.6278</p><p>F: +39.051.664.7308</p><p><a href='http://www.barbieripnk.it' target='_blank'>www.barbieripnk.it</a></p>",
+			"JP":"<h4>ITALY AGENCY</h4><p>Barbieri SNC</p><p>Di Barbieri Nadia e Kalman Via Montecassino, 2 40050 Funo di Argelato Bologna - Italia</p><p>T: +39.051.664.6278</p><p>F: +39.051.664.7308</p><p><a href='http://www.barbieripnk.it' target='_blank'>www.barbieripnk.it</a></p>",
+			"KR":"<h4>ITALY AGENCY</h4><p>Barbieri SNC</p><p>Di Barbieri Nadia e Kalman Via Montecassino, 2 40050 Funo di Argelato Bologna - Italia</p><p>T: +39.051.664.6278</p><p>F: +39.051.664.7308</p><p><a href='http://www.barbieripnk.it' target='_blank'>www.barbieripnk.it</a></p>"
+		},
+		"sectionF": {
+			"EN":"<h4>AUSTRALIA AGENCY QBC</h4><p>20 Bishop St, Kelvin Grove, QLD 4059</p><p>T: +61.07.3352.6411 </p><p>F: +61.07. 3352.6899</p><p><a href='mailto:brent@qldbikes.com.au'>E: brent@qldbikes.com.au</a></p><p><a href='http://www.qldbikes.com.au' target='_blank'>www.qldbikes.com.au</a></p>",
+			"CN":"<h4>AUSTRALIA AGENCY QBC</h4><p>20 Bishop St, Kelvin Grove, QLD 4059</p><p>T: +61.07.3352.6411 </p><p>F: +61.07. 3352.6899</p><p><a href='mailto:brent@qldbikes.com.au'>E: brent@qldbikes.com.au</a></p><p><a href='http://www.qldbikes.com.au' target='_blank'>www.qldbikes.com.au</a></p>",
+			"JP":"<h4>AUSTRALIA AGENCY QBC</h4><p>20 Bishop St, Kelvin Grove, QLD 4059</p><p>T: +61.07.3352.6411 </p><p>F: +61.07. 3352.6899</p><p><a href='mailto:brent@qldbikes.com.au'>E: brent@qldbikes.com.au</a></p><p><a href='http://www.qldbikes.com.au' target='_blank'>www.qldbikes.com.au</a></p>",
+			"KR":"<h4>AUSTRALIA AGENCY QBC</h4><p>20 Bishop St, Kelvin Grove, QLD 4059</p><p>T: +61.07.3352.6411 </p><p>F: +61.07. 3352.6899</p><p><a href='mailto:brent@qldbikes.com.au'>E: brent@qldbikes.com.au</a></p><p><a href='http://www.qldbikes.com.au' target='_blank'>www.qldbikes.com.au</a></p>"
+		}
+	}
+}

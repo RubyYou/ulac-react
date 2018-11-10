@@ -71,7 +71,7 @@ class Home extends React.Component {
 
     _swapImage(sourceNode){
         this._hero.setAttribute('data-scale', sourceNode);
-        
+
         this._slides.forEach((slide, index) => {
             slide.style.backgroundImage = 'url('+this.data.carousel[index].images[sourceNode]+')';
         });
@@ -86,7 +86,7 @@ class Home extends React.Component {
         if(this.data.slideCount >= this._slides.length){
             this.data.slideCount = 0;
         }
-        
+
         this._slides.forEach((slide, index)=>{
             if(slide.classList.contains('show')){
                 slide.classList.remove('show');
@@ -97,25 +97,22 @@ class Home extends React.Component {
             }
         });
 
-        setTimeout(() => {
-            this._animateSlides();
-        }, this.data.countSpeed);
+        setTimeout(() => { this._animateSlides() }, this.data.countSpeed);
 
         this.data.slideCount++;
     }
 
     randomVideo() {
         let videoArr = [
-            "https://player.vimeo.com/video/179163828",
-            "https://player.vimeo.com/video/179163593",
-            "https://player.vimeo.com/video/179163260",
-            "https://player.vimeo.com/video/179163130",
-            "https://player.vimeo.com/video/179162841",
-            "https://player.vimeo.com/video/179162719",
-            "https://player.vimeo.com/video/179162628",
-            "https://player.vimeo.com/video/179162197",
-            "https://player.vimeo.com/video/179161751",
-            "https://player.vimeo.com/video/226236685"
+            "https://player.vimeo.com/video/269784893",
+            "https://player.vimeo.com/video/269783787",
+            "https://player.vimeo.com/video/269782898",
+            "https://player.vimeo.com/video/269780929",
+            "https://player.vimeo.com/video/269779945",
+            "https://player.vimeo.com/video/269777754",
+            "https://player.vimeo.com/video/269776678",
+            "https://player.vimeo.com/video/269775673",
+            "https://player.vimeo.com/video/269775195"
         ];
 
         return videoArr[Math.floor(Math.random() * videoArr.length)];
@@ -163,12 +160,12 @@ class Home extends React.Component {
 
                 carousel.push(<li className={className} key={"carousel" + i} >
                                  { title }
-                                 { link }                                 
+                                 { link }
                               </li>);
             }
 
             let linkPrefix = "/" + lang;
-            
+
             return (
                 <div>
                 <div className="hero-unit">
@@ -206,8 +203,8 @@ class Home extends React.Component {
                     </div>
                     <div className="instegram-section">
                         <h3 className="text-center"> <i className="fa fa-instagram" /> UALC LOCK</h3>
-                        <iframe src="http://lightwidget.com/widgets/39de111c2702562d837646f0984154a0.html" 
-                                scrolling="no" allowtransparency="true" class="lightwidget-widget" 
+                        <iframe src="http://lightwidget.com/widgets/39de111c2702562d837646f0984154a0.html"
+                                scrolling="no" allowtransparency="true" class="lightwidget-widget"
                                 style={{width: '100%', border: 0, overflow: 'hidden' }}></iframe>
                     </div>
                 </div>

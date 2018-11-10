@@ -1,0 +1,54 @@
+{
+	"emailAddress":"unilocks@ms14.hinet.net",
+
+	"labels":{
+		"name":{
+			"EN":"NAME",
+			"CN":"姓名",
+			"JP":"名前",
+			"KR":"이름"
+		},
+		"company":{
+			"EN":"COMPANY",
+			"CN":"公司",
+			"JP":"会社",
+			"KR":"회사"
+		},
+		"email":{
+			"EN":"EMAIL",
+			"CN":"电邮",
+			"JP":"メールアドレス",
+			"KR":"이메일"
+		},
+		"phone":{
+			"EN":"PHONE",
+			"CN":"电话",
+			"JP":"電話",
+			"KR":"전화"
+		},
+		"inquiry":{
+			"EN":"INQUIRY DETAILS",
+			"CN":"询问内容",
+			"JP":"お問い合わせ内容",
+			"KR":"문의 사항"
+		},
+		"reset":{
+			"EN":"RESET",
+			"CN":"重设",
+			"JP":"リセット",
+			"KR":"다시 쓰기"
+		},
+		"submit":{
+			"EN":"SUBMIT",
+			"CN":"送出",
+			"JP":"発送",
+			"KR":"전송"
+		},
+		"mapTitle":{
+			"EN":"MAP TO OUR FACTORY",
+			"CN":"我们的地址",
+			"JP":"中国工場の地図",
+			"KR":"중국의 제조 공장 위치"
+		}	
+	}
+}

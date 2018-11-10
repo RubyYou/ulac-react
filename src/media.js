@@ -4,12 +4,12 @@ import Preloader from './preloader';
 import { prefixUrl } from './config';
 
 class Media extends React.Component {
-  
+
   constructor(prop){
   	super();
 
     this.state = {loadComplete:false};
-  	this.getContent = this.getContent.bind(this);    
+  	this.getContent = this.getContent.bind(this);
     this.media = [];
   }
 
@@ -19,7 +19,7 @@ class Media extends React.Component {
 
  getContent(){
   let self = this;
- 
+
   Request
     .get(prefixUrl + 'data/media.json')
     .accept('application/json')
@@ -34,8 +34,8 @@ class Media extends React.Component {
     let mediaList = [];
 
     if(this.state.loadComplete && this.media.length > 0){
-      
-      this.media.map((item, idx)=>{
+
+      this.media.map((item, idx) => {
           let subContent = [];
 
           if(item.subContent && item.subContent.length > 0){
@@ -54,7 +54,7 @@ class Media extends React.Component {
       })
 
       return (<div className="media">
-                <div className="header-image"> 
+                <div className="header-image">
                 </div>
                 <ul className="list-content">
                   { mediaList }

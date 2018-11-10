@@ -1,0 +1,41 @@
+{
+	"videos":{
+			"classic":{
+				"0":"//www.youtube.com/embed/OimxGBZKR3g"
+			},
+			"modern":{
+				"0":"//www.youtube.com/embed/j7bQZimSQsw"
+			},
+			"future":{
+				"0":"//www.youtube.com/embed/8_yOvqOpOhU"
+			}
+	},
+
+	"paragraphs":{
+			"intro":"<p class='intro'>ULAC’s design process seeks to understand specific needs through inquiry, observation, research and experimentation.</p>",
+
+			"EN":{
+				"classic":"<h3>ULAC Classic Design</h3><p>For more than 20 years, ULAC has been creating innovative design solutions for a variety of needs.</p>",
+				"modern":"<h3>CULTIVATED FANBASE</h3><p>Whether the bicycle enthusiast or the urban commuter, the user’s experience and expectations are at the center of ULAC’s innovation and design process.</p>",
+			    "future":"<h3>PATENTED TECHNOLOGY</h3><p>ULAC products achieve innovation through application of the latest technology.</p>"
+
+			},
+			"CN":{
+				"classic":"<h3>ULAC 经典设计</h3><p>自从优力在1985年成立以来，我们致力于开发设计出有特色和差异化的产品。也随著时代改变， 我们从早年的畅销卡片锁， 感应卡片锁进化到现在的自行车锁。产品虽然不断地在革新改变，但我们的核心价值从未改变过 – 那就是提供给各位车手不一样的使用者体验。</p>",
+				"modern":"<h3>ULAC 现在进行式</h3><p><b>GOOD COMMUNICATION HAPPENS BY DESIGN.</b></p><p>20多年来，ULAC不断提供世界各地的锁具公司创新的设计解决方案；无论是自行车锁，车灯或是包装，我们一直寻求使用最有效率，最环保的生产过程和最严格的品管让ULAC将能产能达到最高，并将污染降至最低，提供客户一个明确且有说服力的产品提案。</p>",
+				"future":"<h3 >ULAC Technology</h3><p>随着科技的進步，消费者开始更加注重产品的可扩展性和永续性。在ULAC，我们不断的进行实验性设计，把業界最新的科技应用到我们的产品上。我们希望能夠创造一個安全,时尚并且科技感十足的新体验给所有使用ULAC产品的使用者。</p>"
+			},
+
+			"JP":{
+				"classic":"<h3>ULAC Classic Design</h3><p>ULAC会社は1985年に成立された以来、 我々は特色/差異化のある製品を開発設計することに努めている。 時代の変化に従って、 我々は初期のベストセラーカードロックや誘導カードロックから、 今までの自転車ロックにチェンジしていました。 製品は絶えず革新変わっていますが、 我々の核心価値観が何時でも変わらずに、 各愛好者に色々な使用者体験を提供し続けている。</p>",
+				"modern":"<h3>ULAC Modern Approach</h3><p><b>GOOD COMMUNICATION HAPPENS BY DESIGN.</b></p><p>20年間にULAC会社は世界各地の鍵会社に革新の設計ソリューションを提供して、 生産能力を最高限度に達成させるため、 自転車ロック/ライトにも、 梱包にも最も効率/環境保護のある生産過程と厳しい品管を利用している。更に環境汚染を最低限度にコントロールするように、 お客様に納得出来る製品提案を提供する。</p>",
+				"future":"<h3 >ULAC Technology</h3><p>科学技術の発展に伴って、消費者は製品の拡張性と永続性を一層重視することになってきます。ULACでは実験性設計を行い続けています、業界で最新な技術を我々の制品に応用しています。我々の希望は安全、ファッション、そして科学技術感あふれる新体験をすべてULAC制品の使用者に提供することであります。</p>"
+			},
+
+			"KR":{
+				"classic":"<h3>ULAC의 클래식한 디자인</h3><p>ULAC은 1985년 창립 이후, 특색 있고 차별화된 제품을 디자인하고자 끊임없이 노력해 왔습니다. 시대의 변화에 따라 초창기 주요 판매 제품이었던 카드 자물쇠와 카드 센서 자물쇠에서 지금의 자전거 자물쇠로 발전해 왔습니다. 고객님들께 특별한 자물쇠 경험을 선사해 드리겠다는 변치 않는 핵심 가치관으로 발전하는 혁신적인 모습을 보여 드릴 것을 약속합니다.</p>",
+				"modern":"<h3>현대적인 접근</h3><p><b>GOOD COMMUNICATION HAPPENS BY DESIGN.</b></p><p>지난 20년간 ULAC은 전 세계 자물쇠 회사에 혁신적인 디자인을 제공해 왔습니다. 자전거 자물쇠, 자전거 라이트, 자물쇠 포장재 모든 부분에서 제일 효과적이고 친환경적인 생산 공정과 엄격한 품질 관리, 환경 오염의 최소화를 통해 최고 수익률을 자랑하는 회사로 성장하였고, 고객이 최고의 만족을 느낄 수 있는 제품들을 창출해 왔습니다.</p>",
+				"future":"<h3 >ULAC Technology</h3><p>기술이 발달함에 따라 소비자들은 더 오래 쓸 수 있는 견고한 제품을 추구하고 있습니다. 그래서 저희 ULAC사는 끊임없이 창조적인 디자인을 하고, 업계의 최신 기술을 응용한 제품들을 설계하고 있습니다. ULAC 제품의 모든 사용자께 안전성, 세련미, 기술을 두루 갖춘 새로운 체험의 제품군들을 선사해 드리겠습니다.</p>"
+			}
+	}
+}

@@ -38,11 +38,6 @@ h1, h2, h3, h4, h5{
   .page-container{
     max-width: 1140px;
     margin: auto;
-    padding-top: 30px;
-
-    @media screen and (max-width:640px){
-      padding-top: 0;
-    }
   }
 }
 
@@ -289,6 +284,10 @@ a{
       height: 340px;
     }
 
+    @media screen and (max-width:820px){
+      height: 280px;
+    }
+
     @media screen and (max-width:700px){
       height: 225px;
     }
@@ -317,7 +316,7 @@ a{
 
 /* about =============================================== */
 .about{
-  margin: 110px auto 20px;
+  margin: 130px auto 20px;
   @media screen and (max-width:640px) {
     margin: 20px auto;
   }
@@ -392,7 +391,7 @@ a{
     @media screen and (min-width:641px){
         background-image: url('/images/media/header-img/1248x336.jpg'); 
         height:336px;
-        margin-top: 86px;
+        margin-top: 120px;
     }
     @media screen and (min-width:481px) and (max-width: 640px){
         background-image: url('/images/media/header-img/640x280.jpg');

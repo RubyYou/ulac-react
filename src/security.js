@@ -2,7 +2,7 @@ import React from 'react';
 import Request from 'superagent';
 
 class Security extends React.Component {
- 
+
  constructor(prop){
   	super();
   	this.state = {content:""};
@@ -21,13 +21,12 @@ class Security extends React.Component {
  		.type('Content-Type', 'text/html; charset=utf8')
  		.end(function(err, res){
  			self.setState({content:res.text});
-
   		});
  }
 
  render() {
     return <div>
-    	   		<div className="security" 
+    	   		<div className="security"
     	   			 dangerouslySetInnerHTML={{__html: this.state.content }}></div>
     	   </div>;
   }

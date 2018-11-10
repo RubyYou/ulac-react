@@ -27,7 +27,7 @@ class App extends React.Component {
   	this.getPathname = this.getPathname.bind(this);
     this.getLanguage = this.getLanguage.bind(this);
     this.showVideoAtHomePage = this.showVideoAtHomePage.bind(this);
-  	this.state = {route:this.getPathname(), 
+  	this.state = {route:this.getPathname(),
                   lang: this.getLanguage()
                    };
   }
@@ -35,7 +35,7 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('hashchange', () => {
       this.setState({
-        route:this.getPathname(), 
+        route:this.getPathname(),
         lang:this.getLanguage()
       })
     });
@@ -47,7 +47,7 @@ class App extends React.Component {
     let lang = (pathArray[pathArray.length-2]).toUpperCase();;
 
     // if lastPathName not equal to any of the language Array content
-    for(let i =0; i < (this.langArr).length ; i ++ ){      
+    for(let i =0; i < (this.langArr).length ; i ++ ){
       if(lastPathName == this.langArr[i]){
         lang = lastPathName;
       }
@@ -77,7 +77,7 @@ class App extends React.Component {
 
   showVideoAtHomePage(){
     let path = this.getPathname().toLowerCase();
-    
+
     if (path == "" || path == "kr" || path == "en" || path == "jp"){
         return true;
 
@@ -101,61 +101,59 @@ class App extends React.Component {
           Page = <Home lang={this.state.lang}/>;
           isFullScreenPage = true;
           break;
-      case 'about': 
+      case 'about':
           Page = <About lang={this.state.lang} />;
           isFullScreenPage = true;
           break;
       case 'innovation':
-          Page = <Innovation lang={this.state.lang} />; 
+          Page = <Innovation lang={this.state.lang} />;
           break;
       case 'xlab':
-          Page = <Xlab lang={this.state.lang} />; 
+          Page = <Xlab lang={this.state.lang} />;
           break;
-      case 'security': 
-          Page = <Security lang={this.state.lang}/>; 
+      case 'security':
+          Page = <Security lang={this.state.lang}/>;
           break;
-      case 'lock': 
-      case 'accessories': 
-          Page = <Product lang={this.state.lang} route={route}/>; 
+      case 'lock':
+      case 'accessories':
+          Page = <Product lang={this.state.lang} route={route}/>;
           break;
-      case 'faq': 
-          Page = <Faq lang={this.state.lang}/>; 
+      case 'faq':
+          Page = <Faq lang={this.state.lang}/>;
           break;
       case 'representative':
-          Page = <Representative />; 
+          Page = <Representative />;
           break;
       case 'media':
           Page = <Media lang={this.state.lang}/>;
           isFullScreenPage = true;
           break;
       case 'contact':
-          Page = <Contact lang={this.state.lang}/>; 
+          Page = <Contact lang={this.state.lang}/>;
           break;
-      default: 
+      default:
           Page = <NotFound />;
     }
-
 
     let wrapperClass = isFullScreenPage ? "wide" : "";
 
       return (
       <div>
         <div className={"wrapper " + wrapperClass}>
-            <Navigation lang={this.state.lang} route={this.state.route} />
-            <div className="page-container">
+          <Navigation lang={this.state.lang} route={this.state.route} />
+          <div className="page-container">
               <MobileTopNavigation />
               { Page }
-            </div>
-            <Footer lang={this.state.lang} />
+          </div>
+          <Footer lang={this.state.lang} />
         </div>
-
       </div>
     )
   }
 }
 
 export default App;
- 
+
 ReactDOM.render(
   <App />,
   document.getElementById('app')
